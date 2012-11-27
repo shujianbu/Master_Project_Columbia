@@ -181,6 +181,7 @@ footer {
   float:left;
   position:fixed;
   bottom:50px;
+  line-height: 1.5px;
 }
 
 @media print, screen and (max-width: 960px) {
