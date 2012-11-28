@@ -17,9 +17,10 @@
       <header>
         <h1>Refugees in America</h1>
         <p>My Master's Project is an individual work in the form of interactive designs and video interviews. Prof. <a href="http://www.journalism.columbia.edu/profile/304-emily-bell/10">Emily Bell</a> is my faculty adviser at <a href="http://www.journalism.columbia.edu/">Columbia Journalism School</a>. The project is about the changing history of refugees in America for the past ten years. </p>
-        <h1>About Me</h1>
-        <p>I'm a graudate student, pursuing my dual master’s degree in <a href="www.journalism.columbia.edu">Journalism</a> and <a href="http://www.cs.columbia.edu/">Computer Science</a> at <a href="http://www.columbia.edu/">Columbia University</a>. I'm interested in computational journalism and China media studies.</p>
-      </header>
+        
+        <h3>About Me</h3>
+        <p>I'm a graudate student, pursuing my dual master’s degree in <a href="www.journalism.columbia.edu">Journalism</a> and <a href="http://www.cs.columbia.edu/">Computer Science</a> at <a href="http://www.columbia.edu/">Columbia University</a>. I'm interested in computational journalism and China media studies. You can find my other work on my <a href="shujianbu.tumblr.com">Tumblr Blog</a>.</p>
+      </header> 
       
       <section>
         <h1>Developer's Notes</h1>
@@ -36,7 +37,7 @@
             
         <h3>Tools</h3>
 
-        <p>This site is built on GitHub. This theme is designed by <a href="https://github.com/orderedlist">orderedlist</a>. In order to customize it, I re-coded with <code>HTML</code> and <code>CSS</code>. Here's a list of libraries and tools I used for this project: </br> </br>
+        <p>This site is built on GitHub. In order to customize it, I re-coded it with <code>HTML</code> + <code>CSS</code>. Here's a list of libraries and tools I used for this project: </br> </br>
         - Wikipedia has quite a few Scalable Vector Graphics (SVG) maps under the <a href="http://creativecommons.org/">common creatives</a> license. I use this <a href="http://en.wikipedia.org/wiki/File:Blank_US_Map.svg">blank state map</a> as the canvas.</br>
         - <a href="http://raphaeljs.com/">Raphael JavaScript Library</a> is used to display vector graphics on the web. </br>
         - <a href="http://jquery.com/">jQuery JavaScript Library</a> handles the animation and interactions for web development.</br>
@@ -62,16 +63,29 @@ $ git fetch upstream
 
         <p>I use my <a href="http://www.google.com/analytics/">Google Analytics</a> tracking ID to  generate detailed statistics about the visits to this website. I want to know what kind of story users like most by analyzing the clicks. I might also want to where readers come from, and how they find this site.</p>
 
+        <pre><code>
+try {
+  var pageTracker = _gat._getTracker("Your Google Analytics ID");
+  pageTracker._trackPageview();
+} catch(err) {}
+        </code></pre>
+        
         <h3>Share</h3>
 
         <p>I embedded the <a href="http://sharethis.com/">ShareThis</a> plugin (<code>JavaScript</code> ), so that users can easily share this site with their friends. People who read this might want to tell their own stories of coming to the states. Users must log in their accounts in order to share the visualizations and stories on their social networking pages.</br>
         </p>
         
+        <pre><code>
+ st_url='Your URL' st_title='Your Project Title' class='st_facebook' displayText='Facebook'
+ st_url='Your URL' st_title='Your Project Title' class='st_twitter' displayText='Tweet'
+ st_url='Your URL' st_title='Your Project Title' class='st_linkedin' displayText='LinkedIn'
+        </code></pre>
+        
         <h3>Contributors</h3>
 
         <p>I got to the story of <a href="http://en.wikipedia.org/wiki/Gao_Yaojie" class="user-mention">Gao Yaojie</a> through a graduate student <a href="http://www.facebook.com/hongxiang.huang.5?fref=ts" class="user-mention">Huang Hongxiang</a> at Columbia University's School of International Public Affairs. My friend <a href="https://twitter.com/MarthayTao">Martha Yuan Tao</a> offers me advices about video shooting.</br> 
         </br> 
-        A seminar I took at Columbia - <a href="http://www.compjournalism.com">Frontier Computational Journalism</a> - taught me the basic guidelines for doing visualizations. <a href="http://flowingdata.com/">FlowingData</a>, owned by Nathan Yau, showed me some visualization skills. 
+        A seminar I took at Columbia - <a href="http://www.compjournalism.com">Frontier Computational Journalism</a> - taught me the basic guidelines for doing visualizations. <a href="http://flowingdata.com/">FlowingData</a>, owned by Nathan Yau, showed me some visualization skills. This theme is designed by <a href="https://github.com/orderedlist">orderedlist</a>. 
         </p>
         
         <h3>Contact</h3>
