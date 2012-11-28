@@ -18,7 +18,7 @@
         <h1>Refugees in America</h1>
         <p>My Master's Project is an individual work in the form of interactive designs and video interviews. Prof. <a href="http://www.journalism.columbia.edu/profile/304-emily-bell/10">Emily Bell</a> is my faculty adviser at <a href="http://www.journalism.columbia.edu/">Columbia Journalism School</a>. The project is about the changing history of refugees in America for the past ten years. </p>
         
-        <h3>About Me</h3>
+        <h3>About  Me</h3>
         <p>I'm a graudate student, pursuing my dual master’s degree in <a href="www.journalism.columbia.edu">Journalism</a> and <a href="http://www.cs.columbia.edu/">Computer Science</a> at <a href="http://www.columbia.edu/">Columbia University</a>. I'm interested in computational journalism and China media studies. You can find my other work on my <a href="shujianbu.tumblr.com">Tumblr Blog</a>.</p>
       </header> 
       
@@ -27,15 +27,21 @@
         <p>
         Every year millions of people around the world are displaced by war, famine, and civil and political unrest. United States considers persons for resettlement to the U.S. as refugees. Every year, the U.S. President consults with Congress and establishes the proposed ceilings for refugee admissions for the fiscal year. </br>
         </br>
-        The goal of this project is to visualize the refugee data from 2002 to 2011 fiscal years, providing readers an overview of the situation in the states. Since I'm based in New York, I'll also interview several political refugess in the city. I have two official data sources: <a href="http://www.dhs.gov/yearbook-immigration-statistics">Department of Homeland Security's Yearbook of Immigration Statistics</a>, and <a href="http://www.wrapsnet.org/Reports/AdmissionsArrivals/tabid/211/Default.aspx">Bureau of Population, Refugees, and Migration's Admissions &amp; Arrivals Reports</a>.</br>
+        The goal of this project is to visualize the refugee data from 2002 to 2011 fiscal years, providing readers an overview of the situation in the states. Since I'm based in New York, I'll also interview several political refugess in the city. </br>
         </p>
 
-        <h3>Prototype</h3>
+        <h3>Data  Source</h3>  
+        <p>I have two official data sources: <a href="http://www.dhs.gov/yearbook-immigration-statistics">Department of Homeland Security's Yearbook of Immigration Statistics</a>, and <a href="http://www.wrapsnet.org/Reports/AdmissionsArrivals/tabid/211/Default.aspx">Bureau of Population, Refugees, and Migration's Admissions &amp; Arrivals Reports</a> (Refugee Processing Center). </br>
+        </br>
+        The Yearbook of Immigration Statistics offers raw data in <code>CSV</code> format. I only need to use Table 14, 17, and 18. I also need to clean the data and transform them to <code>JSON</code> files. The data is mainly a collection of refugee's nationality information. However, Refugee Processing Center provides a different kind of data. They tracked where the refugee has settled down in the states. 
+        </p>
+        
+        <h3>Paper  Prototype</h3>
         <p>I drawed the prototype on paper. Possible visualizations include choropleth maps, bar charts, line charts, and sortable tables. Scroll bar is drawn on the graph in order to show the yearly changes. Prototyping serves to provide specifications for a real, working system rather than a theoretical one. It helps me to think about the UI and functions. </br>
         </br>
         <img src="images/prototype.png" width="550px"></p>
             
-        <h3>Tools</h3>
+        <h3> Libraries  &amp;  Tools</h3>
 
         <p>This site is built on GitHub. In order to customize it, I re-coded it with <code>HTML</code> + <code>CSS</code>. Here's a list of libraries and tools I used for this project: </br> </br>
         - Wikipedia has quite a few Scalable Vector Graphics (SVG) maps under the <a href="http://creativecommons.org/">common creatives</a> license. I use this <a href="http://en.wikipedia.org/wiki/File:Blank_US_Map.svg">blank state map</a> as the canvas.</br>
@@ -45,9 +51,10 @@
         - <a href="http://tablesorter.com/docs/">Tablesorter JavaScript Library</a> parses and sorts many types of data in a cell.</br>
         - <a href="http://propublica.github.com/stateface/">StateFace Font</a>, made of tiny state shapes and developed by <a href="http://www.propublica.org/">ProPublica</a>, is used to go along with each state name, making the visualization more straightforward.</br> 
         - <a href="">D3 JavaScript library</a> is used for manipulating documents based on data. It's a very populat data-driven approach to DOM manipulation.</br>
+        - <a href="http://code.google.com/p/google-refine/">Google Refine</a> is a power tool for working with messy data. It helps transform <code>CSV</code> to <code>JSON</code>.
         </p>
 
-        <h3>Code Repository</h3>
+        <h3>Code  Repository</h3>
         <p>I open sourced my project code <a href="https://github.com/shujianbu/master_project">online</a>. At some point users may find themselves wanting to contribute to someone else's project, or would like to use someone's project as the starting point for their own. This is known as <a href = "https://help.github.com/articles/fork-a-repo">"Forking A Repo"</a> on GitHub.</p>
         
         <pre><code>
@@ -59,9 +66,9 @@ $ git fetch upstream
 # Pulls in changes not present in your local repository, without modifying your files
         </code></pre>
         
-        <h3>Traffic</h3>
+        <h3>Web  Analytics</h3>
 
-        <p>I use my <a href="http://www.google.com/analytics/">Google Analytics</a> tracking ID to  generate detailed statistics about the visits to this website. I want to know what kind of story users like most by analyzing the clicks. I might also want to where readers come from, and how they find this site.</p>
+        <p>I use my <a href="http://www.google.com/analytics/">Google Analytics</a> tracking ID to  generate detailed statistics about the traffic to this website. I want to know what kind of story users like most by analyzing the clicks. I might also want to where readers come from, and how they find this site.</p>
 
         <pre><code>
 try {
@@ -70,7 +77,7 @@ try {
 } catch(err) {}
         </code></pre>
         
-        <h3>Share</h3>
+        <h3>Social  Sharing</h3>
 
         <p>I embedded the <a href="http://sharethis.com/">ShareThis</a> plugin (<code>JavaScript</code> ), so that users can easily share this site with their friends. People who read this might want to tell their own stories of coming to the states. Users must log in their accounts in order to share the visualizations and stories on their social networking pages.</br>
         </p>
