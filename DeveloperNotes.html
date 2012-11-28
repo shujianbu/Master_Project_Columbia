@@ -16,41 +16,74 @@
     
       <header>
         <h1>Refugees in America</h1>
-        <p>My Master's Project is an individual work in the form of interactive designs and videos. Prof. Emily Bell is my faculty adviser at Columbia Journalism School. The project is about the changing history of  refugees in America for the past ten years. </p>
+        <p>My Master's Project is an individual work in the form of interactive designs and video interviews. Prof. <a href="http://www.journalism.columbia.edu/profile/304-emily-bell/10">Emily Bell</a> is my faculty adviser at <a href="http://www.journalism.columbia.edu/">Columbia Journalism School</a>. The project is about the changing history of refugees in America for the past ten years. </p>
+        <h1>About Me</h1>
+        <p>I'm a graudate student, pursuing my dual master’s degree in <a href="www.journalism.columbia.edu">Journalism</a> and <a href="http://www.cs.columbia.edu/">Computer Science</a> at <a href="http://www.columbia.edu/">Columbia University</a>. I'm interested in computational journalism and China media studies.</p>
       </header>
       
       <section>
-        <h3>Developer's Notes</h3>
-        <p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+        <h1>Developer's Notes</h1>
+        <p>
+        Every year millions of people around the world are displaced by war, famine, and civil and political unrest. United States considers persons for resettlement to the U.S. as refugees. Every year, the U.S. President consults with Congress and establishes the proposed ceilings for refugee admissions for the fiscal year. </br>
+        </br>
+        The goal of this project is to visualize the refugee data from 2002 to 2011 fiscal years, providing readers an overview of the situation in the states. Since I'm based in New York, I'll also interview several political refugess in the city. I have two official data sources: <a href="http://www.dhs.gov/yearbook-immigration-statistics">Department of Homeland Security's Yearbook of Immigration Statistics</a>, and <a href="http://www.wrapsnet.org/Reports/AdmissionsArrivals/tabid/211/Default.aspx">Bureau of Population, Refugees, and Migration's Admissions &amp; Arrivals Reports</a>.</br>
+        </p>
 
-        <pre><code>$ cd your_repo_root/repo_name
-        $ git fetch origin
-        $ git checkout gh-pages
+        <h3>Prototype</h3>
+        <p>I drawed the prototype on paper. Possible visualizations include choropleth maps, bar charts, line charts, and sortable tables. Scroll bar is drawn on the graph in order to show the yearly changes. Prototyping serves to provide specifications for a real, working system rather than a theoretical one. It helps me to think about the UI and functions. </br>
+        </br>
+        <img src="images/prototype.png" width="550px"></p>
+            
+        <h3>Tools</h3>
+
+        <p>This site is built on GitHub. This theme is designed by <a href="https://github.com/orderedlist">orderedlist</a>. In order to customize it, I re-coded with <code>HTML</code> and <code>CSS</code>. Here's a list of libraries and tools I used for this project: </br> </br>
+        - Wikipedia has quite a few Scalable Vector Graphics (SVG) maps under the <a href="http://creativecommons.org/">common creatives</a> license. I use this <a href="http://en.wikipedia.org/wiki/File:Blank_US_Map.svg">blank state map</a> as the canvas.</br>
+        - <a href="http://raphaeljs.com/">Raphael JavaScript Library</a> is used to display vector graphics on the web. </br>
+        - <a href="http://jquery.com/">jQuery JavaScript Library</a> handles the animation and interactions for web development.</br>
+        - <a href="http://jsfiddle.net/9zu4U/10/">Zoom and Pan JavaScript Library</a> allows users to pan and zoom on the map.</br>
+        - <a href="http://tablesorter.com/docs/">Tablesorter JavaScript Library</a> parses and sorts many types of data in a cell.</br>
+        - <a href="http://propublica.github.com/stateface/">StateFace Font</a>, made of tiny state shapes and developed by <a href="http://www.propublica.org/">ProPublica</a>, is used to go along with each state name, making the visualization more straightforward.</br> 
+        - <a href="">D3 JavaScript library</a> is used for manipulating documents based on data. It's a very populat data-driven approach to DOM manipulation.</br>
+        </p>
+
+        <h3>Code Repository</h3>
+        <p>I open sourced my project code <a href="https://github.com/shujianbu/master_project">online</a>. At some point users may find themselves wanting to contribute to someone else's project, or would like to use someone's project as the starting point for their own. This is known as <a href = "https://help.github.com/articles/fork-a-repo">"Forking A Repo"</a> on GitHub.</p>
+        
+        <pre><code>
+$cd your repo
+# Changes the active directory in the prompt to the newly cloned your directory
+$ git remote add upstream https://github.com/shujianbu/master_project.git 
+# Assigns the original repo to a remote called "upstream"
+$ git fetch upstream 
+# Pulls in changes not present in your local repository, without modifying your files
         </code></pre>
+        
+        <h3>Traffic</h3>
 
-        <p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+        <p>I use my <a href="http://www.google.com/analytics/">Google Analytics</a> tracking ID to  generate detailed statistics about the visits to this website. I want to know what kind of story users like most by analyzing the clicks. I might also want to where readers come from, and how they find this site.</p>
 
-        <h3>Designer Templates</h3>
+        <h3>Share</h3>
 
-        <p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+        <p>I embedded the <a href="http://sharethis.com/">ShareThis</a> plugin (<code>JavaScript</code> ), so that users can easily share this site with their friends. People who read this might want to tell their own stories of coming to the states. Users must log in their accounts in order to share the visualizations and stories on their social networking pages.</br>
+        </p>
+        
+        <h3>Contributors</h3>
 
-        <h3>Rather Drive Stick?</h3>
+        <p>I got to the story of <a href="http://en.wikipedia.org/wiki/Gao_Yaojie" class="user-mention">Gao Yaojie</a> through a graduate student <a href="http://www.facebook.com/hongxiang.huang.5?fref=ts" class="user-mention">Huang Hongxiang</a> at Columbia University's School of International Public Affairs. My friend <a href="https://twitter.com/MarthayTao">Martha Yuan Tao</a> offers me advices about video shooting.</br> 
+        </br> 
+        A seminar I took at Columbia - <a href="http://www.compjournalism.com">Frontier Computational Journalism</a> - taught me the basic guidelines for doing visualizations. <a href="http://flowingdata.com/">FlowingData</a>, owned by Nathan Yau, showed me some visualization skills. 
+        </p>
+        
+        <h3>Contact</h3>
 
-        <p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-        <h3>Authors and Contributors</h3>
-
-        <p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-        <h3>Support or Contact</h3>
-
-        <p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+        <p>Having your own stories to share?</br>
+        Or if you have any suggestion, please feel free to <a href="mailto:shujian.bu@gmail.com">email me</a>.</p>
       </section>
       
       <footer>
-        <p class="view"><a href="index.html">Back to Main Page</a></p>
+        <p class="view"><a href="index.html"> <- Back to Main Page</a></p>
         <p><a href="https://github.com/shujianbu/master_project">Project on GitHub</a> By <a href="https://github.com/shujianbu">Shujian Bu</a></p>
-        <p>Share with your friends!</p>
+        <p>Share with your friends!</br></p>
         <span st_url='http://shujianbu.github.com/master_project/index.html' st_title='Refugees in America' class='st_facebook' displayText='Facebook'></span>
         <span st_url='http://shujianbu.github.com/master_project/index.html' st_title='Refugees in America' class='st_twitter' displayText='Tweet'></span>
         <span st_url='http://shujianbu.github.com/master_project/index.html' st_title='Refugees in America' class='st_linkedin' displayText='LinkedIn'></span>      
