@@ -254,3 +254,32 @@ footer {
     color:#444;
   }
 }
+
+
+svg {
+  background: #fff;
+  width: 680px;
+  height: 400px;
+}
+
+#legend {
+  font-size: 10px;
+}
+
+#counties path {
+  stroke: #fff;
+  stroke-width: .25px;
+}
+
+#states path {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+pchart {
+  font: Garamond;
+  
+  margin-left:  200px;  
+}
+
