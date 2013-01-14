@@ -258,7 +258,7 @@ footer {
 
 svg {
   background: #fff;
-  width: 680px;
+  width: 750px;
   height: 400px;
 }
 
@@ -279,7 +279,5 @@ svg {
 
 pchart {
   font: Garamond;
-  
-  margin-left:  200px;  
+  margin-left:  150px;  
 }
-

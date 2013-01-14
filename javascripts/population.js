@@ -84,7 +84,7 @@ d3.json("jsondata/county_codes.json", function(json) {
     county_codes = json;
 });
 
-d3.json("jsondata/immi_data.json", function(json) {
+d3.json("jsondata/pop_data.json", function(json) {
     data = json;
 
     populate_stats(data);
@@ -162,7 +162,7 @@ function __quantize(f, min, max)
     var om = ~~(f * 7 / (data_mean + data_std));
 
     // NB: Choose your scaling function here.
-    return Math.max(min, Math.min(max, l));
+    return Math.max(min, Math.min(max, q));
 }
 
 function quantize(d) {

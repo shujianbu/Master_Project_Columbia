@@ -7,11 +7,18 @@
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <link type="text/css" rel="stylesheet" href="stylesheets/colorbrewer.css"/>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]> <![endif]-->
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <script type="text/javascript" src="javascripts/d3.js"></script>
     <script type="text/javascript" src="javascripts/d3.geo.js"></script>
+    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+    <script>  $(function() { $( "#tabs" ).tabs(); }); </script>
+    <style>   
+      #tabs { width: 750px; height: 500px; font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif; color:#777; font-weight:300;}
+    </style>
   </head>
   
   <body>
@@ -29,14 +36,35 @@
         <p>This </p>
 
         <div id="chart"></div>
-        <script type="text/javascript" src="javascripts/choropleth.js"></script>
-        <pchart>Refugee Arrivals - Cumulative Total as of 10/31/2012</pchart>
+          <script type="text/javascript" src="javascripts/choropleth.js"></script>
+          <pchart>Refugee Arrivals - cumulative total from 2007 - 2012, as of 10/31/2012, <a href="http://www.wrapsnet.org/Reports/AdmissionsArrivals/tabid/211/Default.aspx">Source</a></pchart>
 
         <p>If you're </p>
-
         <h3>Designer Templates</h3>
         <p></p>
 
+        <div id="tabs">
+          <ul>
+          <li><a href="#tabs-1">Population</a></li>
+          <li><a href="#tabs-2">Unemployment</a></li>
+          <li><a href="#tabs-3">Aenean lacinia</a></li>
+          </ul>
+          
+          <div id="tabs-1">
+         <!--   <script type="text/javascript" src="javascripts/population.js"></script> -->
+          </div>
+          
+          <div id="tabs-2">
+          <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molesti</p>
+          </div>
+          
+          <div id="tabs-3">
+          <p>Mauris eleifend s. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+          </div>
+
+        </div>
+
+        </br>
         <h3>R</h3>
         <p>If </p>
 
