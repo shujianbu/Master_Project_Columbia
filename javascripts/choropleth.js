@@ -33,8 +33,8 @@ var svg = d3.select("#chart")
 
 var label = svg.append("svg:text")
     .attr("text-anchor", "start")
-    .attr("dx", 300)
-    .attr("dy", 40)
+    .attr("dx", 370)
+    .attr("dy", 35)
     .attr("class", "label")
     ;
 
@@ -51,14 +51,6 @@ var states = map.append("svg:g")
 var legend = svg.append("svg:g")
     .attr("id", "legend")
     .attr("class", "Blues"); // NB: Change the color scheme here
-
-// var ctitle = svg.append("svg:text")
-//     .attr("text-anchor", "middle")
-//     .attr("dx", map[0][0].parentElement.clientWidth / 2)
-//     .attr("dy", 40)
-//     .attr("class", "title")
-//     ;
-// ctitle.text(document.title);
 
 d3.json("jsondata/us-counties.json", function(json) {
   counties.selectAll("path")
@@ -138,7 +130,7 @@ function show(b)
         }
         else
         {
-            label.text("");
+            label.text("Refugee Distribution");
             s.attr("class", quantize);
         }
     }

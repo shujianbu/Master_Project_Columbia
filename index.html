@@ -17,7 +17,7 @@
 
     <script>  $(function() { $( "#tabs" ).tabs(); }); </script>
     <style>   
-      #tabs { width: 750px; height: 500px; font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif; color:#777; font-weight:300;}
+      #tabs { width: 750px; height: 500px; font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif; color:#777; font-weight:300; border: none; }
     </style>
   </head>
   
@@ -35,8 +35,10 @@
         <h3>Choropleth Map of Refugee Arrivals</h3>
         <p>This </p>
 
-        <div id="chart"></div>
-          <script type="text/javascript" src="javascripts/choropleth.js"></script>
+        <div id="chart">
+            <script type="text/javascript" src="javascripts/choropleth.js"></script>
+        </div>
+
           <pchart>Refugee Arrivals - cumulative total from 2007 - 2012, as of 10/31/2012, <a href="http://www.wrapsnet.org/Reports/AdmissionsArrivals/tabid/211/Default.aspx">Source</a></pchart>
 
         <p>If you're </p>
@@ -51,7 +53,7 @@
           </ul>
           
           <div id="tabs-1">
-         <!--   <script type="text/javascript" src="javascripts/population.js"></script> -->
+             <script type="text/javascript" src="javascripts/population.js"></script>
           </div>
           
           <div id="tabs-2">
