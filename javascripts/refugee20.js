@@ -142,7 +142,7 @@ function onmouseover(d, i) {
     } else {
         blurb += "a decrease of " + -1 * Math.round(percentChange) + " percent."
     }
-    blurb += "</p>";
+    blurb += "</p>"; 
     
     $("#default-blurb").hide();
     $("#blurb-content").html(blurb);

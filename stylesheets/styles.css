@@ -300,11 +300,12 @@ ptab {
 }
 
 #filters {
-    font-family: 'Cardo', serif;;
+    font-family: 'Helvetica Neue', serif;;
     margin-bottom: 20px;
     text-align: center;
     margin-left: 550px; 
-    margin-top: -180px; 
+    margin-top: -180px;
+    list-style-type: none; 
 }
 
 #Explain {width: 165px; background: #fff; color: #000; padding: 2px; margin-right: 3px; font-size: 12px;}
