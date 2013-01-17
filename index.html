@@ -12,12 +12,14 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <script type="text/javascript" src="javascripts/d3.js"></script>
     <script type="text/javascript" src="javascripts/d3.geo.js"></script>
+    <script type="text/javascript" src="javascripts/d3.time.js"></script>
+    <script type="text/javascript" src="javascripts/d3.csv.js"></script> 
     <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
     <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 
     <script>  $(function() { $( "#tabs" ).tabs(); }); </script>
     <style>   
-      #tabs { width: 750px; height: 500px; font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif; color:#777; font-weight:300; border: none; } 
+      #tabs { width: 750px; height: 500px; font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight:300; border: none; } 
     </style>
   </head>
   
@@ -32,8 +34,12 @@
       
       <section>
         <center><h1>Visualization</h1></center>
+        <p>This is the introduction part.</p>
+
+<!-- @ Part 1 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+        <hr width="750px">
         <h3>Choropleth Map of Refugee Arrivals</h3>
-        <p>This </p>
+        <p>This introduces the choropleth map.</p>
 
         <div id="chart">
             <script type="text/javascript" src="javascripts/choropleth.js"></script>
@@ -41,9 +47,13 @@
 
         <pchart>Refugee Arrivals - cumulative total from 2007 - 2012, as of 10/31/2012, <a href="http://www.wrapsnet.org/Reports/AdmissionsArrivals/tabid/211/Default.aspx" target="_blank">Source</a></pchart>
 
-        <p>If you're </p>
-        <h3>Designer Templates</h3>
-        <p></p>
+        <p>More data explanation. If you're... </p>
+
+<!-- @ Part 2 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+        <hr width="750px;"> 
+        <h3>Potential Factors Analysis</h3>
+        <p>This is the explanation of finding reasons.</p>
 
         <div id="tabs">
           <ul>
@@ -54,7 +64,7 @@
           
           <div id="tabs-1">
              <script type="text/javascript" src="javascripts/population.js"></script>
-             <ptab>Population - National Estimates as of 2010, <a href="http://www.census.gov/compendia/statab/cats/population.html" target="_blank">Source</a></ptab>
+             <ptab>Population - National Estimates as of 2010, <a href="http://www.census.gov/compendia/statab/cats/population.html" target="_blank">Source </a></ptab>
 
           </div>
           
@@ -70,18 +80,171 @@
           </div>
 
         </div>
+        <p>This is more data explanation. </p>
 
-        <h3>R</h3>
-        <p>If </p>
+<!-- @ Part 3 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
+        <hr width="750px">
+        <h3>Linechart Of 100 Countries</h3>
+        <p>If ..... </p>
+
+        <div id="LineChart">
+           <div id="selection">
+           <select id="Country_Selected"> 
+              <option value="" selected="selected">Select Country</option> 
+              <option value="AFG">Afghanistan</option> 
+              <option value="ALB">Albania</option> 
+              <option value="DZA">Algeria</option> 
+              <option value="AGO">Angola</option> 
+              <option value="ARG">Argentina</option> 
+              <option value="ARM">Armenia</option> 
+              <option value="AZE">Azerbaijan</option> 
+              <option value="BHR">Bahrain</option> 
+              <option value="BLR">Belarus</option> 
+              <option value="BTN">Bhutan</option> 
+              <option value="BIH">Bosnia and Herzegovina</option> 
+              <option value="BGR">Bulgaria</option> 
+              <option value="BDI">Burundi</option> 
+              <option value="KHM">Cambodia</option> 
+              <option value="CMR">Cameroon</option> 
+              <option value="CAF">Central African Republic</option> 
+              <option value="TCD">Chad</option> 
+              <option value="CHN">China</option> 
+              <option value="COL">Colombia</option> 
+              <option value="COD">Congo</option> 
+              <option value="COG">Congo, The Democratic Republic of The</option> 
+              <option value="CIV">Cote D'ivoire</option> 
+              <option value="HRV">Croatia</option> 
+              <option value="CUB">Cuba</option> 
+              <option value="CZE">Czech Republic</option> 
+              <option value="DJI">Djibouti</option> 
+              <option value="EGY">Egypt</option> 
+              <option value="SLV">El Salvador</option> 
+              <option value="GNQ">Equatorial Guinea</option> 
+              <option value="ERI">Eritrea</option> 
+              <option value="EST">Estonia</option> 
+              <option value="ETH">Ethiopia</option> 
+              <option value="GMB">Gambia</option> 
+              <option value="GEO">Georgia</option> 
+              <option value="GHA">Ghana</option> 
+              <option value="GIN">Guinea</option> 
+              <option value="HTI">Haiti</option> 
+              <option value="HND">Honduras</option> 
+              <option value="HUN">Hungary</option> 
+              <option value="IDN">Indonesia</option> 
+              <option value="IRN">Iran, Islamic Republic of</option> 
+              <option value="IRQ">Iraq</option> 
+              <option value="JOR">Jordan</option> 
+              <option value="KAZ">Kazakhstan</option> 
+              <option value="KEN">Kenya</option> 
+              <option value="PRK">Korea, Democratic People's Republic of</option> 
+              <option value="KWT">Kuwait</option> 
+              <option value="KGZ">Kyrgyzstan</option> 
+              <option value="LAO">Lao People's Democratic Republic</option> 
+              <option value="LVA">Latvia</option> 
+              <option value="LBN">Lebanon</option> 
+              <option value="LBR">Liberia</option> 
+              <option value="LBY">Libyan Arab Jamahiriya</option> 
+              <option value="LTU">Lithuania</option> 
+              <option value="MKD">Macedonia, The Former Yugoslav Republic of</option> 
+              <option value="MYS">Malaysia</option> 
+              <option value="MRT">Mauritania</option> 
+              <option value="MDA">Moldova, Republic of</option> 
+              <option value="MMR">Myanmar</option> 
+              <option value="NAM">Namibia</option> 
+              <option value="NPL">Nepal</option> 
+              <option value="NIC">Nicaragua</option> 
+              <option value="NGA">Nigeria</option> 
+              <option value="PAK">Pakistan</option> 
+              <option value="POL">Poland</option> 
+              <option value="ROU">Romania</option> 
+              <option value="RUS">Russian Federation</option> 
+              <option value="RWA">Rwanda</option> 
+              <option value="SEN">Senegal</option> 
+              <option value="SRB">Serbia and Montenegro</option> 
+              <option value="SLE">Sierra Leone</option> 
+              <option value="SOM">Somalia</option> 
+              <option value="ZAF">South Africa</option> 
+              <option value="LKA">Sri Lanka</option> 
+              <option value="SDN">Sudan</option> 
+              <option value="SYR">Syrian Arab Republic</option> 
+              <option value="TJK">Tajikistan</option> 
+              <option value="THA">Thailand</option> 
+              <option value="TGO">Togo</option> 
+              <option value="TUN">Tunisia</option> 
+              <option value="TKM">Turkmenistan</option> 
+              <option value="UGA">Uganda</option> 
+              <option value="UKR">Ukraine</option> 
+              <option value="UZB">Uzbekistan</option> 
+              <option value="VNM">Vietnam</option> 
+              <option value="YEM">Yemen</option> 
+              <option value="ZMB">Zambia</option> 
+              <option value="ZWE">Zimbabwe</option>
+           </select>
+           </div> <!-- @end #selection -->
+
+            <div id="filters">
+                <li id="Explain"> Line Color: </li>
+                <li id="EAS">East Asia &amp Pacific</li>
+                <li id="SAS">South Asia</li>
+                <li id="MEA">Middle East &amp North Africa</li>
+                <li id="SSF">Sub-Saharan Africa</li>
+                <li id="ECS">Europe &amp Central Asia</li>
+                <li id="LCN">Latin America &amp Caribbean</li>
+            </div><!-- @end #filters -->
+
+            <div id="blurb">
+                <div id="default-blurb">
+                    <h3>Refugee - 20 Years Overview</h3>
+                    <p>The average life expectancy in the world in 2009 was 69 years.</p>
+                </div>
+                <div id="blurb-content"></div>
+                <p id="demo">ddddss</p> 
+            </div>
+
+            <script>
+                var SELECTEDCOUNTRY = "China";
+                $(document).ready(function() 
+                {    
+                    $('#Country_Selected').change(function() {
+                      var selected = $(this).find('option:selected');
+                      SELECTEDCOUNTRY = selected.text(); 
+                      document.getElementById("demo").innerHTML = SELECTEDCOUNTRY; 
+                      var countryId = selected.val(); 
+                      $(this).toggleClass(countryId);
+                      showCountry(countryId); 
+                    }); 
+                });
+
+                function showCountry(countrySelectedCode) 
+                {
+                    var countries = d3.selectAll("path."+countrySelectedCode);
+                    if (countries.classed('highlight')) {
+                    } else { countries.classed('highlight', true);}                
+                }
+
+            </script>
+
+            <div id="vis"></div>
+            <div id="cite">Note: Countries that are not in the menu do not have available data. All data has been exponentiated and transformed in 1-100 range. Source: <a href="http://www.dhs.gov/archives">U.S. Department of State, Bureau of Population, Refugees, and Migration (PRM)</a>, Fiscal Years 1990 to 2011.</div> 
+
+            <script type="text/javascript" src="javascripts/refugee20.js"></script>
+
+        </div>  <!-- @End of Line Chart Section-->
+
+<!-- @ Part 4 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+        <hr width="750px;"> 
+        </br>
         <center><h1>Story</h1></center>
-        <h3>R</h3>
-        <p>ddd</p>
+        <h3>Title</h3>
+        <p>Explanation</p>
 
         <h3></h3>
         <p></p>
       </section>
       
+<!-- @ Part Footer @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
       <footer>
         <p class="view"><a href="developer_notes.html">View Developer's Notes -> </a></p>
@@ -93,6 +256,8 @@
       </footer>
       
     </div>
+
+<!-- @ Part Beautify Javascripts @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
     
     <script src="javascripts/scale.fix.js">
     </script>
@@ -113,6 +278,5 @@
     <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
     <script type="text/javascript">stLight.options({publisher:'c3b8ac5a-adba-4bf1-a3d7-c76c89c2ab35'});</script>
     
-
   </body>
 </html>

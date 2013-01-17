@@ -1,5 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
 
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, figure, form, fieldset, input, p, blockquote, th, td, legend {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   padding:50px;
   font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -13,7 +18,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p, ul, ol, table, pre, dl {
-  margin:0 0 20px;
+  margin:0 0 15px;
 }
 
 h1, h2, h3 {
@@ -286,3 +291,175 @@ ptab {
   font: Garamond;
   margin-left: 240px;
 }
+
+/* Line Chart Refugess in 20 Years*/
+
+#linechart {
+    width: 725px;
+    margin: 0 auto;
+}
+
+#filters {
+    font-family: 'Cardo', serif;;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-left: 550px; 
+    margin-top: -180px; 
+}
+
+#Explain {width: 165px; background: #fff; color: #000; padding: 2px; margin-right: 3px; font-size: 12px;}
+#SAS { width: 165px; background: #895881; color: #fff; padding: 2px; margin-right: 3px; font-size: 12px;}
+#ECS { width: 165px; background: #ED7C31; color: #fff; padding: 2px; margin-right: 3px; font-size: 12px;}
+#MEA { width: 165px; background: #82A5C0; color: #fff; padding: 2px; margin-right: 3px; font-size: 12px;}
+#SSF { width: 165px; background: #6E9E75; color: #fff; padding: 2px; margin-right: 3px; font-size: 12px;}
+#LCN { width: 165px; background: #00BBD6; color: #fff; padding: 2px; margin-right: 3px; font-size: 12px;}
+#EAS { width: 165px; background: #e25f82; color: #fff; padding: 2px; margin-right: 3px; font-size: 12px;}
+
+#blurb {
+    margin-left: 5px; 
+    width: 500px;
+    height: 60px;
+    margin-top: -180px;
+    border-top: 1px ;
+    padding-top: 20px;
+    text-align: center;
+}
+
+#selection {
+    margin-left: 450px;
+    margin-top: 155px; 
+    width: 300px;
+    height: 20px;
+}
+
+#cite { width: 720px; margin-left: 10px; font-size: 0.9em; text-align: center; margin-top: 0px; padding-bottom: 10px; }
+#cite a { text-decoration: none; color: #39c; }
+
+#vis {
+    min-height: 400px;
+    margin-top: 110px;
+}
+
+path {
+    stroke: #e2e2e2;
+    stroke-width: 0.9;
+  fill: none;
+}
+
+path.current, path.highlight.current {
+    stroke: #000;
+    stroke-width: 2.0;
+}
+
+/* Region */
+/*.EAS.highlight { stroke: #e25f82; }
+.ECS.highlight { stroke: #ED7C31; } 
+.LCN.highlight { stroke: #00BBD6; }
+.MEA.highlight { stroke: #82A5C0; }
+.SAS.highlight { stroke: #895881; }
+.SSF.highlight { stroke: #6E9E75; }
+.NAC.highlight { stroke: #be1932; }*/
+/* Country */
+
+.KHM.highlight { stroke: #e25f82; }
+.CHN.highlight { stroke: #e25f82; }
+.IDN.highlight { stroke: #e25f82; }
+.PRK.highlight { stroke: #e25f82; }
+.LAO.highlight { stroke: #e25f82; }
+.MYS.highlight { stroke: #e25f82; }
+.MMR.highlight { stroke: #e25f82; }
+.THA.highlight { stroke: #e25f82; }
+.VNM.highlight { stroke: #e25f82; }
+.ALB.highlight { stroke: #ED7C31; }
+.ARM.highlight { stroke: #ED7C31; }
+.AZE.highlight { stroke: #ED7C31; }
+.BLR.highlight { stroke: #ED7C31; }
+.BIH.highlight { stroke: #ED7C31; }
+.BGR.highlight { stroke: #ED7C31; }
+.HRV.highlight { stroke: #ED7C31; }
+.CZE.highlight { stroke: #ED7C31; }
+.EST.highlight { stroke: #ED7C31; }
+.GEO.highlight { stroke: #ED7C31; }
+.HUN.highlight { stroke: #ED7C31; }
+.KAZ.highlight { stroke: #ED7C31; }
+.KGZ.highlight { stroke: #ED7C31; }
+.LVA.highlight { stroke: #ED7C31; }
+.LTU.highlight { stroke: #ED7C31; }
+.MKD.highlight { stroke: #ED7C31; }
+.MDA.highlight { stroke: #ED7C31; }
+.POL.highlight { stroke: #ED7C31; }
+.ROU.highlight { stroke: #ED7C31; }
+.RUS.highlight { stroke: #ED7C31; }
+.SRB.highlight { stroke: #ED7C31; }
+.TJK.highlight { stroke: #ED7C31; }
+.TKM.highlight { stroke: #ED7C31; }
+.UKR.highlight { stroke: #ED7C31; }
+.UZB.highlight { stroke: #ED7C31; }
+.ARG.highlight { stroke: #00BBD6; }
+.COL.highlight { stroke: #00BBD6; }
+.CUB.highlight { stroke: #00BBD6; }
+.SLV.highlight { stroke: #00BBD6; }
+.HTI.highlight { stroke: #00BBD6; }
+.HND.highlight { stroke: #00BBD6; }
+.NIC.highlight { stroke: #00BBD6; }
+.DZA.highlight { stroke: #82A5C0; }
+.BHR.highlight { stroke: #82A5C0; }
+.DJI.highlight { stroke: #82A5C0; }
+.EGY.highlight { stroke: #82A5C0; }
+.IRN.highlight { stroke: #82A5C0; }
+.IRQ.highlight { stroke: #82A5C0; }
+.JOR.highlight { stroke: #82A5C0; }
+.KWT.highlight { stroke: #82A5C0; }
+.LBN.highlight { stroke: #82A5C0; }
+.LBY.highlight { stroke: #82A5C0; }
+.SYR.highlight { stroke: #82A5C0; }
+.TUN.highlight { stroke: #82A5C0; }
+.YEM.highlight { stroke: #82A5C0; }
+.AFG.highlight { stroke: #895881; }
+.BTN.highlight { stroke: #895881; }
+.NPL.highlight { stroke: #895881; }
+.PAK.highlight { stroke: #895881; }
+.LKA.highlight { stroke: #895881; }
+.AGO.highlight { stroke: #6E9E75; }
+.BDI.highlight { stroke: #6E9E75; }
+.CMR.highlight { stroke: #6E9E75; }
+.CAF.highlight { stroke: #6E9E75; }
+.TCD.highlight { stroke: #6E9E75; }
+.COD.highlight { stroke: #6E9E75; }
+.COG.highlight { stroke: #6E9E75; }
+.CIV.highlight { stroke: #6E9E75; }
+.GNQ.highlight { stroke: #6E9E75; }
+.ERI.highlight { stroke: #6E9E75; }
+.ETH.highlight { stroke: #6E9E75; }
+.GMB.highlight { stroke: #6E9E75; }
+.GHA.highlight { stroke: #6E9E75; }
+.GIN.highlight { stroke: #6E9E75; }
+.KEN.highlight { stroke: #6E9E75; }
+.LBR.highlight { stroke: #6E9E75; }
+.MRT.highlight { stroke: #6E9E75; }
+.NAM.highlight { stroke: #6E9E75; }
+.NGA.highlight { stroke: #6E9E75; }
+.RWA.highlight { stroke: #6E9E75; }
+.SEN.highlight { stroke: #6E9E75; }
+.SLE.highlight { stroke: #6E9E75; }
+.SOM.highlight { stroke: #6E9E75; }
+.ZAF.highlight { stroke: #6E9E75; }
+.SDN.highlight { stroke: #6E9E75; }
+.TGO.highlight { stroke: #6E9E75; }
+.UGA.highlight { stroke: #6E9E75; }
+.ZMB.highlight { stroke: #6E9E75; }
+.ZWE.highlight { stroke: #6E9E75; }
+.highlight { stroke-width: 3.0px; } 
+
+line {
+    stroke: black;
+}
+
+.axis {
+    stroke-width: 0.8;
+    stroke: #000;
+}
+.xTicks, .yTicks {
+    stroke-width: 0.2;
+    stroke: #000;
+} 
