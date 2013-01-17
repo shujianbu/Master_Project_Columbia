@@ -137,7 +137,7 @@ function onmouseover(d, i) {
     
     var blurb = '<h3>' + countryCodes[countryCode] + '</h3>';
     blurb += "<p>On average: a life expectancy of " + Math.round(countryVals['startVal']) + " years in " + countryVals['startYear'] + " and " + Math.round(countryVals['endVal']) + " years in " + countryVals['endYear'] + ", ";
-    if (percentChange >= 0) {
+    if (percentChange >= 0) { 
         blurb += "an increase of " + Math.round(percentChange) + " percent."
     } else {
         blurb += "a decrease of " + -1 * Math.round(percentChange) + " percent."
