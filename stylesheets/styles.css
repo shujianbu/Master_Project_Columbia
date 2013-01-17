@@ -308,13 +308,13 @@ ptab {
     list-style-type: none; 
 }
 
-#Explain {width: 165px; background: #fff; color: #000; padding: 2px; margin-right: 3px; font-size: 12px;}
-#SAS { width: 165px; background: #895881; color: #fff; padding: 2px; margin-right: 3px; font-size: 12px;}
-#ECS { width: 165px; background: #ED7C31; color: #fff; padding: 2px; margin-right: 3px; font-size: 12px;}
-#MEA { width: 165px; background: #82A5C0; color: #fff; padding: 2px; margin-right: 3px; font-size: 12px;}
-#SSF { width: 165px; background: #6E9E75; color: #fff; padding: 2px; margin-right: 3px; font-size: 12px;}
-#LCN { width: 165px; background: #00BBD6; color: #fff; padding: 2px; margin-right: 3px; font-size: 12px;}
-#EAS { width: 165px; background: #e25f82; color: #fff; padding: 2px; margin-right: 3px; font-size: 12px;}
+#Explain {width: 165px; background: #fff; color: #000; padding: 2px; margin-right: 3px; font-size: 12px; list-style-type: none; }
+#SAS { width: 165px; background: #895881; color: #fff; padding: 2px; margin-right: 3px; font-size: 12px; list-style-type: none; }
+#ECS { width: 165px; background: #ED7C31; color: #fff; padding: 2px; margin-right: 3px; font-size: 12px; list-style-type: none; }
+#MEA { width: 165px; background: #82A5C0; color: #fff; padding: 2px; margin-right: 3px; font-size: 12px; list-style-type: none; }
+#SSF { width: 165px; background: #6E9E75; color: #fff; padding: 2px; margin-right: 3px; font-size: 12px; list-style-type: none; }
+#LCN { width: 165px; background: #00BBD6; color: #fff; padding: 2px; margin-right: 3px; font-size: 12px; list-style-type: none; }
+#EAS { width: 165px; background: #e25f82; color: #fff; padding: 2px; margin-right: 3px; font-size: 12px; list-style-type: none; }
 
 #blurb {
     margin-left: 5px; 
