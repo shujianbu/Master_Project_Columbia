@@ -16,31 +16,35 @@
     
       <header>
         <h1>Coming to America</h1>
-        <p>My Master's Project is an individual work in the form of interactive designs, interviews and analysis. Prof. <a href="http://www.journalism.columbia.edu/profile/304-emily-bell/10" target="_blank">Emily Bell</a> is my faculty adviser at <a href="http://www.journalism.columbia.edu/" target="_blank">Columbia Journalism School</a>. The project is about the changing history of refugees in America for the past ten years. </p>
-        
+        <p>My master's project is an individual work in the form of interactive designs, interviews and analysis, spanning the autumn and spring terms. Prof. <a href="http://www.journalism.columbia.edu/profile/304-emily-bell/10" target="_blank">Emily Bell</a> is my supervisor at Columbia.</p>
+        </br>
         <h3>About  Me</h3>
-        <p>I'm a graudate student, pursuing my dual master’s degree in <a href="www.journalism.columbia.edu" target="_blank">Journalism</a> and <a href="http://www.cs.columbia.edu/" target="_blank">Computer Science</a> at <a href="http://www.columbia.edu/" target="_blank">Columbia University</a>. I'm interested in computational journalism and China media studies. <a href="shujianbu.tumblr.com" target="_blank">My Tumblr Blog</a>.</p>
+        <p>I'm a graudate student, pursuing my dual master’s degree in <a href="http://www.journalism.columbia.edu/page/276-dual-degree-journalism-and-computer-science/279" target="_blank">Journalism</a> and <a href="http://www.cs.columbia.edu/education/ms/journalism" target="_blank">Computer Science</a> at <a href="http://www.columbia.edu/" target="_blank">Columbia University</a>. For the past three semesters, I've developed technical and editorial skills in all aspects of computer-aided news gathering and digital media production. As one of the first few enrolled in this program, I've been excited to conduct my master's project in a new form, combining the knowledge I've learned in both fields. </p>
+        <!-- <a href="shujianbu.tumblr.com" target="_blank">My Tumblr Blog</a>. -->
       </header> 
       
       <section>
         <h1>Developer's Notes</h1>
         <p>
+        This project visualizes the refugee data from 1990 to 2011 fiscal years, providing readers an overview of the situation in the states. Based in New York, I interviewed several refugess, as well as immigration specialists in the city. Both methods provide some insight about the refugee subject. Below are some technical details, starting from the first scratch of the project pitch.</p></br> 
+        
+        <h3>Pitch</h3>
+        <p>The idea came from 
         Every year millions of people around the world are displaced by war, famine, and civil and political unrest. United States considers persons for resettlement to the U.S. as refugees. Every year, the U.S. President consults with Congress and establishes the proposed ceilings for refugee admissions for the fiscal year. </br>
-        </br>
-        The goal of this project is to visualize the refugee data from 2002 to 2011 fiscal years, providing readers an overview of the situation in the states. Since I'm based in New York, I'll also interview several political refugess in the city. </br>
         </p>
+        </br>
 
+        <h3>Paper  Prototype</h3>
+        <p>I drawn the prototype on paper. Possible visualizations include choropleth maps, bar charts, line charts, and sortable tables. Scroll bar is drawn on the graph in order to show the yearly changes. Prototyping serves to provide specifications for a real, working system rather than a theoretical one. It helps me to think about the UI and functions. </br>
+        </br>
+        <img src="images/prototype.png" width="550px"></p>
+        
         <h3>Data  Source</h3>  
         <p>I have two official data sources: <a href="http://www.dhs.gov/yearbook-immigration-statistics" target="_blank">Department of Homeland Security's Yearbook of Immigration Statistics</a>, and <a href="http://www.wrapsnet.org/Reports/AdmissionsArrivals/tabid/211/Default.aspx" target="_blank">Bureau of Population, Refugees, and Migration's Admissions &amp; Arrivals Reports</a> (Refugee Processing Center). </br>
         </br>
         The Yearbook of Immigration Statistics offers raw data in <code>CSV</code> format. I only need to use Table 14, 17, and 18. I also need to clean the data and transform them to <code>JSON</code> files. The data is mainly a collection of refugee's nationality information. However, Refugee Processing Center provides a different kind of data. They tracked where the refugee has settled down in the states. 
         </p>
-        
-        <h3>Paper  Prototype</h3>
-        <p>I drawn the prototype on paper. Possible visualizations include choropleth maps, bar charts, line charts, and sortable tables. Scroll bar is drawn on the graph in order to show the yearly changes. Prototyping serves to provide specifications for a real, working system rather than a theoretical one. It helps me to think about the UI and functions. </br>
-        </br>
-        <img src="images/prototype.png" width="550px"></p>
-            
+
         <h3> Libraries  &amp;  Tools</h3>
 
         <p>This site is built on GitHub. In order to customize it, I re-coded it with <code>HTML</code> + <code>CSS</code>. Here's a list of libraries and tools I used for this project: </br> </br>
