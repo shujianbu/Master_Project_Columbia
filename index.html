@@ -102,7 +102,6 @@
               <option value="ALB">Albania</option> 
               <option value="DZA">Algeria</option> 
               <option value="AGO">Angola</option> 
-              <option value="ARG">Argentina</option> 
               <option value="ARM">Armenia</option> 
               <option value="AZE">Azerbaijan</option> 
               <option value="BHR">Bahrain</option> 
@@ -202,10 +201,10 @@
             <div id="blurb">
                 <div id="default-blurb">
                     <h3>Refugee - 20 Years Overview</h3>
-                    <p>The average life expectancy in the world in 2009 was 69 years.</p>
+                    <p>The total number of immigration to the U.S. in 2011 was 49310.</p>
                 </div>
                 <div id="blurb-content"></div>
-                <p id="demo">ddddss</p> 
+                <p id="demo">Select one country to highlight.</p> 
             </div>
 
             <script>
@@ -215,7 +214,7 @@
                     $('#Country_Selected').change(function() {
                       var selected = $(this).find('option:selected');
                       SELECTEDCOUNTRY = selected.text(); 
-                      document.getElementById("demo").innerHTML = SELECTEDCOUNTRY; 
+                      document.getElementById("demo").innerHTML = SELECTEDCOUNTRY + "is highlighted."; 
                       var countryId = selected.val(); 
                       $(this).toggleClass(countryId);
                       showCountry(countryId); 

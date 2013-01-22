@@ -136,12 +136,22 @@ function onmouseover(d, i) {
     var percentChange = 100 * (countryVals['endVal'] - countryVals['startVal']) / countryVals['startVal'];
     
     var blurb = '<h3>' + countryCodes[countryCode] + '</h3>';
-    blurb += "<p>On average: a life expectancy of " + Math.round(countryVals['startVal']) + " years in " + countryVals['startYear'] + " and " + Math.round(countryVals['endVal']) + " years in " + countryVals['endYear'] + ", ";
-    if (percentChange >= 0) { 
-        blurb += "an increase of " + Math.round(percentChange) + " percent."
+
+    if (percentChange) {
+        blurb += "<p>Trend: the relative immigration number is " + Math.round(countryVals['startVal']) + "% in " + countryVals['startYear'] + ", and " + Math.round(countryVals['endVal']) + "% in " + countryVals['endYear'] + ". ";
+        if (percentChange >= 0) { 
+            blurb += "</br>";
+            blurb += "An increase of " + Math.round(percentChange) + "%.";
+        } else {
+            blurb += "</br>";
+            blurb += "An decrease of " + -1 * Math.round(percentChange) + "%." 
+        }
     } else {
-        blurb += "a decrease of " + -1 * Math.round(percentChange) + " percent."
+        blurb += "<p>Trend: the relative immigration number is " + Math.round(countryVals['startVal']) + "% in " + countryVals['startYear'] + "."; 
+        blurb += "</br>";
+        blurb += "Part of the data is missing.";
     }
+
     blurb += "</p>"; 
     
     $("#default-blurb").hide();
