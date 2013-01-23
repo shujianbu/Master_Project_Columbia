@@ -464,3 +464,30 @@ line {
     stroke-width: 0.2;
     stroke: #000;
 } 
+
+/* Stacked Area Chart Refugess in 20 Years*/
+#fig {
+  width: 760px;
+  height: 470px; 
+}
+
+#switch {
+  text-align: right; 
+  padding-top: 15px;
+  margin-bottom: 5px;  
+  margin-right: 25px;
+  color: #777; 
+}
+
+#fig_footer {
+  padding-left: 40px; 
+  color: #777;
+  margin-left: 50px;
+  margin-top: -24px; 
+}
+
+#fig_footer input {
+  background: none;
+  border: none;
+  outline: 0;
+}

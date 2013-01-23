@@ -8,8 +8,8 @@ var regions = { "SAS": "South Asia" , "ECS": "Europe and Central Asia", "MEA": "
 	// endAge = 60000,
     endAge = 100,
 	y = d3.scale.linear().domain([endAge, startAge]).range([0 + margin, h - margin]),
-	x = d3.scale.linear().domain([1990, 2011]).range([0 + margin -5, w]),
-	years = d3.range(startYear, endYear);
+	x = d3.scale.linear().domain([1990, 2011]).range([0 + margin - 5, w]),
+	years_line = d3.range(startYear, endYear);
 
 var vis = d3.select("#vis")
     .append("svg:svg")
@@ -43,13 +43,13 @@ d3.text('csvdata/range.csv', 'text/csv', function(text) {
         var started = false;
         for (j=0; j < values.length; j++) {
             if (values[j] != '') {
-                currData.push({ x: years[j], y: values[j] });
+                currData.push({ x: years_line[j], y: values[j] });
             
                 if (!started) {
-                    startEnd[countries[i][1]] = { 'startYear':years[j], 'startVal':values[j] };
+                    startEnd[countries[i][1]] = { 'startYear':years_line[j], 'startVal':values[j] };
                     started = true;
                 } else if (j == values.length-1) {
-                    startEnd[countries[i][1]]['endYear'] = years[j];
+                    startEnd[countries[i][1]]['endYear'] = years_line[j];
                     startEnd[countries[i][1]]['endVal'] = values[j];
                 }   
             }
