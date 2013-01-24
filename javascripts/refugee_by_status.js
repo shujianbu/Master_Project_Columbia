@@ -58,10 +58,10 @@ console.log("hello");
 
     /* Stack layout. */
     var area_stack = vis_stack.add(pv.Layout.Stack)
-        .layers(function() { return pv.nest(refugees.filter(test_stack)) }
+        .layers(function() { return pv.nest(refugees.filter(test_stack))
             .key(function(d) { return d.continent + d.refugee })
             .sortKeys(function(a, b) { return pv.reverseOrder(a.substring(1), b.substring(1)) })
-            .entries())
+            .entries() })
         .values(function(d) { return d.values })
         .x(function(d) { return x_stack(d.year) })
         .y(function(d) { return y_stack(d.percent)})
