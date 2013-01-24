@@ -4,7 +4,7 @@
     /* Flatten the tree into an array to faciliate transformation. */
     var refugees = pv.flatten(refugees)
         .key("refugee")
-        .key("continent", function(g) {(g == "aff") ? 1 : 2} ) 
+        .key("continent", function(g) g == "aff" ? 1 : 2 ) 
         .key("year", function(i) years[i])
         .key("people")
         .array(); 
