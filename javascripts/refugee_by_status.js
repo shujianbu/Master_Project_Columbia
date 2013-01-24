@@ -9,8 +9,8 @@
         .key("people")
         .array(); 
 
-console.log(continent);
-console.log("hello"); 
+// console.log(continent);
+// console.log("hello"); 
     /*
      * Use per-year sums to normalize the data, so we can compute a
      * percentage. Use per-continent+refugee sums to determine a saturation encoding.
