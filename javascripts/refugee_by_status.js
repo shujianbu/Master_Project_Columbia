@@ -23,7 +23,7 @@ console.log("hello");
         .rollup(function(v) { return pv.sum(v, function(d) {return d.people })});
 
     /* Cache the percentage of people employed per year. */
-    refugees.forEach(function(d) d.percent = 100 * d.people / sumByYear[d.year]);
+    refugees.forEach(function(d) { return d.percent = 100 * d.people / sumByYear[d.year] });
 
     /* Sizing parameters and scales. */
     var w_stack = 700,
