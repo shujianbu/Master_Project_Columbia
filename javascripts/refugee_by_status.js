@@ -45,7 +45,7 @@ console.log("hello");
     /* A background bar to reset the search query.  */
     vis_stack.add(pv.Bar)
         .fillStyle_s("#eef6fa")
-        .event("click", function() search_stack(""))
+        .event("click", function() { return search_stack("")})
         .cursor("pointer");
 
     /* Y-axis ticks and labels. */
@@ -86,7 +86,7 @@ console.log("hello");
         .textMargin(6)
         .textStyle(function(d) { return "rgba(100, 100, 100, " + (Math.sqrt(y_stack(d.percent)) / 3) + ")" })
         .textAlign(function() { return this.index < 5 ? "left" : "right"})
-        .text(function(d, p) p.key.substring(1));
+        .text(function(d, p) { return p.key.substring(1)});
 
     /* X-axis ticks and labels. */
     vis_stack.add(pv.Rule)
