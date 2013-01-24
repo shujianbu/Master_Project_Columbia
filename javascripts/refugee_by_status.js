@@ -16,11 +16,11 @@ console.log("hello");
      * percentage. Use per-continent+refugee sums to determine a saturation encoding.
      */
     var sumByYear = pv.nest(refugees)
-        .key(function(d) d.year)
-        .rollup(function(v) pv.sum(v, function(d) {return d.people })),
+        .key(function(d) { return d.year} )
+        .rollup(function(v) { return pv.sum(v, function(d) {return d.people })}),
       sumByrefugee = pv.nest(refugees)
-        .key(function(d) d.continent + d.refugee)
-        .rollup(function(v) pv.sum(v, function(d) {return d.people }));
+        .key(function(d) { return d.continent + d.refugee})
+        .rollup(function(v) { return pv.sum(v, function(d) {return d.people })});
 
     /* Cache the percentage of people employed per year. */
     refugees.forEach(function(d) d.percent = 100 * d.people / sumByYear[d.year]);
@@ -54,11 +54,11 @@ console.log("hello");
         .bottom(y_stack)
         .strokeStyle_s(function(y_stack) { return (y_stack ? "#ccc" : "#000") }) 
       .anchor("left").add(pv.Label)
-        .text(function(d) y_stack.tickFormat(d) + "%");
+        .text(function(d) { return y_stack.tickFormat(d) + "%" });
 
     /* Stack layout. */
     var area_stack = vis_stack.add(pv.Layout.Stack)
-        .layers(function() pv.nest(refugees.filter(test_stack))
+        .layers(function() { return pv.nest(refugees.filter(test_stack)) }
             .key(function(d) { return d.continent + d.refugee })
             .sortKeys(function(a, b) { return pv.reverseOrder(a.substring(1), b.substring(1)) })
             .entries())
