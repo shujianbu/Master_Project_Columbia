@@ -5,7 +5,7 @@ var data_std;
 var data_min;
 var data_max;
 
-console.log("hello_c"); 
+console.log("hello_chlo"); 
 
 var county_codes;
 var m = Number.MAX_VALUE;

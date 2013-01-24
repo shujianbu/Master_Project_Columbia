@@ -4,8 +4,8 @@
     /* Flatten the tree into an array to faciliate transformation. */
     var refugees = pv.flatten(refugees)
         .key("refugee")
-        .key("continent", function(g) (g == "aff" ? 1 : 2) ) 
-        .key("year", function(i) years[i])
+        .key("continent", function(g) {return (g == "aff" ? 1 : 2) }) 
+        .key("year", function(i) {return years[i]})
         .key("people")
         .array(); 
 
@@ -17,10 +17,10 @@ console.log("hello");
      */
     var sumByYear = pv.nest(refugees)
         .key(function(d) d.year)
-        .rollup(function(v) pv.sum(v, function(d) d.people)),
+        .rollup(function(v) pv.sum(v, function(d) {return d.people })),
       sumByrefugee = pv.nest(refugees)
         .key(function(d) d.continent + d.refugee)
-        .rollup(function(v) pv.sum(v, function(d) d.people));
+        .rollup(function(v) pv.sum(v, function(d) {return d.people }));
 
     /* Cache the percentage of people employed per year. */
     refugees.forEach(function(d) d.percent = 100 * d.people / sumByYear[d.year]);
@@ -50,28 +50,28 @@ console.log("hello");
 
     /* Y-axis ticks and labels. */
     vis_stack.add(pv.Rule)
-        .data(function() y_stack.ticks())
+        .data(function() { return y_stack.ticks()})
         .bottom(y_stack)
-        .strokeStyle_s(function(y_stack) y_stack ? "#ccc" : "#000") 
+        .strokeStyle_s(function(y_stack) { return (y_stack ? "#ccc" : "#000") }) 
       .anchor("left").add(pv.Label)
         .text(function(d) y_stack.tickFormat(d) + "%");
 
     /* Stack layout. */
     var area_stack = vis_stack.add(pv.Layout.Stack)
         .layers(function() pv.nest(refugees.filter(test_stack))
-            .key(function(d) d.continent + d.refugee)
-            .sortKeys(function(a, b) pv.reverseOrder(a.substring(1), b.substring(1)))
+            .key(function(d) { return d.continent + d.refugee })
+            .sortKeys(function(a, b) { return pv.reverseOrder(a.substring(1), b.substring(1)) })
             .entries())
-        .values(function(d) d.values)
-        .x(function(d) x_stack(d.year))
-        .y(function(d) y_stack(d.percent))
+        .values(function(d) { return d.values })
+        .x(function(d) { return x_stack(d.year) })
+        .y(function(d) { return y_stack(d.percent)})
       .layer.add(pv.Area)
-        .def("alphai", function(d) alpha_stack(sumByrefugee[d.key]))
-        .fillStyle_s(function(d) color_stack(d.continent).alphai(this.alphai()))
+        .def("alphai", function(d) { return alpha_stack(sumByrefugee[d.key])} )
+        .fillStyle_s(function(d) { return color_stack(d.continent).alphai(this.alphai()) })
         .cursor("pointer")
-        .event("mouseover", function(d) this.alphai(1).title(d.refugee))
-        .event("mouseout", function(d) this.alphai(null)) 
-        .event("click", function(d) search_stack("^" + d.refugee + "$"));
+        .event("mouseover", function(d) { return this.alphai(1).title(d.refugee) })
+        .event("mouseout", function(d) { return this.alphai(null) }) 
+        .event("click", function(d) { return search_stack("^" + d.refugee + "$")});
 
     /* Stack labels. */
     vis_stack.add(pv.Panel)
@@ -80,12 +80,12 @@ console.log("hello");
         .extend(area_stack)
         .fillStyle_s(null)
       .anchor("center").add(pv.Label)
-        .def("max", function(d) pv.max.index(d.values, function(d) d.percent))
-        .visible(function() this.index == this.max())
-        .font(function(d) Math.round(5 + Math.sqrt(y_stack(d.percent))) + "px sans-serif")
+        .def("max", function(d) { return pv.max.index(d.values, function(d) { return d.percent })} )
+        .visible(function() { return this.index == this.max()})
+        .font(function(d) { return Math.round(5 + Math.sqrt(y_stack(d.percent))) + "px sans-serif" })
         .textMargin(6)
-        .textStyle(function(d) "rgba(100, 100, 100, " + (Math.sqrt(y_stack(d.percent)) / 3) + ")")
-        .textAlign(function() this.index < 5 ? "left" : "right")
+        .textStyle(function(d) { return "rgba(100, 100, 100, " + (Math.sqrt(y_stack(d.percent)) / 3) + ")" })
+        .textAlign(function() { return this.index < 5 ? "left" : "right"})
         .text(function(d, p) p.key.substring(1));
 
     /* X-axis ticks and labels. */
@@ -116,8 +116,8 @@ console.log("hello");
     /* Recompute the y-scale domain based on query filtering. */
     function update() {
       y_stack.domain(0, Math.min(100, pv.max(pv.values(pv.nest(refugees.filter(test_stack))
-          .key(function(d) d.year)
-          .rollup(function(v) pv.sum(v, function(d) d.percent))))));
+          .key(function(d) { return d.year })
+          .rollup(function(v) { return pv.sum(v, function(d) { return d.percent }) })) )));
       vis_stack.render();
     }
 

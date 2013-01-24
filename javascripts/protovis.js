@@ -1,3 +1,4 @@
+console.log("hello_p");
 /**
  * @class The built-in Array class.
  * @name Array
