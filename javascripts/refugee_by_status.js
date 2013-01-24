@@ -5,7 +5,7 @@
     var refugees = pv.flatten(refugees)
         .key("refugee")
         .key("continent", function(g) { return (g == "aff" ? 1 : 2) }) 
-        .key("year", function(i) years[i])
+        .key("year", function(i) { return years[i] })
         .key("people")
         .array(); 
 
