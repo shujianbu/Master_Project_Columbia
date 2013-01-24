@@ -277,7 +277,7 @@ svg {
 }
 
 #states path {
-  fill: none;
+  fill: none; 
   stroke: #fff;
   stroke-width: 1.5px;
 }
@@ -342,9 +342,9 @@ ptab {
 }
 
 path {
-    stroke: #e2e2e2;
-    stroke-width: 0.9;
-  fill: none;
+    stroke: #39c;
+    stroke-width: 1.0;
+    fill: none; 
 }
 
 path.current, path.highlight.current {
@@ -453,22 +453,24 @@ path.current, path.highlight.current {
 .highlight { stroke-width: 3.0px; } 
 
 line {
-    stroke: black;
+    stroke: #fff; 
+    stroke-width: 0.8;
 }
 
 .axis {
     stroke-width: 0.8;
-    stroke: #000;
+    stroke: #39c;
 }
 .xTicks, .yTicks {
-    stroke-width: 0.2;
-    stroke: #000;
+    stroke-width: 0.3;
+    stroke: #39c;
 } 
 
 /* Stacked Area Chart Refugess in 20 Years*/
 #fig {
   width: 760px;
-  height: 470px; 
+  height: 490px; 
+  background: #fff;
 }
 
 #switch {

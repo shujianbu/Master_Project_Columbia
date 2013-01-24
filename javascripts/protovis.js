@@ -143,7 +143,7 @@ pv.identity = function(x) { return x; };
  * Returns <tt>this.index</tt>. This method is provided for convenience for use
  * with scales. For example, to color bars by their index, say:
  *
- * <pre>.fillStyle(pv.Colors.category10().by(pv.index))</pre>
+ * <pre>.fillStyle_s(pv.Colors.category10().by(pv.index))</pre>
  *
  * This method is equivalent to <tt>function() this.index</tt>, but more
  * succinct. Note that the <tt>index</tt> property is also supported for
@@ -159,7 +159,7 @@ pv.index = function() { return this.index; };
  * Returns <tt>this.childIndex</tt>. This method is provided for convenience for
  * use with scales. For example, to color bars by their child index, say:
  *
- * <pre>.fillStyle(pv.Colors.category10().by(pv.child))</pre>
+ * <pre>.fillStyle_s(pv.Colors.category10().by(pv.child))</pre>
  *
  * This method is equivalent to <tt>function() this.childIndex</tt>, but more
  * succinct.
@@ -174,7 +174,7 @@ pv.child = function() { return this.childIndex; };
  * for use with scales. This method is provided for convenience for use with
  * scales. For example, to color bars by their parent index, say:
  *
- * <pre>.fillStyle(pv.Colors.category10().by(pv.parent))</pre>
+ * <pre>.fillStyle_s(pv.Colors.category10().by(pv.parent))</pre>
  *
  * Tthis method is equivalent to <tt>function() this.parent.index</tt>, but more
  * succinct.
@@ -2959,7 +2959,7 @@ pv.Scale.interpolator = function(start, end) {
  *
  * <p>1. The range can be expressed in colors, rather than pixels. For example:
  *
- * <pre>    .fillStyle(pv.Scale.linear(0, 100).range("red", "green"))</pre>
+ * <pre>    .fillStyle_s(pv.Scale.linear(0, 100).range("red", "green"))</pre>
  *
  * will fill the marks "red" on an input value of 0, "green" on an input value
  * of 100, and some color in-between for intermediate values.
@@ -2969,7 +2969,7 @@ pv.Scale.interpolator = function(start, end) {
  * increasingly red for negative values, and increasingly green for positive
  * values:
  *
- * <pre>    .fillStyle(pv.Scale.linear(-1, 0, 1).range("red", "white", "green"))</pre>
+ * <pre>    .fillStyle_s(pv.Scale.linear(-1, 0, 1).range("red", "white", "green"))</pre>
  *
  * The domain can be specified as a series of <i>n</i> monotonically-increasing
  * values; the range must also be specified as <i>n</i> values, resulting in
@@ -3642,7 +3642,7 @@ pv.Scale.root = function() {
  * might map a domain of species ["setosa", "versicolor", "virginica"] to colors
  * ["red", "green", "blue"]. Thus, saying
  *
- * <pre>    .fillStyle(function(d) {
+ * <pre>    .fillStyle_s(function(d) {
  *         switch (d.species) {
  *           case "setosa": return "red";
  *           case "versicolor": return "green";
@@ -3652,7 +3652,7 @@ pv.Scale.root = function() {
  *
  * is equivalent to
  *
- * <pre>    .fillStyle(pv.Scale.ordinal("setosa", "versicolor", "virginica")
+ * <pre>    .fillStyle_s(pv.Scale.ordinal("setosa", "versicolor", "virginica")
  *         .range("red", "green", "blue")
  *         .by(function(d) d.species))</pre>
  *
@@ -3660,7 +3660,7 @@ pv.Scale.root = function() {
  * explicitly, the domain can be omitted. In this case it will be inferred
  * lazily from the data:
  *
- * <pre>    .fillStyle(pv.colors("red", "green", "blue")
+ * <pre>    .fillStyle_s(pv.colors("red", "green", "blue")
  *         .by(function(d) d.species))</pre>
  *
  * When the domain is inferred, the first time the scale is invoked, the first
@@ -5497,7 +5497,7 @@ pv.SvgScene.area = function(scenes) {
 
   /* visible */
   if (!s.visible) return e;
-  var fill = s.fillStyle, stroke = s.strokeStyle;
+  var fill = s.fillStyle_s, stroke = s.strokeStyle_s;
   if (!fill.opacity && !stroke.opacity) return e;
 
   /** @private Computes the straight path for the range [i, j]. */
@@ -5619,7 +5619,7 @@ pv.SvgScene.areaSegment = function(scenes) {
 
     /* visible */
     if (!s1.visible || !s2.visible) continue;
-    var fill = s1.fillStyle, stroke = s1.strokeStyle;
+    var fill = s1.fillStyle_s, stroke = s1.strokeStyle_s;
     if (!fill.opacity && !stroke.opacity) continue;
 
     var d;
@@ -5666,7 +5666,7 @@ pv.SvgScene.bar = function(scenes) {
 
     /* visible */
     if (!s.visible) continue;
-    var fill = s.fillStyle, stroke = s.strokeStyle;
+    var fill = s.fillStyle_s, stroke = s.strokeStyle_s;
     if (!fill.opacity && !stroke.opacity) continue;
 
     e = this.expect(e, "rect", {
@@ -5694,7 +5694,7 @@ pv.SvgScene.dot = function(scenes) {
 
     /* visible */
     if (!s.visible) continue;
-    var fill = s.fillStyle, stroke = s.strokeStyle;
+    var fill = s.fillStyle_s, stroke = s.strokeStyle_s;
     if (!fill.opacity && !stroke.opacity) continue;
 
     /* points */
@@ -5869,7 +5869,7 @@ pv.SvgScene.line = function(scenes) {
 
   /* visible */
   if (!s.visible) return e;
-  var fill = s.fillStyle, stroke = s.strokeStyle;
+  var fill = s.fillStyle_s, stroke = s.strokeStyle_s;
   if (!fill.opacity && !stroke.opacity) return e;
 
   /* points */
@@ -5918,7 +5918,7 @@ pv.SvgScene.lineSegment = function(scenes) {
 
     /* visible */
     if (!s1.visible || !s2.visible) continue;
-    var stroke = s1.strokeStyle, fill = pv.Color.transparent;
+    var stroke = s1.strokeStyle_s, fill = pv.Color.transparent;
     if (!stroke.opacity) continue;
 
     /* interpolate */
@@ -6105,7 +6105,7 @@ pv.SvgScene.panel = function(scenes) {
 };
 
 pv.SvgScene.fill = function(e, scenes, i) {
-  var s = scenes[i], fill = s.fillStyle;
+  var s = scenes[i], fill = s.fillStyle_s;
   if (fill.opacity || s.events == "all") {
     e = this.expect(e, "rect", {
         "shape-rendering": s.antialias ? null : "crispEdges",
@@ -6125,7 +6125,7 @@ pv.SvgScene.fill = function(e, scenes, i) {
 };
 
 pv.SvgScene.stroke = function(e, scenes, i) {
-  var s = scenes[i], stroke = s.strokeStyle;
+  var s = scenes[i], stroke = s.strokeStyle_s;
   if (stroke.opacity || s.events == "all") {
     e = this.expect(e, "rect", {
         "shape-rendering": s.antialias ? null : "crispEdges",
@@ -6151,7 +6151,7 @@ pv.SvgScene.rule = function(scenes) {
 
     /* visible */
     if (!s.visible) continue;
-    var stroke = s.strokeStyle;
+    var stroke = s.strokeStyle_s;
     if (!stroke.opacity) continue;
 
     e = this.expect(e, "line", {
@@ -6177,7 +6177,7 @@ pv.SvgScene.wedge = function(scenes) {
 
     /* visible */
     if (!s.visible) continue;
-    var fill = s.fillStyle, stroke = s.strokeStyle;
+    var fill = s.fillStyle_s, stroke = s.strokeStyle_s;
     if (!fill.opacity && !stroke.opacity) continue;
 
     /* points */
@@ -6632,12 +6632,12 @@ pv.Mark.prototype.scale = 1;
  *
  * <p>"painted": The given mark may receive events when the mouse is over a
  * "painted" area. The painted areas are the interior (i.e., fill) of the mark
- * if a 'fillStyle' is specified, and the perimeter (i.e., stroke) of the mark
- * if a 'strokeStyle' is specified.
+ * if a 'fillStyle_s' is specified, and the perimeter (i.e., stroke) of the mark
+ * if a 'strokeStyle_s' is specified.
  *
  * <p>"all": The given mark may receive events when the mouse is over either the
  * interior (i.e., fill) or the perimeter (i.e., stroke) of the mark, regardless
- * of the specified fillStyle and strokeStyle.
+ * of the specified fillStyle_s and strokeStyle_s.
  *
  * <p>"none": The given mark may not receive events.
  *
@@ -7278,8 +7278,8 @@ pv.Mark.prototype.buildImplied = function(s) {
 
   /* Set any null colors to pv.Color.transparent. */
   if (p.textStyle && !s.textStyle) s.textStyle = pv.Color.transparent;
-  if (p.fillStyle && !s.fillStyle) s.fillStyle = pv.Color.transparent;
-  if (p.strokeStyle && !s.strokeStyle) s.strokeStyle = pv.Color.transparent;
+  if (p.fillStyle_s && !s.fillStyle_s) s.fillStyle_s = pv.Color.transparent;
+  if (p.strokeStyle_s && !s.strokeStyle_s) s.strokeStyle_s = pv.Color.transparent;
 };
 
 /**
@@ -7319,7 +7319,7 @@ pv.Mark.prototype.mouse = function() {
  * data stack. Event handlers can use property methods to manipulate the display
  * properties of the mark:
  *
- * <pre>m.event("click", function() this.fillStyle("red"));</pre>
+ * <pre>m.event("click", function() this.fillStyle_s("red"));</pre>
  *
  * Alternatively, the external data can be manipulated and the visualization
  * redrawn:
@@ -7562,8 +7562,8 @@ pv.Area.prototype = pv.extend(pv.Mark)
     .property("width", Number)
     .property("height", Number)
     .property("lineWidth", Number)
-    .property("strokeStyle", pv.color)
-    .property("fillStyle", pv.color)
+    .property("strokeStyle_s", pv.color)
+    .property("fillStyle_s", pv.color)
     .property("segmented", Boolean)
     .property("interpolate", String)
     .property("tension", Number);
@@ -7592,7 +7592,7 @@ pv.Area.prototype.type = "area";
 
 /**
  * The width of stroked lines, in pixels; used in conjunction with
- * <tt>strokeStyle</tt> to stroke the perimeter of the area. Unlike the
+ * <tt>strokeStyle_s</tt> to stroke the perimeter of the area. Unlike the
  * {@link Line} mark type, the entire perimeter is stroked, rather than just one
  * edge. The default value of this property is 1.5, but since the default stroke
  * style is null, area marks are not stroked by default.
@@ -7614,7 +7614,7 @@ pv.Area.prototype.type = "area";
  * {@link pv.Mark}.
  *
  * @type string
- * @name pv.Area.prototype.strokeStyle
+ * @name pv.Area.prototype.strokeStyle_s
  * @see pv.color
  */
 
@@ -7627,7 +7627,7 @@ pv.Area.prototype.type = "area";
  * {@link pv.Mark}.
  *
  * @type string
- * @name pv.Area.prototype.fillStyle
+ * @name pv.Area.prototype.fillStyle_s
  * @see pv.color
  */
 
@@ -7678,7 +7678,7 @@ pv.Area.prototype.type = "area";
 pv.Area.prototype.defaults = new pv.Area()
     .extend(pv.Mark.prototype.defaults)
     .lineWidth(1.5)
-    .fillStyle(pv.Colors.category20().by(pv.parent))
+    .fillStyle_s(pv.Colors.category20().by(pv.parent))
     .interpolate("linear")
     .tension(.7);
 
@@ -7693,8 +7693,8 @@ pv.Area.prototype.buildImplied = function(s) {
 pv.Area.fixed = {
   lineWidth: 1,
   lineJoin: 1,
-  strokeStyle: 1,
-  fillStyle: 1,
+  strokeStyle_s: 1,
+  fillStyle_s: 1,
   segmented: 1,
   interpolate: 1,
   tension: 1
@@ -7833,8 +7833,8 @@ pv.Bar.prototype = pv.extend(pv.Mark)
     .property("width", Number)
     .property("height", Number)
     .property("lineWidth", Number)
-    .property("strokeStyle", pv.color)
-    .property("fillStyle", pv.color);
+    .property("strokeStyle_s", pv.color)
+    .property("fillStyle_s", pv.color);
 
 pv.Bar.prototype.type = "bar";
 
@@ -7858,7 +7858,7 @@ pv.Bar.prototype.type = "bar";
 
 /**
  * The width of stroked lines, in pixels; used in conjunction with
- * <tt>strokeStyle</tt> to stroke the bar's border.
+ * <tt>strokeStyle_s</tt> to stroke the bar's border.
  *
  * @type number
  * @name pv.Bar.prototype.lineWidth
@@ -7870,7 +7870,7 @@ pv.Bar.prototype.type = "bar";
  * bars are not stroked by default.
  *
  * @type string
- * @name pv.Bar.prototype.strokeStyle
+ * @name pv.Bar.prototype.strokeStyle_s
  * @see pv.color
  */
 
@@ -7879,7 +7879,7 @@ pv.Bar.prototype.type = "bar";
  * specified color. The default value of this property is a categorical color.
  *
  * @type string
- * @name pv.Bar.prototype.fillStyle
+ * @name pv.Bar.prototype.fillStyle_s
  * @see pv.color
  */
 
@@ -7892,7 +7892,7 @@ pv.Bar.prototype.type = "bar";
 pv.Bar.prototype.defaults = new pv.Bar()
     .extend(pv.Mark.prototype.defaults)
     .lineWidth(1.5)
-    .fillStyle(pv.Colors.category20().by(pv.parent));
+    .fillStyle_s(pv.Colors.category20().by(pv.parent));
 /**
  * Constructs a new dot mark with default properties. Dots are not typically
  * constructed directly, but by adding to a panel or an existing mark via
@@ -7919,8 +7919,8 @@ pv.Dot.prototype = pv.extend(pv.Mark)
     .property("shape", String)
     .property("angle", Number)
     .property("lineWidth", Number)
-    .property("strokeStyle", pv.color)
-    .property("fillStyle", pv.color);
+    .property("strokeStyle_s", pv.color)
+    .property("fillStyle_s", pv.color);
 
 pv.Dot.prototype.type = "dot";
 
@@ -7978,7 +7978,7 @@ pv.Dot.prototype.type = "dot";
 
 /**
  * The width of stroked lines, in pixels; used in conjunction with
- * <tt>strokeStyle</tt> to stroke the dot's shape.
+ * <tt>strokeStyle_s</tt> to stroke the dot's shape.
  *
  * @type number
  * @name pv.Dot.prototype.lineWidth
@@ -7990,7 +7990,7 @@ pv.Dot.prototype.type = "dot";
  * color.
  *
  * @type string
- * @name pv.Dot.prototype.strokeStyle
+ * @name pv.Dot.prototype.strokeStyle_s
  * @see pv.color
  */
 
@@ -8000,7 +8000,7 @@ pv.Dot.prototype.type = "dot";
  * not filled by default.
  *
  * @type string
- * @name pv.Dot.prototype.fillStyle
+ * @name pv.Dot.prototype.fillStyle_s
  * @see pv.color
  */
 
@@ -8015,7 +8015,7 @@ pv.Dot.prototype.defaults = new pv.Dot()
     .size(20)
     .shape("circle")
     .lineWidth(1.5)
-    .strokeStyle(pv.Colors.category10().by(pv.parent));
+    .strokeStyle_s(pv.Colors.category10().by(pv.parent));
 
 /**
  * Constructs a new dot anchor with default properties. Dots support five
@@ -8168,9 +8168,9 @@ pv.Label.prototype.type = "label";
  */
 
 /**
- * The text color. The name "textStyle" is used for consistency with "fillStyle"
- * and "strokeStyle", although it might be better to rename this property (and
- * perhaps use the same name as "strokeStyle"). The default color is black.
+ * The text color. The name "textStyle" is used for consistency with "fillStyle_s"
+ * and "strokeStyle_s", although it might be better to rename this property (and
+ * perhaps use the same name as "strokeStyle_s"). The default color is black.
  *
  * @type string
  * @name pv.Label.prototype.textStyle
@@ -8277,8 +8277,8 @@ pv.Line = function() {
 pv.Line.prototype = pv.extend(pv.Mark)
     .property("lineWidth", Number)
     .property("lineJoin", String)
-    .property("strokeStyle", pv.color)
-    .property("fillStyle", pv.color)
+    .property("strokeStyle_s", pv.color)
+    .property("fillStyle_s", pv.color)
     .property("segmented", Boolean)
     .property("interpolate", String)
     .property("eccentricity", Number)
@@ -8288,7 +8288,7 @@ pv.Line.prototype.type = "line";
 
 /**
  * The width of stroked lines, in pixels; used in conjunction with
- * <tt>strokeStyle</tt> to stroke the line.
+ * <tt>strokeStyle_s</tt> to stroke the line.
  *
  * @type number
  * @name pv.Line.prototype.lineWidth
@@ -8299,7 +8299,7 @@ pv.Line.prototype.type = "line";
  * stroke the line. The default value of this property is a categorical color.
  *
  * @type string
- * @name pv.Line.prototype.strokeStyle
+ * @name pv.Line.prototype.strokeStyle_s
  * @see pv.color
  */
 
@@ -8328,7 +8328,7 @@ pv.Line.prototype.type = "line";
  * <p>This property is <i>fixed</i>. See {@link pv.Mark}.
  *
  * @type string
- * @name pv.Line.prototype.fillStyle
+ * @name pv.Line.prototype.fillStyle_s
  * @see pv.color
  */
 
@@ -8392,7 +8392,7 @@ pv.Line.prototype.defaults = new pv.Line()
     .extend(pv.Mark.prototype.defaults)
     .lineJoin("miter")
     .lineWidth(1.5)
-    .strokeStyle(pv.Colors.category10().by(pv.parent))
+    .strokeStyle_s(pv.Colors.category10().by(pv.parent))
     .interpolate("linear")
     .eccentricity(0)
     .tension(.7);
@@ -8497,7 +8497,7 @@ pv.Rule.prototype = pv.extend(pv.Mark)
     .property("width", Number)
     .property("height", Number)
     .property("lineWidth", Number)
-    .property("strokeStyle", pv.color);
+    .property("strokeStyle_s", pv.color);
 
 pv.Rule.prototype.type = "rule";
 
@@ -8521,7 +8521,7 @@ pv.Rule.prototype.type = "rule";
 
 /**
  * The width of stroked lines, in pixels; used in conjunction with
- * <tt>strokeStyle</tt> to stroke the rule. The default value is 1 pixel.
+ * <tt>strokeStyle_s</tt> to stroke the rule. The default value is 1 pixel.
  *
  * @type number
  * @name pv.Rule.prototype.lineWidth
@@ -8532,7 +8532,7 @@ pv.Rule.prototype.type = "rule";
  * stroke the rule. The default value of this property is black.
  *
  * @type string
- * @name pv.Rule.prototype.strokeStyle
+ * @name pv.Rule.prototype.strokeStyle_s
  * @see pv.color
  */
 
@@ -8545,7 +8545,7 @@ pv.Rule.prototype.type = "rule";
 pv.Rule.prototype.defaults = new pv.Rule()
     .extend(pv.Mark.prototype.defaults)
     .lineWidth(1)
-    .strokeStyle("black")
+    .strokeStyle_s("black")
     .antialias(false);
 
 /**
@@ -8700,7 +8700,7 @@ pv.Panel.prototype.type = "panel";
  */
 pv.Panel.prototype.defaults = new pv.Panel()
     .extend(pv.Bar.prototype.defaults)
-    .fillStyle(null) // override Bar default
+    .fillStyle_s(null) // override Bar default
     .overflow("visible");
 
 /**
@@ -8930,7 +8930,7 @@ pv.Image.prototype.type = "image";
  */
 pv.Image.prototype.defaults = new pv.Image()
     .extend(pv.Bar.prototype.defaults)
-    .fillStyle(null);
+    .fillStyle_s(null);
 
 /**
  * Specifies the dynamic image function. By default, no image function is
@@ -9046,8 +9046,8 @@ pv.Wedge.prototype = pv.extend(pv.Mark)
     .property("innerRadius", Number)
     .property("outerRadius", Number)
     .property("lineWidth", Number)
-    .property("strokeStyle", pv.color)
-    .property("fillStyle", pv.color);
+    .property("strokeStyle_s", pv.color)
+    .property("fillStyle_s", pv.color);
 
 pv.Wedge.prototype.type = "wedge";
 
@@ -9098,7 +9098,7 @@ pv.Wedge.prototype.type = "wedge";
 
 /**
  * The width of stroked lines, in pixels; used in conjunction with
- * <tt>strokeStyle</tt> to stroke the wedge's border.
+ * <tt>strokeStyle_s</tt> to stroke the wedge's border.
  *
  * @type number
  * @name pv.Wedge.prototype.lineWidth
@@ -9110,7 +9110,7 @@ pv.Wedge.prototype.type = "wedge";
  * meaning wedges are not stroked by default.
  *
  * @type string
- * @name pv.Wedge.prototype.strokeStyle
+ * @name pv.Wedge.prototype.strokeStyle_s
  * @see pv.color
  */
 
@@ -9120,7 +9120,7 @@ pv.Wedge.prototype.type = "wedge";
  * color.
  *
  * @type string
- * @name pv.Wedge.prototype.fillStyle
+ * @name pv.Wedge.prototype.fillStyle_s
  * @see pv.color
  */
 
@@ -9138,8 +9138,8 @@ pv.Wedge.prototype.defaults = new pv.Wedge()
       })
     .innerRadius(0)
     .lineWidth(1.5)
-    .strokeStyle(null)
-    .fillStyle(pv.Colors.category20().by(pv.index));
+    .strokeStyle_s(null)
+    .fillStyle_s(pv.Colors.category20().by(pv.index));
 
 /**
  * Returns the mid-radius of the wedge, which is defined as half-way between the
@@ -10471,22 +10471,22 @@ pv.Layout.prototype.property = function(name, cast) {
  *
  * <li><tt>node</tt> - for rendering nodes; typically a {@link pv.Dot}. The node
  * mark is added directly to the layout, with the data property defined via the
- * layout's <tt>nodes</tt> property. Properties such as <tt>strokeStyle</tt> and
- * <tt>fillStyle</tt> can be overridden to compute properties from node data
+ * layout's <tt>nodes</tt> property. Properties such as <tt>strokeStyle_s</tt> and
+ * <tt>fillStyle_s</tt> can be overridden to compute properties from node data
  * dynamically.
  *
  * <p><li><tt>link</tt> - for rendering links; typically a {@link pv.Line}. The
  * link mark is added to a child panel, whose data property is defined as
  * layout's <tt>links</tt> property. The link's data property is then a
  * two-element array of the source node and target node. Thus, poperties such as
- * <tt>strokeStyle</tt> and <tt>fillStyle</tt> can be overridden to compute
+ * <tt>strokeStyle_s</tt> and <tt>fillStyle_s</tt> can be overridden to compute
  * properties from either the node data (the first argument) or the link data
  * (the second argument; the parent panel data) dynamically.
  *
  * <p><li><tt>label</tt> - for rendering node labels; typically a
  * {@link pv.Label}. The label mark is added directly to the layout, with the
  * data property defined via the layout's <tt>nodes</tt> property. Properties
- * such as <tt>strokeStyle</tt> and <tt>fillStyle</tt> can be overridden to
+ * such as <tt>strokeStyle_s</tt> and <tt>fillStyle_s</tt> can be overridden to
  * compute properties from node data dynamically.
  *
  * </ul>Note that some network implementations may not support all three
@@ -10528,8 +10528,8 @@ pv.Layout.Network = function() {
    */
   (this.node = new pv.Mark()
       .data(function() { return that.nodes(); })
-      .strokeStyle("#1f77b4")
-      .fillStyle("#fff")
+      .strokeStyle_s("#1f77b4")
+      .fillStyle_s("#fff")
       .left(function(n) { return n.x; })
       .top(function(n) { return n.y; })).parent = this;
 
@@ -10544,9 +10544,9 @@ pv.Layout.Network = function() {
   this.link = new pv.Mark()
       .extend(this.node)
       .data(function(p) { return [p.sourceNode, p.targetNode]; })
-      .fillStyle(null)
+      .fillStyle_s(null)
       .lineWidth(function(d, p) { return p.linkValue * 1.5; })
-      .strokeStyle("rgba(0,0,0,.2)");
+      .strokeStyle_s("rgba(0,0,0,.2)");
 
   this.link.add = function(type) {
     return that.add(pv.Panel)
@@ -10773,7 +10773,7 @@ pv.Layout.Network.prototype.buildImplied = function(s) {
  */
 pv.Layout.Hierarchy = function() {
   pv.Layout.Network.call(this);
-  this.link.strokeStyle("#ccc");
+  this.link.strokeStyle_s("#ccc");
 };
 
 pv.Layout.Hierarchy.prototype = pv.extend(pv.Layout.Network);
@@ -10864,8 +10864,8 @@ pv.Layout.Hierarchy.Fill = {
   /** @private */
   constructor: function() {
     this.node
-        .strokeStyle("#fff")
-        .fillStyle("#ccc")
+        .strokeStyle_s("#fff")
+        .fillStyle_s("#ccc")
         .width(function(n) { return n.dx; })
         .height(function(n) { return n.dy; })
         .innerRadius(function(n) { return n.innerRadius; })
@@ -11016,7 +11016,7 @@ pv.Layout.Hierarchy.Fill = {
  * <pre>vis.add(pv.Layout.Grid)
  *     .rows(arrays)
  *   .cell.add(pv.Bar)
- *     .fillStyle(pv.ramp("white", "black"))</pre>
+ *     .fillStyle_s(pv.ramp("white", "black"))</pre>
  *
  * The grid subdivides the full width and height of the parent panel into equal
  * rectangles. Note, however, that for large, interactive, or animated heatmaps,
@@ -11535,8 +11535,8 @@ pv.Layout.Treemap = function() {
   pv.Layout.Hierarchy.call(this);
 
   this.node
-      .strokeStyle("#fff")
-      .fillStyle("rgba(31, 119, 180, .25)")
+      .strokeStyle_s("#fff")
+      .fillStyle_s("rgba(31, 119, 180, .25)")
       .width(function(n) { return n.dx; })
       .height(function(n) { return n.dy; });
 
@@ -11549,8 +11549,8 @@ pv.Layout.Treemap = function() {
 
   (this.leaf = new pv.Mark()
       .extend(this.node)
-      .fillStyle(null)
-      .strokeStyle(null)
+      .fillStyle_s(null)
+      .strokeStyle_s(null)
       .visible(function(n) { return !n.firstChild; })).parent = this;
 
   /* Hide unsupported link. */
@@ -12249,8 +12249,8 @@ pv.Layout.Pack = function() {
 
   this.node
       .radius(function(n) { return n.radius; })
-      .strokeStyle("rgb(31, 119, 180)")
-      .fillStyle("rgba(31, 119, 180, .25)");
+      .strokeStyle_s("rgb(31, 119, 180)")
+      .fillStyle_s("rgba(31, 119, 180, .25)");
 
   this.label
       .textAlign("center");
@@ -13456,7 +13456,7 @@ pv.Layout.Arc.prototype.buildImplied = function(s) {
  * toggling whether the negative bands are mirrored or offset. (See the
  * above-referenced paper for guidance.)
  *
- * <p>The <tt>fillStyle</tt> of the area can be overridden, though typically it
+ * <p>The <tt>fillStyle_s</tt> of the area can be overridden, though typically it
  * is easier to customize the layout's behavior through the custom
  * <tt>backgroundStyle</tt>, <tt>positiveStyle</tt> and <tt>negativeStyle</tt>
  * properties. By default, the background is white, positive bands are blue, and
@@ -13492,7 +13492,7 @@ pv.Layout.Horizon = function() {
       .overflow("hidden")
       .height(function() { return size; })
       .top(function(i) { return mode == "color" ? (i & 1) * size : 0; })
-      .fillStyle(function(i) { return i ? null : fill; });
+      .fillStyle_s(function(i) { return i ? null : fill; });
 
   /**
    * The band prototype. This prototype is intended to be used with an Area
@@ -13512,7 +13512,7 @@ pv.Layout.Horizon = function() {
               ? (i & 1 ? null : (i + 1 >> 1) * -size)
               : ((i & 1 || -1) * (i + 1 >> 1) * size);
         })
-      .fillStyle(function(d, i) {
+      .fillStyle_s(function(d, i) {
           return (i & 1 ? red : blue)((i >> 1) + 1);
         });
 
@@ -13798,7 +13798,7 @@ pv.Layout.Rollup.prototype.buildImplied = function(s) {
  * row <i>i</i>, column <i>j</i>, corresponds to the link from node <i>i</i> to
  * node <i>j</i>. The fill color of each cell is binary by default, and
  * corresponds to whether a link exists between the two nodes. If the underlying
- * graph has links with variable values, the <tt>fillStyle</tt> property can be
+ * graph has links with variable values, the <tt>fillStyle_s</tt> property can be
  * substited to use an appropriate color function, such as {@link pv.ramp}.
  *
  * <p>For undirected networks, the matrix is symmetric around the diagonal. For
@@ -13823,8 +13823,8 @@ pv.Layout.Rollup.prototype.buildImplied = function(s) {
  * {@link pv.Label}. The label mark is added directly to the layout, with the
  * data property defined via the layout's <tt>nodes</tt> property; note,
  * however, that the nodes are duplicated so as to provide a label across the
- * top and down the side. Properties such as <tt>strokeStyle</tt> and
- * <tt>fillStyle</tt> can be overridden to compute properties from node data
+ * top and down the side. Properties such as <tt>strokeStyle_s</tt> and
+ * <tt>fillStyle_s</tt> can be overridden to compute properties from node data
  * dynamically.
  *
  * </ul>For more details on how to use this layout, see
@@ -13860,8 +13860,8 @@ pv.Layout.Matrix = function() {
       .width(function() { return dx; })
       .height(function() { return dy; })
       .lineWidth(1.5)
-      .strokeStyle("#fff")
-      .fillStyle(function(l) { return l.linkValue ? "#555" : "#eee"; })
+      .strokeStyle_s("#fff")
+      .fillStyle_s(function(l) { return l.linkValue ? "#555" : "#eee"; })
       .parent = this;
 
   /* No special add for links! */
@@ -14020,7 +14020,7 @@ pv.Layout.Bullet = function() {
       .bottom(function() { return orient == "bottom" ? 0 : null; })
       .width(function(d) { return horizontal ? scale(d) : null; })
       .height(function(d) { return horizontal ? null : scale(d); })
-      .fillStyle(function() { return rangeColor(this.index); })
+      .fillStyle_s(function() { return rangeColor(this.index); })
       .antialias(false)
       .parent = that;
 
@@ -14037,7 +14037,7 @@ pv.Layout.Bullet = function() {
       .top(function() { return orient == "top" ? 0 : horizontal ? this.parent.height() / 3.25 : null; })
       .right(function() { return orient == "right" ? 0 : horizontal ? null : this.parent.width() / 3.25; })
       .bottom(function() { return orient == "bottom" ? 0 : horizontal ? this.parent.height() / 3.25 : null; })
-      .fillStyle(function() { return measureColor(this.index); })
+      .fillStyle_s(function() { return measureColor(this.index); })
       .parent = that;
 
   /**
@@ -14052,7 +14052,7 @@ pv.Layout.Bullet = function() {
       .top(function(d) { return orient == "top" ? scale(d) : horizontal ? this.parent.height() / 2 : null; })
       .right(function(d) { return orient == "right" ? scale(d) : null; })
       .bottom(function(d) { return orient == "bottom" ? scale(d) : null; })
-      .strokeStyle("black")
+      .strokeStyle_s("black")
       .shape("bar")
       .angle(function() { return horizontal ? 0 : Math.PI / 2; })
       .parent = that;
@@ -14202,7 +14202,7 @@ pv.Behavior = {};
  * populated on the mark, which allows visual feedback for dragging. For
  * example, to change the mark fill color while dragging:
  *
- * <pre>    .fillStyle(function(d) d.fix ? "#ff7f0e" : "#aec7e8")</pre>
+ * <pre>    .fillStyle_s(function(d) d.fix ? "#ff7f0e" : "#aec7e8")</pre>
  *
  * In some cases, such as with network layouts, dragging the mark may cause
  * related marks to change, in which case additional marks may also need to be

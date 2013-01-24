@@ -1,4 +1,4 @@
-    var continent = 0, 
+    var continent = 1, 
         re_stack = "";
 
     /* Flatten the tree into an array to faciliate transformation. */
@@ -28,7 +28,7 @@
         h_stack = 360,
         x_stack = pv.Scale.linear(1996, 2011).range(0, w_stack), 
         y_stack = pv.Scale.linear(0, 100).range(0, h_stack), 
-        color_stack = pv.Scale.ordinal(1, 2).range("#33f", "#f33"),
+        color_stack = pv.Scale.ordinal(1, 2).range("#33ffff", "#ffff33"),
         alpha_stack = pv.Scale.linear(pv.values(sumByrefugee)).range(.4, .8);
 
     /* The root panel. */
@@ -42,7 +42,7 @@
 
     /* A background bar to reset the search query.  */
     vis_stack.add(pv.Bar)
-        .fillStyle("white")
+        .fillStyle_s("#eef6fa")
         .event("click", function() search_stack(""))
         .cursor("pointer");
 
@@ -50,7 +50,7 @@
     vis_stack.add(pv.Rule)
         .data(function() y_stack.ticks())
         .bottom(y_stack)
-        .strokeStyle(function(y_stack) y_stack ? "#ccc" : "#000")
+        .strokeStyle_s(function(y_stack) y_stack ? "#ccc" : "#000") 
       .anchor("left").add(pv.Label)
         .text(function(d) y_stack.tickFormat(d) + "%");
 
@@ -65,7 +65,7 @@
         .y(function(d) y_stack(d.percent))
       .layer.add(pv.Area)
         .def("alphai", function(d) alpha_stack(sumByrefugee[d.key]))
-        .fillStyle(function(d) color_stack(d.continent).alphai(this.alphai()))
+        .fillStyle_s(function(d) color_stack(d.continent).alphai(this.alphai()))
         .cursor("pointer")
         .event("mouseover", function(d) this.alphai(1).title(d.refugee))
         .event("mouseout", function(d) this.alphai(null)) 
@@ -76,13 +76,13 @@
         .extend(area_stack.parent)
       .add(pv.Area)
         .extend(area_stack)
-        .fillStyle(null)
+        .fillStyle_s(null)
       .anchor("center").add(pv.Label)
         .def("max", function(d) pv.max.index(d.values, function(d) d.percent))
         .visible(function() this.index == this.max())
         .font(function(d) Math.round(5 + Math.sqrt(y_stack(d.percent))) + "px sans-serif")
         .textMargin(6)
-        .textStyle(function(d) "rgba(0, 0, 0, " + (Math.sqrt(y_stack(d.percent)) / 7) + ")")
+        .textStyle(function(d) "rgba(100, 100, 100, " + (Math.sqrt(y_stack(d.percent)) / 3) + ")")
         .textAlign(function() this.index < 5 ? "left" : "right")
         .text(function(d, p) p.key.substring(1));
 
@@ -102,7 +102,7 @@
           query.focus();
         }
         re_stack = new RegExp(text, "i");
-        update_stack();
+        update();
       }
     }
 
@@ -112,7 +112,7 @@
     }
 
     /* Recompute the y-scale domain based on query filtering. */
-    function update_stack() {
+    function update() {
       y_stack.domain(0, Math.min(100, pv.max(pv.values(pv.nest(refugees.filter(test_stack))
           .key(function(d) d.year)
           .rollup(function(v) pv.sum(v, function(d) d.percent))))));
