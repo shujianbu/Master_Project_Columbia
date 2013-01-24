@@ -4,8 +4,8 @@
     /* Flatten the tree into an array to faciliate transformation. */
     var refugees = pv.flatten(refugees)
         .key("refugee")
-        .key("continent", function(g) { return (g == "aff" ? 1 : 2) }) 
-        .key("year", function(i) { return years[i] })
+        .key("continent", function(g) (g == "aff" ? 1 : 2) ) 
+        .key("year", function(i) years[i])
         .key("people")
         .array(); 
 
@@ -15,7 +15,7 @@
      */
     var sumByYear = pv.nest(refugees)
         .key(function(d) d.year)
-        .rollup(function(v) pv.sum(v, function(d) { return d.people })),
+        .rollup(function(v) pv.sum(v, function(d) d.people)),
       sumByrefugee = pv.nest(refugees)
         .key(function(d) d.continent + d.refugee)
         .rollup(function(v) pv.sum(v, function(d) d.people));
