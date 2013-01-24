@@ -5,6 +5,8 @@ var data_std;
 var data_min;
 var data_max;
 
+console.log("hello_c"); 
+
 var county_codes;
 var m = Number.MAX_VALUE;
 var km_to_m = 1.0 / 1.609344;
