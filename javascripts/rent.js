@@ -43,14 +43,14 @@ var map_rt = svg_rt.append('svg:g')
 
 var counties_rt = map_rt.append("svg:g")
     .attr("id", "counties")
-    .attr("class", "YlOrBr") // NB: Change color scheme here
+    .attr("class", "YlGn") // NB: Change color scheme here
 
 var states_rt = map_rt.append("svg:g")
     .attr("id", "states")
 
 var legend_rt = svg_rt.append("svg:g")
     .attr("id", "legend")
-    .attr("class", "YlOrBr"); // NB: Change the color scheme here
+    .attr("class", "YlGn"); // NB: Change the color scheme here
 
 d3.json("jsondata/us-counties.json", function(json) {
   counties_rt.selectAll("path")
@@ -125,7 +125,7 @@ function show_rt(b)
         var s = counties_rt.selectAll("path").filter(function(g){return g.id == d.id;});
         if (b)
         {
-            label_rt.text(county_codes_rt[d.id] + ": " + format_rt(data_rt[d.id] !== undefined ? data_rt[d.id] : 0));
+            label_rt.text(county_codes_rt[d.id] + ": $" + format_rt(data_rt[d.id] !== undefined ? data_rt[d.id] : 0) + "/month");
             s.attr("class", "highlight");//"q0-9"
         }
         else
