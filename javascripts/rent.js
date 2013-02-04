@@ -1,5 +1,5 @@
-var data_rt; // loaded asynchronously
-var data_quantile_rt; // computed after load
+var data_rt; 
+var data_quantile_rt; 
 var data_mean_rt;
 var data_std_rt;
 var data_min_rt;
@@ -8,7 +8,6 @@ var data_max_rt;
 var county_codes_rt;
 var m_rt = Number.MAX_VALUE;
 var km_to_m_rt = 1.0 / 1.609344;
-// removed 0 here and hacked the legend code so that we don't have white + white borders
 var legend_min_rt = {1:m_rt, 2:m_rt, 3:m_rt, 4:m_rt, 5:m_rt, 6:m_rt, 7:m_rt, 8:m_rt};
 var legend_max_rt = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0};
 
@@ -18,7 +17,6 @@ var fixed_rt = d3.format(".0f");
 var number_rt = d3.format("n");
 var fixedx_rt = function(x) { return d3.format(".0f")(km_to_m_rt*x);}
 
-// NB: Change your number format function here:
 var format_rt = percent_rt;
 var formatx_rt = percentx_rt; 
 
@@ -26,7 +24,7 @@ var formatx_rt = percentx_rt;
 var width_rt = window.innerWidth;
 var height_rt = window.innerHeight;
 
-var path_rt = d3.geo.path(); // Can do scaling here
+var path_rt = d3.geo.path(); 
 
 var svg_rt = d3.select("#tabs-3")
   .append("svg:svg");
@@ -43,14 +41,14 @@ var map_rt = svg_rt.append('svg:g')
 
 var counties_rt = map_rt.append("svg:g")
     .attr("id", "counties")
-    .attr("class", "YlGn") // NB: Change color scheme here
+    .attr("class", "YlGn") 
 
 var states_rt = map_rt.append("svg:g")
     .attr("id", "states")
 
 var legend_rt = svg_rt.append("svg:g")
     .attr("id", "legend")
-    .attr("class", "YlGn"); // NB: Change the color scheme here
+    .attr("class", "YlGn"); 
 
 d3.json("jsondata/us-counties.json", function(json) {
   counties_rt.selectAll("path")
@@ -109,11 +107,11 @@ function make_legend_rt()
     legend_rt.selectAll("text")
             .data(mins)
         .enter().append("svg:text")
-            .attr("text-anchor", "start") // text-align
+            .attr("text-anchor", "start") 
             .attr("x", 25)
             .attr("y", function(d, i){return 25 + i*16})
-            .attr("dx", 3) // padding-right
-            .attr("dy", 12 + 4) // vertical-align: used font size (copied from css. must be a better way)
+            .attr("dx", 3) 
+            .attr("dy", 12 + 4) 
             .attr("class", "legend")
             .text(function (d, i){return formatx_rt(d) + " - " + format_rt(maxes[i]);})
     ;
@@ -126,7 +124,7 @@ function show_rt(b)
         if (b)
         {
             label_rt.text(county_codes_rt[d.id] + ": $" + format_rt(data_rt[d.id] !== undefined ? data_rt[d.id] : 0) + "/month");
-            s.attr("class", "highlight");//"q0-9"
+            s.attr("class", "highlight");
         }
         else
         {
@@ -153,14 +151,10 @@ function __quantize_rt(f, min, max)
     // original with more head room 
     var om = ~~(f * 7 / (data_mean_rt + data_std_rt));
 
-    // NB: Choose your scaling function here.
     return Math.max(min, Math.min(max, q));
 }
 
 function quantize_rt(d) {
-    // map data[d.id] to be between 0 and 8
-    // original code did:
-    // values ranged between 1.2 and 30.1. Avg was 9, std is 3.65
     var min = 1;
     var max = 8;
     var f = data_rt[d.id];
@@ -187,7 +181,6 @@ var get_values_rt = function(obj)
 
 var populate_stats_rt = function(data)
 {
-    // need sorted values for quantile
     var values = get_values_rt(data_rt); 
     data_quantile_rt = d3.scale.quantile();
     data_quantile_rt.domain(values);

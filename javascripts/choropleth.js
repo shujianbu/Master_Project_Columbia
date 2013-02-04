@@ -1,16 +1,13 @@
-var data; // loaded asynchronously
-var data_quantile; // computed after load
+var data; 
+var data_quantile; 
 var data_mean;
 var data_std;
 var data_min;
 var data_max;
 
-// console.log("hello_chlo"); 
-
 var county_codes;
 var m = Number.MAX_VALUE;
 var km_to_m = 1.0 / 1.609344;
-// removed 0 here and hacked the legend code so that we don't have white + white borders
 var legend_min = {1:m, 2:m, 3:m, 4:m, 5:m, 6:m, 7:m, 8:m};
 var legend_max = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0};
 
@@ -20,7 +17,6 @@ var fixed = d3.format(".0f");
 var number = d3.format("n");
 var fixedx = function(x) { return d3.format(".0f")(km_to_m*x);}
 
-// NB: Change your number format function here:
 var format = percent;
 var formatx = percentx; 
 
@@ -28,7 +24,7 @@ var formatx = percentx;
 var width = window.innerWidth;
 var height = window.innerHeight;
 
-var path = d3.geo.path(); // Can do scaling here
+var path = d3.geo.path(); 
 
 var svg = d3.select("#chart")
   .append("svg:svg");
@@ -45,14 +41,14 @@ var map = svg.append('svg:g')
 
 var counties = map.append("svg:g")
     .attr("id", "counties")
-    .attr("class", "Blues") // NB: Change color scheme here
+    .attr("class", "Blues") 
 
 var states = map.append("svg:g")
     .attr("id", "states")
 
 var legend = svg.append("svg:g")
     .attr("id", "legend")
-    .attr("class", "Blues"); // NB: Change the color scheme here
+    .attr("class", "Blues"); 
 
 d3.json("jsondata/us-counties.json", function(json) {
   counties.selectAll("path")
@@ -111,11 +107,11 @@ function make_legend()
     legend.selectAll("text")
             .data(mins)
         .enter().append("svg:text")
-            .attr("text-anchor", "start") // text-align
+            .attr("text-anchor", "start") 
             .attr("x", 40)
             .attr("y", function(d, i){return 25 + i*16})
-            .attr("dx", 3) // padding-right
-            .attr("dy", 12 + 4) // vertical-align: used font size (copied from css. must be a better way)
+            .attr("dx", 3) 
+            .attr("dy", 12 + 4) 
             .attr("class", "legend")
             .text(function (d, i){return formatx(d) + " - " + format(maxes[i]);})
     ;
@@ -128,7 +124,7 @@ function show(b)
         if (b)
         {
             label.text(county_codes[d.id] + ": " + format(data[d.id] !== undefined ? data[d.id] : 0));
-            s.attr("class", "highlight");//"q0-9"
+            s.attr("class", "highlight");
         }
         else
         {
@@ -155,14 +151,10 @@ function __quantize(f, min, max)
     // original with more head room 
     var om = ~~(f * 7 / (data_mean + data_std));
 
-    // NB: Choose your scaling function here.
     return Math.max(min, Math.min(max, l));
 }
 
 function quantize(d) {
-    // map data[d.id] to be between 0 and 8
-    // original code did:
-    // values ranged between 1.2 and 30.1. Avg was 9, std is 3.65
     var min = 1;
     var max = 8;
     var f = data[d.id];
@@ -189,7 +181,6 @@ var get_values = function(obj)
 
 var populate_stats = function(data)
 {
-    // need sorted values for quantile
     var values = get_values(data); 
     data_quantile = d3.scale.quantile();
     data_quantile.domain(values);

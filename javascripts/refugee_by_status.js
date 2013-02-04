@@ -1,7 +1,6 @@
     var continent = 1, 
         re_stack = "";
 
-    /* Flatten the tree into an array to faciliate transformation. */
     var refugees = pv.flatten(refugees)
         .key("refugee")
         .key("continent", function(g) {return (g == "aff" ? 1 : 2) }) 
@@ -9,12 +8,6 @@
         .key("people")
         .array(); 
 
-// console.log(continent);
-// console.log("hello"); 
-    /*
-     * Use per-year sums to normalize the data, so we can compute a
-     * percentage. Use per-continent+refugee sums to determine a saturation encoding.
-     */
     var sumByYear = pv.nest(refugees)
         .key(function(d) { return d.year} )
         .rollup(function(v) { return pv.sum(v, function(d) {return d.people })}),
@@ -22,10 +15,8 @@
         .key(function(d) { return d.continent + d.refugee})
         .rollup(function(v) { return pv.sum(v, function(d) {return d.people })});
 
-    /* Cache the percentage of people employed per year. */
     refugees.forEach(function(d) { return d.percent = 100 * d.people / sumByYear[d.year] });
 
-    /* Sizing parameters and scales. */
     var w_stack = 700,
         h_stack = 360,
         x_stack = pv.Scale.linear(1996, 2011).range(0, w_stack), 
@@ -33,7 +24,6 @@
         color_stack = pv.Scale.ordinal(1, 2).range("#33ffff", "#ffff33"),
         alpha_stack = pv.Scale.linear(pv.values(sumByrefugee)).range(.4, .8);
 
-    /* The root panel. */
     var vis_stack = new pv.Panel()
         .width(w_stack)
         .height(h_stack)
@@ -42,13 +32,11 @@
         .right(20)
         .bottom(20); 
 
-    /* A background bar to reset the search query.  */
     vis_stack.add(pv.Bar)
         .fillStyle_s("#eef6fa")
         .event("click", function() { return search_stack("")})
         .cursor("pointer");
 
-    /* Y-axis ticks and labels. */
     vis_stack.add(pv.Rule)
         .data(function() { return y_stack.ticks()})
         .bottom(y_stack)
@@ -56,7 +44,6 @@
       .anchor("left").add(pv.Label)
         .text(function(d) { return y_stack.tickFormat(d) + "%" });
 
-    /* Stack layout. */
     var area_stack = vis_stack.add(pv.Layout.Stack)
         .layers(function() { return pv.nest(refugees.filter(test_stack))
             .key(function(d) { return d.continent + d.refugee })
@@ -73,7 +60,6 @@
         .event("mouseout", function(d) { return this.alphai(null) }) 
         .event("click", function(d) { return search_stack("^" + d.refugee + "$")});
 
-    /* Stack labels. */
     vis_stack.add(pv.Panel)
         .extend(area_stack.parent)
       .add(pv.Area)
@@ -88,7 +74,6 @@
         .textAlign(function() { return this.index < 5 ? "left" : "right"})
         .text(function(d, p) { return p.key.substring(1)});
 
-    /* X-axis ticks and labels. */
     vis_stack.add(pv.Rule)
         .data(pv.range(1996, 2012, 1))
         .left(x_stack)
@@ -96,7 +81,6 @@
         .height(5)
       .anchor("bottom").add(pv.Label);
 
-    /* Update the query regular expression when text is entered. */
     function search_stack(text) {
       if (text != re_stack) {
         if (query.value != text) {
@@ -108,12 +92,10 @@
       }
     }
 
-    /* Tests to see whether the specified datum matches the current filters. */
     function test_stack(d) {
       return (!continent || d.continent == continent) && d.refugee.match(re_stack);
     }
 
-    /* Recompute the y-scale domain based on query filtering. */
     function update() {
       y_stack.domain(0, Math.min(100, pv.max(pv.values(pv.nest(refugees.filter(test_stack))
           .key(function(d) { return d.year })

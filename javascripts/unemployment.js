@@ -1,5 +1,5 @@
-var data_un; // loaded asynchronously
-var data_quantile_un; // computed after load
+var data_un; 
+var data_quantile_un; 
 var data_mean_un;
 var data_std_un;
 var data_min_un;
@@ -8,7 +8,6 @@ var data_max_un;
 var county_codes_un;
 var m_un = Number.MAX_VALUE;
 var km_to_m_un = 1.0 / 1.609344;
-// removed 0 here and hacked the legend code so that we don't have white + white borders
 var legend_min_un = {1:m_un, 2:m_un, 3:m_un, 4:m_un, 5:m_un, 6:m_un, 7:m_un, 8:m_un};
 var legend_max_un = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0};
 
@@ -18,7 +17,6 @@ var fixed_un = d3.format(".0f");
 var number_un = d3.format("n");
 var fixedx_un = function(x) { return d3.format(".0f")(km_to_m_un*x);}
 
-// NB: Change your number format function here:
 var format_un = percent_un;
 var formatx_un = percentx_un; 
 
@@ -26,7 +24,7 @@ var formatx_un = percentx_un;
 var width_un = window.innerWidth;
 var height_un = window.innerHeight;
 
-var path_un = d3.geo.path(); // Can do scaling here
+var path_un = d3.geo.path(); 
 
 var svg_un = d3.select("#tabs-2")
   .append("svg:svg");
@@ -43,14 +41,14 @@ var map_un = svg_un.append('svg:g')
 
 var counties_un = map_un.append("svg:g")
     .attr("id", "counties")
-    .attr("class", "Purples") // NB: Change color scheme here
+    .attr("class", "Purples") 
 
 var states_un = map_un.append("svg:g")
     .attr("id", "states")
 
 var legend_un = svg_un.append("svg:g")
     .attr("id", "legend")
-    .attr("class", "Purples"); // NB: Change the color scheme here
+    .attr("class", "Purples"); 
 
 d3.json("jsondata/us-counties.json", function(json) {
   counties_un.selectAll("path")
@@ -109,11 +107,11 @@ function make_legend_un()
     legend_un.selectAll("text")
             .data(mins)
         .enter().append("svg:text")
-            .attr("text-anchor", "start") // text-align
+            .attr("text-anchor", "start") 
             .attr("x", 25)
             .attr("y", function(d, i){return 25 + i*16})
-            .attr("dx", 3) // padding-right
-            .attr("dy", 12 + 4) // vertical-align: used font size (copied from css. must be a better way)
+            .attr("dx", 3) 
+            .attr("dy", 12 + 4) 
             .attr("class", "legend")
             .text(function (d, i){return formatx_un(d) + " - " + format_un(maxes[i]);})
     ;
@@ -126,7 +124,7 @@ function show_un(b)
         if (b)
         {
             label_un.text(county_codes_un[d.id] + ": " + format_un(data_un[d.id] !== undefined ? data_un[d.id] : 0));
-            s.attr("class", "highlight");//"q0-9"
+            s.attr("class", "highlight");
         }
         else
         {
@@ -153,14 +151,10 @@ function __quantize_un(f, min, max)
     // original with more head room 
     var om = ~~(f * 7 / (data_mean_un + data_std_un));
 
-    // NB: Choose your scaling function here.
     return Math.max(min, Math.min(max, q));
 }
 
 function quantize_un(d) {
-    // map data[d.id] to be between 0 and 8
-    // original code did:
-    // values ranged between 1.2 and 30.1. Avg was 9, std is 3.65
     var min = 1;
     var max = 8;
     var f = data_un[d.id];
@@ -187,7 +181,6 @@ var get_values_un = function(obj)
 
 var populate_stats_un = function(data)
 {
-    // need sorted values for quantile
     var values = get_values_un(data_un); 
     data_quantile_un = d3.scale.quantile();
     data_quantile_un.domain(values);

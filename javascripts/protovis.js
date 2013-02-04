@@ -1,4 +1,4 @@
-// console.log("hello_p");
+// I've changed the original protovis js a little;
 /**
  * @class The built-in Array class.
  * @name Array

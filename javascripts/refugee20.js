@@ -5,7 +5,6 @@ var regions = { "SAS": "South Asia" , "ECS": "Europe and Central Asia", "MEA": "
 	startYear = 1990, 
 	endYear = 2012,
 	startAge = 0,
-	// endAge = 60000,
     endAge = 100,
 	y = d3.scale.linear().domain([endAge, startAge]).range([0 + margin, h - margin]),
 	x = d3.scale.linear().domain([1990, 2011]).range([0 + margin - 5, w]),
@@ -54,7 +53,6 @@ d3.text('csvdata/range.csv', 'text/csv', function(text) {
                 }   
             }
         }
-        // Actual line
         vis.append("svg:path")
             .data([currData])
             .attr("country", countries[i][1])
@@ -162,13 +160,11 @@ function onmouseout(d, i) {
     var prevClass = currClass.substring(0, currClass.length-8);
     d3.select(this)
         .attr("class", prevClass);
-    // $("#blurb").text("hi again");
     $("#default-blurb").show();
     $("#blurb-content").html('');
 }
 
 function showRegion(regionCode) {
-    // alert(regionCode);
     var countries = d3.selectAll("path."+regionCode);
     if (countries.classed('highlight')) {
         countries.attr("class", regionCode);
