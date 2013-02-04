@@ -18,6 +18,49 @@
     <script type="text/javascript" src="javascripts/jquery-ui.js"></script>
     <script type="text/javascript" src="javascripts/protovis.js"></script>
     <script type="text/javascript" src="javascripts/refugee_by_status_data.js"></script>
+    <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.load('visualization', '1', {packages: ['corechart']});
+      google.setOnLoadCallback(drawTable);
+      google.setOnLoadCallback(drawVisualization); 
+
+      function drawTable() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Race & Ethnic');
+        data.addColumn('string', 'Pearson Correlation');
+        data.addColumn('string', 'Spearman Correlation');
+        data.addRows([
+          ['White Alone',  '(0.646, 0.0)', '(0.582, 1.197e-284)'],
+          ['Black or African American Alone', '(0.465, 4.059e-168)',  '(0.471, 1.266e-173)'],
+          ['Asian Alone', '(0.384, 1.268e-110)', '(0.597, 2.214e-303)'],
+          ['American Indian & Alaska Native Alone',  '(0.361, 2.387e-97)', '(0.462, 7.35e-166)'],
+          ['Native Hawaiian & Other Pacific Islander Alone', '(0.218, 3.84e-35)',  '(0.483, 2.73e-183)'],
+          ['Some Other Race Alone', '(0.337, 3.065e-84)', '(0.542, 2.249e-239)'],
+          ['Two or More races', '(0.502, 1.599e-200)', '(0.573, 3.329e-273)']
+        ]);
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+        table.draw(data, {showRowNumber: false});
+      }
+
+      function drawVisualization() {
+        var data = google.visualization.arrayToDataTable([
+          ['Category', 'White Alone', 'Black or African American Alone', 'Asian Alone', 'American Indian & Alaska Native Alone', 'Native Hawaiian & Other Pacific Islander Alone', 'Some Other Race Alone','Two or More races'],
+          ['Pearson Correlation',  0.646, 0.465, 0.384, 0.361,0.218,0.542,0.502],
+          ['Spearman Correlation',  0.582,0.471,0.597,0.462,0.483,0.542,0.573]
+        ]);
+        new google.visualization.ColumnChart(document.getElementById('column_div')).
+            draw(data,
+                 {
+                  chartArea: {left:38,top:30, width:"50%",height:"70%"},
+                  colors: ['#F5CED6', '#68C7B8', '#C5B39E', '#E3E836','#C5503D', '#5E7324','#b2c8b2'],
+                  width:750, height:250,
+                 });
+      }
+    </script>
+
+
+
 
     <script>  $(function() { $( "#tabs" ).tabs(); }); </script>
     <style>   
@@ -107,15 +150,8 @@ Pearson Correlation (Refugee_Arrival, Medium Rent) = (0.15598, 1.44364e-18)
 <!-- @ Part 3 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
         <hr width="750px">
-        <pre><code><center>
-White: Pearson = (0.646, 0.0); Spearman = (0.582, 1.197e-284)
-Black/African American: Pearson = (0.465, 4.059e-168); Spearman = (0.471, 1.266e-173)
-Asian: Pearson = (0.384, 1.268e-110); Spearman = (0.597, 2.214e-303)
-American Indian & Alaska Native: Pearson = (0.361, 2.387e-97); Spearman = (0.462, 7.35e-166)
-Native Hawaiian & Other Pacific Islander: Pearson = (0.218, 3.84e-35); Spearman = (0.483, 2.73e-183)
-Some Other Race: Pearson = (0.337, 3.065e-84); Spearman = (0.542, 2.249e-239)
-Two or More races: Pearson = (0.502, 1.599e-200); Spearman = (0.573, 3.329e-273)
-        </center></code></pre>
+        <div id='column_div'></div>
+        <div id='table_div'></div>
 
         <hr width="750px">
         <h3>Linechart Of 100 Countries</h3>
