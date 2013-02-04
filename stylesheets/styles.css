@@ -8,7 +8,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, figure, form, fi
 body {
   padding:50px;
   font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color:#777;
+  color:#555;
   font-weight:300;
 }
 
@@ -37,6 +37,13 @@ h3, h4, h5, h6 {
   color:#494949;
 }
 
+em
+{ 
+  font-size:160%;
+  color:#39c;
+  font-family: "Florence", cursive;
+}
+
 a {
   color:#39c;
   font-weight:400;
@@ -45,13 +52,13 @@ a {
 
 a small {
   font-size:11px;
-  color:#777;
+  color:#555;
   margin-top:-0.6em;
   display:block;
 }
 
 .wrapper {
-  width:960px;
+  width:1100px;
   margin:0 auto;
 }
 
@@ -88,12 +95,12 @@ th, td {
 }
 
 dt {
-  color:#444;
+  color:#555;
   font-weight:700;
 }
 
 th {
-  color:#444;
+  color:#555;
 }
 
 img {
@@ -165,7 +172,7 @@ header ul a strong {
 }
 
 section {
-  width:650px;
+  width:750px;
   float:right;
   padding-bottom:50px;
 }
@@ -256,7 +263,7 @@ footer {
   body {
     padding:0.4in;
     font-size:12pt;
-    color:#444;
+    color:#555;
   }
 }
 
@@ -478,12 +485,12 @@ line {
   padding-top: 15px;
   margin-bottom: 5px;  
   margin-right: 25px;
-  color: #777; 
+  color: #555; 
 }
 
 #fig_footer {
   padding-left: 40px; 
-  color: #777;
+  color: #555;
   margin-left: 50px;
   margin-top: -24px; 
 }

@@ -35,9 +35,9 @@
       </header>
       
       
-      <section>
+      <section class="main">
         <center><h1>Visualization</h1></center>
-        <p>This is the introduction part.</p>
+        <p><em>T</em>his is the introduction part.</p>
 
 <!-- @ Part 1 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
         <hr width="750px">
@@ -91,11 +91,32 @@
           </div>
 
         </div>
-        <p>This is more data explanation. </p>
+
+        <p>There are some interesting findings by calculating a <a href="http://onlinestatbook.com/chapter4/pearson.html" target="_blank"><code>Pearson</code></a> and <a href="http://www.statstutor.ac.uk/resources/uploaded/spearmans.pdf" target="_blank"><code>Spearman</code></a> correlation coefficient and the p-value for testing non-correlation. The p-value roughly indicates the probability of an uncorrelated system producing datasets that have a Pearson correlation at least as extreme as the one computed from these datasets. The p-values are not entirely reliable but are probably reasonable for datasets larger than 500. It's worth a try here for the dataset is larger than 3000. Statistically, <code>Pearson</code> benchmarks linear relationship; while <code>Spearman</code> benchmarks monotonic relationship. </p>
+        <pre><code><center>
+ Pearson Correlation (Refugee_Arrival, Population) = (0.59962, 3.63739e-306) 
+Spearman Correlation (Refugee_Arrival, Population) = (0.61046, 2.72328e-320)
+
+Pearson Correlation (Refugee_Arrival, Unemployment_Rate) = (0.01573, 0.37801) 
+  Spearman Correlation (Refugee_Arrival, Unemployment_Rate) = (0.10033, 1.73831e-08)
+
+Pearson Correlation (Refugee_Arrival, Medium Rent) = (0.15598, 1.44364e-18) 
+ Spearman Correlation (Refugee_Arrival, Medium Rent) = (0.45453, 4.99229e-160)  
+        </center></code></pre>
 
 <!-- @ Part 3 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
         <hr width="750px">
+        <pre><code><center>
+White: Pearson = (0.646, 0.0); Spearman = (0.582, 1.197e-284)
+Black/African American: Pearson = (0.465, 4.059e-168); Spearman = (0.471, 1.266e-173)
+Asian: Pearson = (0.384, 1.268e-110); Spearman = (0.597, 2.214e-303)
+American Indian & Alaska Native: Pearson = (0.361, 2.387e-97); Spearman = (0.462, 7.35e-166)
+Native Hawaiian & Other Pacific Islander: Pearson = (0.218, 3.84e-35); Spearman = (0.483, 2.73e-183)
+Some Other Race: Pearson = (0.337, 3.065e-84); Spearman = (0.542, 2.249e-239)
+Two or More races: Pearson = (0.502, 1.599e-200); Spearman = (0.573, 3.329e-273)
+        </center></code></pre>
+
         <hr width="750px">
         <h3>Linechart Of 100 Countries</h3>
         <p>If ..... </p>
