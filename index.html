@@ -54,7 +54,7 @@
         new google.visualization.ColumnChart(document.getElementById('column_div')).
             draw(data,
                  {
-                  chartArea: {left:100,top:30, width:"50%",height:"70%"},
+                  chartArea: {left:40,top:30, width:"50%",height:"70%"},
                   colors: ['#F5CED6', '#68C7B8', '#C5B39E', '#E3E836','#C5503D', '#5E7324','#b2c8b2'],
                   width:750, height:250,
                  });
@@ -98,9 +98,9 @@
         new google.visualization.ColumnChart(document.getElementById('column_div_china')).
             draw(data,
                  {
-                  chartArea: {left:38,top:30, width:"70%",height:"80%"},
+                  chartArea: {left:38,top:30, width:"70%",height:"75%"},
                   colors: [ '#bde','#a0cfe7','#85c2e0','#69b4da','#4ea7d3','#39c','#297aa3','#268','#18475f','#134'],
-                  width:350, height:200,
+                  width:350, height:250,
                  });
       }
 
@@ -112,9 +112,9 @@
         new google.visualization.ColumnChart(document.getElementById('column_div_china_a')).
             draw(data,
                  {
-                  chartArea: {left:38,top:30, width:"70%",height:"80%"},
+                  chartArea: {left:38,top:30, width:"70%",height:"75%"},
                   colors: [ '#bde','#a0cfe7','#85c2e0','#69b4da','#4ea7d3','#39c','#297aa3','#268','#18475f','#134'],
-                  width:350, height:200,
+                  width:350, height:250,
                  });
       }
     </script>
@@ -369,17 +369,16 @@ Pearson Correlation (Refugee_Arrival, Medium Rent) = (0.15598, 1.44364e-18)
         <h3>An Easier Way Out? </h3>
         <p>An asylum seeker is a person who is seeking protection as a refugee and is still waiting to have his/her claim assessed. The two main ways of obtaining asylum in the United States are through the affirmative process and through the defensive process. Usually the <a href="http://www.uscis.gov/portal/site/uscis/menuitem.5af9bb95919f35e66f614176543f6d1a/?vgnextoid=dab9f067e3183210VgnVCM100000082ca60aRCRD">defensive asylum-seeker</a> has been placed in removal proceedings in <a href="http://www.justice.gov/eoir/sibpages/ICadr.htm">Immigration Court</a>. Affirmative asylum applicants are almost never detained. They are free to live in the U.S. pending the completion of their asylum processing with <a href="http://www.uscis.gov">USCIS</a> and, if found ineligible by USCIS, then with an Immigration Judge. <br /> <br />
 
-        However, asylum seekers in the U.S. face broad disparities in the nation’s 54 immigration courts, with the outcome of cases influenced by things like the location of the court and the sex and professional background of judges, according to a <a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=983946">study</a>  conducted by by three law professors found in 2007. According to the analysis of 14,000 cases from 15 countries, China and Colombia, where the conditions of political oppression or civil violence are publicly known, have higher chance of winning the case. For instance, the study shows that someone who has fled China in fear of persecution and asks for asylum in immigration court in Orlando, Florida, has a 76 percent chance of success, while the same refugee would only have a 7 percent chance in Atlanta. Similarly, Haitians and Colombians applying for asylum has higher chance, sometimes up to twice, in Miami and New York, than in other cities. This could be easily identified from the stacked area bar chart below, in which countries with more data have larger label size and area. <br /> <br />
-
+        However, asylum seekers in the U.S. face broad disparities in the nation’s 54 immigration courts, with the outcome of cases influenced by things like the location of the court and the sex and professional background of judges, according to a <a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=983946">study</a>  conducted by by three law professors found in 2007. According to the analysis of 14,000 cases from 15 countries, China and Colombia, where the conditions of political oppression or civil violence are publicly known, have higher chance of winning the case. For instance, the study shows that someone who has fled China in fear of persecution and asks for asylum in immigration court in Orlando, Florida, has a 76 percent chance of success, while the same refugee would only have a 7 percent chance in Atlanta. Similarly, Haitians and Colombians applying for asylum has higher chance, sometimes up to twice, in Miami and New York, than in other cities. This could be easily identified from the stacked area bar chart below, in which countries with more data have larger label size and area. <br /> <br /> 
+        
         It's also interesting to notice that some countries have a large number of both affirmative and defensive asylums. With a large population base and given its situation, China should top both groups. But it actually happens to only the asylum-seeker group, but not the refugee group. It looks odd, but makes perfect sense in fact. 
         </p>
 
         <div id='column_div_china'></div>   
         <div id='column_div_china_a'></div>   
-        <br />     
+        <br /> 
         <div id='table_div_china'></div>
-        <br /><br />
-
+        <br /> <br /> 
         <p>The United States provides refuge to persons who have been persecuted or have a well-founded fear of persecution through <a href="http://www.dhs.gov/xlibrary/assets/statistics/publications/ois_rfa_fr_2011.pdf">two programs</a>: one for refugees (persons outside the U.S. and their immediate relatives) and one for asylees (persons in the U.S. and their immediate relatives). An applicant for refugee status is outside the United States, while an applicant seeking asylum status is in the United States or at a U.S. port of entry. Because of the strict laws and situations, it's extremely hard for Chinese residents to apply the "Refugee Status", which requires applicants physically being inside their own coutries. Once they leave China and successfully go across the US border, they could apply the "Asylum Status". This kind of "tricks" has boomed the prosperity of Chinese law firms in the states. <br /> <br />
 
         <!-- Mr. Wang came here  -->
