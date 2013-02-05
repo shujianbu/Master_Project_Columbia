@@ -126,6 +126,8 @@
     </style>
   </head>
   
+  <!-- Here begins the body part  -->
+
   <body>
     <div class="wrapper">
     
@@ -139,13 +141,13 @@
       <section class="main">
         <!-- <center><h1>Visualization</h1></center>  -->
         <p><em>On</em> a . 
-          The visitors represent a few of the millions of families in New York and the broader United States affected by stricter immigration laws. 
+          The visitors represent a few of the millions of families in New York and the broader United States affected by stricter immigration and refugee laws. 
         </p>
 
 <!-- @ Part 1 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
         <hr width="750px">
         <h3>Map of Refugee Arrivals</h3>
-        <p>The United States has historically accepted more refugees for resettlement than all other countries combined. The data on the choropleth map has been processed exponentially, otherwise most counties would be blank. Despite so, only a few counties are popular choices for the refugees. States like Wyoming and Montana have nearly no refugee settling theer. States adjoining the Mexico - California, Arizona, and Texas - have become hotspots for refugees. That also happens to Florida, which is very close to Cuba.</p>
+        <p>The United States has historically accepted more refugees for resettlement than all other countries combined. The data on the choropleth map has been processed exponentially, otherwise most counties would be blank. Despite so, only a few counties are popular choices for the refugees. States like Wyoming and Montana have nearly no refugee settling there. The states adjoining the Mexico - California, Arizona, and Texas - have become hotspots for refugees. That also happens to Florida, which is very close to Cuba.</p>
 
         <div id="chart"> 
             <script type="text/javascript" src="javascripts/choropleth.js"></script>
@@ -153,7 +155,7 @@
 
         <pchart>Refugee Arrivals - cumulative total from 2007 - 2012, as of 10/31/2012, <a href="http://www.wrapsnet.org/Reports/AdmissionsArrivals/tabid/211/Default.aspx" target="_blank">Source</a></pchart>
         <br /> <br />
-        <p>In FY 2002, four US states resettled more than 40 percent of the refugees: California (nearly 16 percent), Washington (just under 10 percent), New York (just under 9 percent), and Florida (7 percent). And in FY 2012, 
+        <p>In FY 2002, four US states resettled more than 40 percent of the refugees: California (nearly 16 percent), Washington (just under 10 percent), New York (just under 9 percent), and Florida (7 percent). 10 Years later, Texas (10.5 percent), California (nearly 10 percent), and Michigan (7.9 percent) have become more popular. And for Texas, the top several original countries of refugees are Malaysia (22 percent), Thailand (11.9 percent), Iraq (11.6 percent ) and Nepal (11 percent).    
         </p>
 <!-- @ Part 2 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
@@ -370,12 +372,15 @@ Pearson Correlation (Refugee_Arrival, Medium Rent) = (0.15598, 1.44364e-18)
 
         <hr width="750px">
         <h3>An Easier Way Out? </h3>
-        <p>An asylum seeker is a person who is seeking protection as a refugee and is still waiting to have his/her claim assessed. The two main ways of obtaining asylum in the United States are through the affirmative process and through the defensive process. Usually the <a href="http://www.uscis.gov/portal/site/uscis/menuitem.5af9bb95919f35e66f614176543f6d1a/?vgnextoid=dab9f067e3183210VgnVCM100000082ca60aRCRD">defensive asylum-seeker</a> has been placed in removal proceedings in <a href="http://www.justice.gov/eoir/sibpages/ICadr.htm">Immigration Court</a>. Affirmative asylum applicants are almost never detained. They are free to live in the U.S. pending the completion of their asylum processing with <a href="http://www.uscis.gov">USCIS</a> and, if found ineligible by USCIS, then with an Immigration Judge. <br /> <br />
+        <p>The US maintains a distinct <a href="http://www.migrationinformation.org/feature/display.cfm?ID=229">program</a> for asylum seekers, as opposed to resettled refugees. Asylum seekers are persons who have fled their countries of nationality as a result of armed conflict, violence, persecution, human rights violations, etc., and are seeking protection and immunity from forced return by the government of the country in which they are seeking asylum. An asylum seeker is a person who is seeking protection as a refugee and is still waiting to have his/her claim assessed. 
+        <br /> <br />
+
+        The two main ways of obtaining asylum in the United States are through the affirmative process and through the defensive process. Usually the <a href="http://www.uscis.gov/portal/site/uscis/menuitem.5af9bb95919f35e66f614176543f6d1a/?vgnextoid=dab9f067e3183210VgnVCM100000082ca60aRCRD">defensive asylum-seeker</a> has been placed in removal proceedings in <a href="http://www.justice.gov/eoir/sibpages/ICadr.htm">Immigration Court</a>. Affirmative asylum applicants are almost never detained. They are free to live in the U.S. pending the completion of their asylum processing with <a href="http://www.uscis.gov">USCIS</a> and, if found ineligible by USCIS, then with an Immigration Judge. <br /> <br />
 
         However, asylum seekers in the U.S. face broad disparities in the nation’s 54 immigration courts, with the outcome of cases influenced by things like the location of the court and the sex and professional background of judges, according to a <a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=983946">study</a>  conducted by by three law professors found in 2007. According to the analysis of 14,000 cases from 15 countries, China and Colombia, where the conditions of political oppression or civil violence are publicly known, have higher chance of winning the case. For instance, the study shows that someone who has fled China in fear of persecution and asks for asylum in immigration court in Orlando, Florida, has a 76 percent chance of success, while the same refugee would only have a 7 percent chance in Atlanta. Similarly, Haitians and Colombians applying for asylum has higher chance, sometimes up to twice, in Miami and New York, than in other cities. This could be easily identified from the stacked area bar chart below, in which countries with more data have larger label size and area. <br /> <br /> 
         
         It's also interesting to notice that some countries have a large number of both affirmative and defensive asylums. With a large population base and given its situation, China should top both groups. But it actually happens to only the asylum-seeker group, but not the refugee group. It looks odd, but makes perfect sense in fact. 
-        </p>
+        </p> 
 
         <div id='column_div_china'></div>   
         <div id='column_div_china_a'></div>   
@@ -384,8 +389,10 @@ Pearson Correlation (Refugee_Arrival, Medium Rent) = (0.15598, 1.44364e-18)
         <br /> <br /> 
         <p>The United States provides refuge to persons who have been persecuted or have a well-founded fear of persecution through <a href="http://www.dhs.gov/xlibrary/assets/statistics/publications/ois_rfa_fr_2011.pdf">two programs</a>: one for refugees (persons outside the U.S. and their immediate relatives) and one for asylees (persons in the U.S. and their immediate relatives). An applicant for refugee status is outside the United States, while an applicant seeking asylum status is in the United States or at a U.S. port of entry. Because of the strict laws and situations, it's extremely hard for Chinese residents to apply the "Refugee Status", which requires applicants physically being inside their own coutries. Once they leave China and successfully go across the US border, they could apply the "Asylum Status". This kind of "tricks" has boomed the prosperity of Chinese law firms in the states. <br /> <br />
 
-        Comparing the admissions ceilings with the actual numbers admitted from 1991-2003 shows an accumulated shortfall of nearly 210,000 persons.   
         <!-- Mr. Wang came here  -->
+        Mr. Wang runs a streetfood business in Manhattan, NYC. He still remembers what happened on 911 in 2001, when he first came here, with a tourism <a href="http://travel.state.gov/visa/temp/types/types_1262.html">B-2 Visa</a> issued by China. At that time, there was a rumor, especially widely spread among Chinese, that the U.S. would tighten their immigration law because of the terrorist attack. So Wang decided to stay, leaving all his business behind back in China. After his visa expired, he managed to apply the asylum status and waited until the government issued him the Green Card. He couldn't find a decent job with the asylum status. To make a living, he opened up the streetfood station, selling a famous dish from his hometown. Recently he hired young Mr. Chen, who just arrived here last year with the same visa. He is saving money to find a lawyer to help him with all the procedures. Though it'll be a long process before he could legally stay here, he said it's worth risking.<br /> <br />
+
+        Last December, <a href="http://www.justice.gov/usao/nys/pressreleases/December12/AsylumFraudChargesPR.php">26 individuals, including six Lawyers, were charged</a> in Manhattan Federal Court with participating in immigration fraud schemes, involving hundreds Of fraudulent asylum applications. The report said that these attorney frequently instructed the client on what to say to ensure that nothing was said that contradicted the story that the law firm had fabricated. At the hearing, the client would falsely testify under oath in response to the attorney’s questioning about the fictitious story of persecution.
         </p> 
 
         <div id="fig">
