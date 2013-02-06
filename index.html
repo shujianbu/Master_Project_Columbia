@@ -140,7 +140,7 @@
       
       <section class="main">
         <!-- <center><h1>Visualization</h1></center>  -->
-        <p><em>On</em> a . 
+        <p><em>On</em> Washington Heights. 
           The visitors represent a few of the millions of families in New York and the broader United States affected by stricter immigration and refugee laws. 
         </p>
 
@@ -155,13 +155,16 @@
 
         <pchart>Refugee Arrivals - cumulative total from 2007 - 2012, as of 10/31/2012, <a href="http://www.wrapsnet.org/Reports/AdmissionsArrivals/tabid/211/Default.aspx" target="_blank">Source</a></pchart>
         <br /> <br />
-        <p>In FY 2002, four US states resettled more than 40 percent of the refugees: California (nearly 16 percent), Washington (just under 10 percent), New York (just under 9 percent), and Florida (7 percent). 10 Years later, Texas (10.5 percent), California (nearly 10 percent), and Michigan (7.9 percent) have become more popular. And for Texas, the top several original countries of refugees are Malaysia (22 percent), Thailand (11.9 percent), Iraq (11.6 percent ) and Nepal (11 percent).    
+        <p>In FY 2002, four US states resettled more than 40 percent of the refugees: California (nearly 16 percent), Washington (just under 10 percent), New York (just under 9 percent), and Florida (7 percent). 10 Years later, Texas (10.5 percent), California (nearly 10 percent), and Michigan (7.9 percent) have become more popular. And for Texas, the top several original countries of refugees are Malaysia (22 percent), Thailand (11.9 percent), Iraq (11.6 percent ) and Nepal (11 percent). 
         </p>
 <!-- @ Part 2 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
         <hr width="750px;"> 
         <h3>What Affect Their Choices?</h3>
-        <p>The irregular distribution of refugees ...</p>
+        <p>There might be some potential factors causing the irregular distribution of refugees, as shown in the illustration above. When refugees make decisions about where to settle down, they need to figure out a way to make a living. Most common considerations would be the population density, unemployment rate, rent price and the ethnic community. <br /> <br />
+
+        By switching between different tabs, the following part maps all these factors down to the countywide level.  
+        </p>
 
         <div id="tabs">
           <ul>
@@ -197,7 +200,7 @@
 
         </div>
 
-        <p>There are some interesting findings by calculating a <a href="http://onlinestatbook.com/chapter4/pearson.html" target="_blank"><code>Pearson</code></a> and <a href="http://www.statstutor.ac.uk/resources/uploaded/spearmans.pdf" target="_blank"><code>Spearman</code></a> correlation coefficient and the p-value for testing non-correlation. The p-value roughly indicates the probability of an uncorrelated system producing datasets that have a Pearson correlation at least as extreme as the one computed from these datasets. The p-values are not entirely reliable but are probably reasonable for datasets larger than 500. It's worth a try here for the dataset is larger than 3000. Statistically, <code>Pearson</code> benchmarks linear relationship; while <code>Spearman</code> benchmarks monotonic relationship. </p>
+        <p>A statistically meaningful method to check the relationship is to get the correlation coefficient of two vectors. There are some interesting findings by calculating the <a href="http://onlinestatbook.com/chapter4/pearson.html" target="_blank"><code>Pearson</code></a> and <a href="http://www.statstutor.ac.uk/resources/uploaded/spearmans.pdf" target="_blank"><code>Spearman</code></a> correlation coefficient and the p-value for testing non-correlation. The p-value roughly indicates the probability of an uncorrelated system producing datasets that have a Pearson correlation at least as extreme as the one computed from these datasets. The p-values are not entirely reliable but are probably reasonable for datasets larger than 500. It's worth a try here for the dataset is larger than 3000. Statistically, <code>Pearson</code> benchmarks linear relationship; while <code>Spearman</code> benchmarks monotonic relationship. Below is the computing results for the three sets of data.</p> 
         <pre><code><center>
  Pearson Correlation (Refugee_Arrival, Population) = (0.59962, 3.63739e-306) 
 Spearman Correlation (Refugee_Arrival, Population) = (0.61046, 2.72328e-320)
@@ -208,18 +211,23 @@ Pearson Correlation (Refugee_Arrival, Unemployment_Rate) = (0.01573, 0.37801)
 Pearson Correlation (Refugee_Arrival, Medium Rent) = (0.15598, 1.44364e-18) 
  Spearman Correlation (Refugee_Arrival, Medium Rent) = (0.45453, 4.99229e-160)  
         </center></code></pre>
-        <p>The best way for a hermit to hide away is to stand on the street of a noisy market. </p>
-        <p>
-          Funding for the US refugee resettlement program comes from the State Department, largely through the Migration and Refugee Assistance (MRA) Account. In FY 2004, the account designated $132 million for refugee admissions.
+        <p>Population Density? The best way for a hermit to hide away is to stand on the street of a noisy market.<br /> <br />
+          
+          Unemployment Rate? 
+          
+          Funding for the US refugee resettlement program comes from the State Department, largely through the Migration and Refugee Assistance (MRA) Account. In FY 2004, the account designated $132 million for refugee admissions. <br /> <br />
+
+          Rent?   
         </p>
 
 <!-- @ Part 3 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
     
         <hr width="750px">
         <h3>Adapting the Culture</h3>
-        <p>State resettlement patterns are generally dominated by certain ethnic communities.</p>
+        <p>State resettlement patterns are generally dominated by certain ethnic communities...</p>
         <div id='column_div'></div>
         <div id='table_div'></div>
+        <p>The barchart and table show the correlation coefficient between refugee settlement and seven ethnic communities. </p>
 
         <hr width="750px">
         <hr width="750px;"> 
@@ -368,11 +376,12 @@ Pearson Correlation (Refugee_Arrival, Medium Rent) = (0.15598, 1.44364e-18)
 
             <script type="text/javascript" src="javascripts/refugee20.js"></script> 
 
+            <p>There's a huge gap between different countries.</p>    
         </div>  <!-- @End of Line Chart Section-->
 
         <hr width="750px">
         <h3>An Easier Way Out? </h3>
-        <p>The US maintains a distinct <a href="http://www.migrationinformation.org/feature/display.cfm?ID=229">program</a> for asylum seekers, as opposed to resettled refugees. Asylum seekers are persons who have fled their countries of nationality as a result of armed conflict, violence, persecution, human rights violations, etc., and are seeking protection and immunity from forced return by the government of the country in which they are seeking asylum. An asylum seeker is a person who is seeking protection as a refugee and is still waiting to have his/her claim assessed. 
+        <p><em>The</em> U.S. maintains a distinct <a href="http://www.migrationinformation.org/feature/display.cfm?ID=229">program</a> for asylum seekers, as opposed to resettled refugees. Asylum seekers are persons who have fled their countries of nationality as a result of armed conflict, violence, persecution, human rights violations, etc., and are seeking protection and immunity from forced return by the government of the country in which they are seeking asylum. An asylum seeker is a person who is seeking protection as a refugee and is still waiting to have his/her claim assessed. 
         <br /> <br />
 
         The two main ways of obtaining asylum in the United States are through the affirmative process and through the defensive process. Usually the <a href="http://www.uscis.gov/portal/site/uscis/menuitem.5af9bb95919f35e66f614176543f6d1a/?vgnextoid=dab9f067e3183210VgnVCM100000082ca60aRCRD">defensive asylum-seeker</a> has been placed in removal proceedings in <a href="http://www.justice.gov/eoir/sibpages/ICadr.htm">Immigration Court</a>. Affirmative asylum applicants are almost never detained. They are free to live in the U.S. pending the completion of their asylum processing with <a href="http://www.uscis.gov">USCIS</a> and, if found ineligible by USCIS, then with an Immigration Judge. <br /> <br />
@@ -417,7 +426,7 @@ Pearson Correlation (Refugee_Arrival, Medium Rent) = (0.15598, 1.44364e-18)
 <!-- @ Part 4 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
         <hr width="750px;"> 
-        </br>
+        
         <h3>Ending Part</h3>
         <p>More explanation ... </p>
 
