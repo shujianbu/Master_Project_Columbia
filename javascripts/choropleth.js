@@ -128,7 +128,7 @@ function show(b)
         }
         else
         {
-            label.text("Refugee Distribution");
+            label.text("");
             s.attr("class", quantize);
         }
     }

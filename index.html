@@ -142,7 +142,7 @@
       <section class="main">
          
         <div class="timeline"> 
-          <iframe src='http://embed.verite.co/timeline/?source=0Ap8U0rEu1lpIdDY1eERmanlkaDFlVHFsTDdvZ0pDUVE&font=NewsCycle-Merriweather&maptype=HYBRID&lang=en&hash_bookmark=true&gmap_key=AIzaSyAr96nf8AlCMgDjFaS1sGSX5XdCijaxs5k&height=450' width='85%' height='300' frameborder='0'></iframe>
+          <iframe src='http://embed.verite.co/timeline/?source=0Ap8U0rEu1lpIdDY1eERmanlkaDFlVHFsTDdvZ0pDUVE&font=NewsCycle-Merriweather&maptype=HYBRID&lang=en&hash_bookmark=true&gmap_key=AIzaSyAr96nf8AlCMgDjFaS1sGSX5XdCijaxs5k&height=450' width='85%' height='320' frameborder='0'></iframe>
         </div>   
         <!-- <center><h1>Visualization</h1></center>  -->
         <p><em>On</em> Washington Heights. 
@@ -151,8 +151,8 @@
 
 <!-- @ Part 1 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
         <hr width="750px">
-        <h3>Map of Refugee Arrivals</h3>
-        <p>The United States has historically accepted more refugees for resettlement than all other countries combined. The data on the choropleth map has been processed exponentially, otherwise most counties would be blank. Despite so, only a few counties are popular choices for the refugees. States like Wyoming and Montana have nearly no refugee settling there. The states adjoining the Mexico - California, Arizona, and Texas - have become hotspots for refugees. That also happens to Florida, which is very close to Cuba.</p>
+        <h3>Refugee Arrivals</h3>
+        <p>The United States has historically accepted more refugees for resettlement than all other countries combined. Because very few counties are popular choices for refugees, therefore the data on the choropleth map has been processed exponentially. States like Wyoming and Montana have nearly no refugees settling there. States adjoining Mexico - California, Arizona, and Texas - have become hotspots for refugees. This is also true in Florida, which is geographically very close to Cuba.</p>
 
         <div id="chart"> 
             <script type="text/javascript" src="javascripts/choropleth.js"></script>
@@ -160,13 +160,13 @@
 
         <pchart>Refugee Arrivals - cumulative total from 2007 - 2012, as of 10/31/2012, <a href="http://www.wrapsnet.org/Reports/AdmissionsArrivals/tabid/211/Default.aspx" target="_blank">Source</a></pchart>
         <br /> <br />
-        <p>In FY 2002, four US states resettled more than 40 percent of the refugees: California (nearly 16 percent), Washington (just under 10 percent), New York (just under 9 percent), and Florida (7 percent). 10 Years later, Texas (10.5 percent), California (nearly 10 percent), and Michigan (7.9 percent) have become more popular. And for Texas, the top several original countries of refugees are Malaysia (22 percent), Thailand (11.9 percent), Iraq (11.6 percent ) and Nepal (11 percent). 
+        <p>In fiscal year 2002, four US states resettled more than 40 percent of the refugees: California (nearly 16 percent), Washington (just under 10 percent), New York (just under 9 percent), and Florida (7 percent). Ten Years later, Texas (10.5 percent), California (nearly 10 percent), and Michigan (7.9 percent) have become more popular. And for Texas, the top nationality for refugees are Malaysian (22 percent), Thai (11.9 percent), Iraqi (11.6 percent ) and Nepalese (11 percent). 
         </p>
 <!-- @ Part 2 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
         <hr width="750px;"> 
-        <h3>What Affect Their Choices?</h3>
-        <p>There might be some potential factors causing the irregular distribution of refugees, as shown in the illustration above. When refugees make decisions about where to settle down, they need to figure out a way to make a living. Most common considerations would be the population density, unemployment rate, rent price and the ethnic community. <br /> <br />
+        <h3>Why These Counties?</h3>
+        <p>Some potential factors causing the irregular distribution of refugees, as shown in the illustration above, might be population density, unemployment rate, rents and relative size of the existing ethnic/religious community. Because when they make decisions about where to settle down, they need to figure out a way to make a living. <br /> <br />
 
         By switching between different tabs, the following part maps all these factors down to the countywide level.  
         </p>
@@ -176,7 +176,7 @@
           <li><a href="#tabs-1">Population</a></li>
           <li><a href="#tabs-2">Unemployment</a></li>
           <li><a href="#tabs-3">Medium Rent</a></li>
-          <li><a href="#tabs-4">Race &amp Ethnic</a></li>
+          <!-- <li><a href="#tabs-4">Race &amp Ethnic</a></li>  -->
           </ul>
           
           <div id="tabs-1">
@@ -199,13 +199,12 @@
           </div>
           
           <div id="tabs-4">
-          <iframe width='720' height='400' frameborder='0' src='http://shujianbu.cartodb.com/tables/race_distribution/embed_map?title=false&description=false&search=true&shareable=false&cartodb_logo=false&sql=&zoom=4&center_lat=38.389081939117496&center_lon=-98.7890625'></iframe>
-          <ptab>Race & Ethnic - Census Bureau 07 to 11 (Estimates), <a href="http://www.socialexplorer.com/pub/reportdata/htmlresults.aspx?ReportId=R10403489" target="_blank">Source</a></ptab>
+
           </div>
 
         </div>
 
-        <p>A statistically meaningful method to check the relationship is to get the correlation coefficient of two vectors. There are some interesting findings by calculating the <a href="http://onlinestatbook.com/chapter4/pearson.html" target="_blank"><code>Pearson</code></a> and <a href="http://www.statstutor.ac.uk/resources/uploaded/spearmans.pdf" target="_blank"><code>Spearman</code></a> correlation coefficient and the p-value for testing non-correlation. The p-value roughly indicates the probability of an uncorrelated system producing datasets that have a Pearson correlation at least as extreme as the one computed from these datasets. The p-values are not entirely reliable but are probably reasonable for datasets larger than 500. It's worth a try here for the dataset is larger than 3000. Statistically, <code>Pearson</code> benchmarks linear relationship; while <code>Spearman</code> benchmarks monotonic relationship. Below is the computing results for the three sets of data.</p> 
+        <p>A statistically meaningful method to check the relationship is to get the correlation coefficient of two vectors. There are some interesting findings by calculating the <a href="http://onlinestatbook.com/chapter4/pearson.html" target="_blank"><code>Pearson</code></a> and <a href="http://www.statstutor.ac.uk/resources/uploaded/spearmans.pdf" target="_blank"><code>Spearman</code></a> correlation coefficient and the p-value for testing non-correlation. The p-value roughly indicates the probability of an uncorrelated system producing datasets that have a Pearson correlation at least as extreme as the one computed from these datasets. The p-values are not entirely reliable but are probably reasonable for datasets larger than 500. Since the dataset here is larger than 3000, the results should be reliable. Statistically, <code>Pearson</code> benchmarks linear relationship; while <code>Spearman</code> benchmarks monotonic relationship. Below is the computing results for the three sets of data.</p> 
         <pre><code><center>
  Pearson Correlation (Refugee_Arrival, Population) = (0.59962, 3.63739e-306) 
 Spearman Correlation (Refugee_Arrival, Population) = (0.61046, 2.72328e-320)
@@ -216,20 +215,24 @@ Pearson Correlation (Refugee_Arrival, Unemployment_Rate) = (0.01573, 0.37801)
 Pearson Correlation (Refugee_Arrival, Medium Rent) = (0.15598, 1.44364e-18) 
  Spearman Correlation (Refugee_Arrival, Medium Rent) = (0.45453, 4.99229e-160)  
         </center></code></pre>
-        <p>Population Density? The best way for a hermit to hide away is to stand on the street of a noisy market.<br /> <br />
+        <p>Population Density? <br /> <br />
           
           Unemployment Rate? 
           
           Funding for the US refugee resettlement program comes from the State Department, largely through the Migration and Refugee Assistance (MRA) Account. In FY 2004, the account designated $132 million for refugee admissions. <br /> <br />
 
-          Rent?   
+          Rents?   
         </p>
 
 <!-- @ Part 3 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
     
         <hr width="750px">
-        <h3>Adapting the Culture</h3>
+        <h3>How Important Is Culture?</h3>
         <p>State resettlement patterns are generally dominated by certain ethnic communities...</p>
+      
+        <iframe width='720' height='400' frameborder='0' src='http://shujianbu.cartodb.com/tables/race_distribution/embed_map?title=false&description=false&search=true&shareable=false&cartodb_logo=false&sql=&zoom=4&center_lat=38.389081939117496&center_lon=-98.7890625'></iframe>
+        <ptab>Race & Ethnic - Census Bureau 07 to 11 (Estimates), <a href="http://www.socialexplorer.com/pub/reportdata/htmlresults.aspx?ReportId=R10403489" target="_blank">Source</a></ptab>
+
         <div id='column_div'></div>
         <div id='table_div'></div>
         <p>The barchart and table show the correlation coefficient between refugee settlement and seven ethnic communities. </p>
@@ -346,8 +349,8 @@ Pearson Correlation (Refugee_Arrival, Medium Rent) = (0.15598, 1.44364e-18)
 
             <div id="blurb">
                 <div id="default-blurb">
-                    <h3>Refugee - 20 Years Overview</h3>
-                    <p>The total number of immigration to the U.S. in 2011 was 49310.</p>
+                    <h3>Refugees - 20 Year Overview</h3>
+                    <p>The total number of immigrants to the U.S. in 2011 was 49310.</p>
                     <p id="demo">Select one country to highlight.</p> 
                 </div>
                 <div id="blurb-content"></div> 
@@ -385,15 +388,15 @@ Pearson Correlation (Refugee_Arrival, Medium Rent) = (0.15598, 1.44364e-18)
         </div>  <!-- @End of Line Chart Section-->
 
         <hr width="750px">
-        <h3>An Easier Way Out? </h3>
+        <h3>An Easier Way?</h3>
         <p><em>The</em> U.S. maintains a distinct <a href="http://www.migrationinformation.org/feature/display.cfm?ID=229">program</a> for asylum seekers, as opposed to resettled refugees. Asylum seekers are persons who have fled their countries of nationality as a result of armed conflict, violence, persecution, human rights violations, etc., and are seeking protection and immunity from forced return by the government of the country in which they are seeking asylum. An asylum seeker is a person who is seeking protection as a refugee and is still waiting to have his/her claim assessed. 
         <br /> <br />
 
-        The two main ways of obtaining asylum in the United States are through the affirmative process and through the defensive process. Usually the <a href="http://www.uscis.gov/portal/site/uscis/menuitem.5af9bb95919f35e66f614176543f6d1a/?vgnextoid=dab9f067e3183210VgnVCM100000082ca60aRCRD">defensive asylum-seeker</a> has been placed in removal proceedings in <a href="http://www.justice.gov/eoir/sibpages/ICadr.htm">Immigration Court</a>. Affirmative asylum applicants are almost never detained. They are free to live in the U.S. pending the completion of their asylum processing with <a href="http://www.uscis.gov">USCIS</a> and, if found ineligible by USCIS, then with an Immigration Judge. <br /> <br />
+        The two main ways of obtaining asylum in the United States are through the affirmative process and through the defensive process. Usually the <a href="http://www.uscis.gov/portal/site/uscis/menuitem.5af9bb95919f35e66f614176543f6d1a/?vgnextoid=dab9f067e3183210VgnVCM100000082ca60aRCRD">defensive asylum-seeker</a> has been placed in removal proceedings in <a href="http://www.justice.gov/eoir/sibpages/ICadr.htm">Immigration Court</a>. Affirmative asylum applicants are almost never detained. They are free to live in the U.S. pending the completion of their asylum processing by the <a href="http://www.uscis.gov">USCIS</a> and, if found ineligible by the USCIS, then with an Immigration Judge. <br /> <br />
 
-        However, asylum seekers in the U.S. face broad disparities in the nation’s 54 immigration courts, with the outcome of cases influenced by things like the location of the court and the sex and professional background of judges, according to a <a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=983946">study</a>  conducted by by three law professors found in 2007. According to the analysis of 14,000 cases from 15 countries, China and Colombia, where the conditions of political oppression or civil violence are publicly known, have higher chance of winning the case. For instance, the study shows that someone who has fled China in fear of persecution and asks for asylum in immigration court in Orlando, Florida, has a 76 percent chance of success, while the same refugee would only have a 7 percent chance in Atlanta. Similarly, Haitians and Colombians applying for asylum has higher chance, sometimes up to twice, in Miami and New York, than in other cities. This could be easily identified from the stacked area bar chart below, in which countries with more data have larger label size and area. <br /> <br /> 
+        However, asylum seekers in the U.S. face broad disparities in the nation’s 54 immigration courts, the outcomes of cases are influenced by the location of the court and the gender and professional backgrounds of judges, according to a 2007 <a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=983946">study</a>  conducted by several professors. According to the analysis of 14,000 cases from 15 countries, those from China and Colombia, where conditions of political oppression or civil violence are publicly known, have a better chance of winning their cases. For instance, the study shows that someone who has fled China in fear of persecution and asks for asylum in immigration court in Orlando, Florida, has a 76 percent chance of success, while the same refugee would only have a 7 percent chance in Atlanta. Similarly, Haitians and Colombians applying for asylum have a higher chance, sometimes up to twice as good, in Miami and New York, than in other cities. This can be easily identified from the stacked area bar chart below, in which countries with more data have larger label size and area. <br /> <br /> 
         
-        It's also interesting to notice that some countries have a large number of both affirmative and defensive asylums. With a large population base and given its situation, China should top both groups. But it actually happens to only the asylum-seeker group, but not the refugee group. It looks odd, but makes perfect sense in fact. 
+        It's also interesting to notice that some countries have a large number of both affirmative and defensive asylums. With a large population base and given its situation, China should top both groups. But it actually happens to only the asylum-seeker group, but not the refugee group. It looks odd, but in fact makes perfect sense. 
         </p> 
 
         <div id='column_div_china'></div>   
@@ -401,12 +404,11 @@ Pearson Correlation (Refugee_Arrival, Medium Rent) = (0.15598, 1.44364e-18)
         <br /> 
         <div id='table_div_china'></div>
         <br /> <br /> 
-        <p>The United States provides refuge to persons who have been persecuted or have a well-founded fear of persecution through <a href="http://www.dhs.gov/xlibrary/assets/statistics/publications/ois_rfa_fr_2011.pdf">two programs</a>: one for refugees (persons outside the U.S. and their immediate relatives) and one for asylees (persons in the U.S. and their immediate relatives). An applicant for refugee status is outside the United States, while an applicant seeking asylum status is in the United States or at a U.S. port of entry. Because of the strict laws and situations, it's extremely hard for Chinese residents to apply the "Refugee Status", which requires applicants physically being inside their own coutries. Once they leave China and successfully go across the US border, they could apply the "Asylum Status". This kind of "tricks" has boomed the prosperity of Chinese law firms in the states. <br /> <br />
+        <p>The United States through <a href="http://www.dhs.gov/xlibrary/assets/statistics/publications/ois_rfa_fr_2011.pdf">two programs</a> provides refuge to persons who have been persecuted or have a well-founded fear of persecution: one for refugees (persons outside the U.S. and their immediate relatives) and one for asylees (persons in the U.S. and their immediate relatives). An applicant for refugee status lives outside the United States, while an applicant seeking asylum status lives inside the United States or at a U.S. port of entry. Because of the strict laws, it's extremely hard for Chinese residents to apply for "Refugee Status," which requires applicants to physically be inside their own coutries. Once they leave China and successfully cross the US border, they can apply for "Asylum Status." These kinds of "tricks" have boomed the prosperity of Chinese law firms in the states. <br /> <br />
 
-        <!-- Mr. Wang came here  -->
-        Mr. Wang runs a streetfood business in Manhattan, NYC. He still remembers what happened on 911 in 2001, when he first came here, with a tourism <a href="http://travel.state.gov/visa/temp/types/types_1262.html">B-2 Visa</a> issued by China. At that time, there was a rumor, especially widely spread among Chinese, that the U.S. would tighten their immigration law because of the terrorist attack. So Wang decided to stay, leaving all his business behind back in China. After his visa expired, he managed to apply the asylum status and waited until the government issued him the Green Card. He couldn't find a decent job with the asylum status. To make a living, he opened up the streetfood station, selling a famous dish from his hometown. Recently he hired young Mr. Chen, who just arrived here last year with the same visa. He is saving money to find a lawyer to help him with all the procedures. Though it'll be a long process before he could legally stay here, he said it's worth risking.<br /> <br />
+        Mr. Wang runs a streetfood business in Manhattan, NYC. He still remembers what happened on 9/11 in 2001, when he first came here with a tourism <a href="http://travel.state.gov/visa/temp/types/types_1262.html">B-2 Visa</a> issued by China. At that time, there was a rumor, especially widely spread among Chinese, that the U.S. would tighten their immigration law because of the terrorist attack. So, Wang decided to stay, abandoning all his business back in China. After his visa expired, he managed to apply for asylum status and waited until the government issued him a Green Card. He couldn't find a decent job with the asylum status, so he opened up a streetfood station, selling the famous dish from his hometown. Recently he hired a young Chinese, Mr. Chen, who arrived here just last year with the same visa Wang had come on in 2001. Chen is saving money to find a lawyer to help him with all the procedures. Though it'll be a long process before he gains legal status here, he said it's worth it.<br /> <br />
 
-        Last December, <a href="http://www.justice.gov/usao/nys/pressreleases/December12/AsylumFraudChargesPR.php">26 individuals, including six Lawyers, were charged</a> in Manhattan Federal Court with participating in immigration fraud schemes, involving hundreds Of fraudulent asylum applications. The report said that these attorney frequently instructed the client on what to say to ensure that nothing was said that contradicted the story that the law firm had fabricated. At the hearing, the client would falsely testify under oath in response to the attorney’s questioning about the fictitious story of persecution.
+        Last December, <a href="http://www.justice.gov/usao/nys/pressreleases/December12/AsylumFraudChargesPR.php">26 individuals, including six lawyers, were charged</a> in Manhattan Federal Court with participating in immigration schemes, involving hundreds of fraudulent asylum applications. The report said that these attorneys frequently instructed their clients on what to say to ensure that nothing was said that contradicted the stories the law firm had fabricated. At the hearings, the clients would falsely testify under oath in response to the attorney’s questioning about fictitious stories of persecution.
         </p> 
 
         <div id="fig">
