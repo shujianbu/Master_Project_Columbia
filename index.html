@@ -20,12 +20,15 @@
     <script type="text/javascript" src="javascripts/protovis.js"></script>
     <script type="text/javascript" src="javascripts/refugee_by_status_data.js"></script>
 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script type="text/javascript" src="javascripts/storyjs-embed.js"></script>
+    <script type="text/javascript" src="javascripts/timeline-min.js"></script>
+
     <script>
         $(document).ready(function() {
             createStoryJS({
                 type:       'timeline',
-                width:      '600',
+                width:      '700',
                 height:     '600',
                 source:     'https://docs.google.com/spreadsheet/pub?key=0Ap8U0rEu1lpIdDY1eERmanlkaDFlVHFsTDdvZ0pDUVE&output=html',
                 embed_id:   'my-timeline'
@@ -153,7 +156,7 @@
       
       <section class="main">
 
-        <div id="my-timeline">Lalala</div>
+        <div id="my-timeline">Lalala</div> 
 
 <!--         <div id="timeline"> 
           <iframe src='http://embed.verite.co/timeline/?source=0Ap8U0rEu1lpIdDY1eERmanlkaDFlVHFsTDdvZ0pDUVE&font=Bevan-PotanoSans&maptype=ROADMAP&lang=en&height=500' width='100%' height='500' frameborder='0'></iframe>
