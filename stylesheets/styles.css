@@ -56,6 +56,11 @@ a small {
   display:block;
 }
 
+#timeline .navigation {display:none;}
+
+/*.vco-timeline .vco-navigation { display:none !important; }
+.vco-storyjs .vco-feature .slider, .vco-storyjs .vco-feature .vco-slider {  box-shadow: none !important; }*/
+
 .wrapper {
   width:1100px;
   margin:0 auto;
