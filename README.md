@@ -1,7 +1,6 @@
-
-- Shujian Bu | The Master's Project 
-- Journalism School & Computer Science Department | Columbia University
-- Master's Project Site: http://shujianbu.github.com/master_project/
+Shujian Bu | The Master's Project 
+Journalism School & Computer Science Department | Columbia University
+Master's Project Site: http://shujianbu.github.com/master_project/
 
 ==============
 
@@ -18,6 +17,9 @@ Tools:
 - HTML/CSS
 - Javascript: D3/ Protovis/ CartoDB/ Google API
 
-Data Sources: 
+Data: 
 - Department of Homeland Security's Yearbook of Immigration Statistics, 2002 - 2011. 
 - Bureau of Population, Refugees, and Migration - Refugee Processing Center's Admissions & Arrivals Reports
+
+Note:
+Please turn to the Gh-Pages brach for the code. 
