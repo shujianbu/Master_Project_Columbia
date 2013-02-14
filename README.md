@@ -11,7 +11,7 @@ Ideas:
 - Data Analysis 
 - Data Visualization 
 - Correlation Calculation 
-- Storytelling 
+- Reporting + Storytelling 
 
 Tools: 
 - Python 
