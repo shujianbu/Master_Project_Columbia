@@ -1,74 +1,478 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Master project columbia : My master's project is an individual work in the form of interactive designs, interviews and analysis, spanning the autumn and spring terms at Columbia Journalism School. Prof. Emily Bell is my supervisor. The project is about the changing history of refugees/asylums in the United States, from 2002 to 2011." />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Master's Project - The Changing History of Refugees/Asylees in America</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <link type="text/css" rel="stylesheet" href="stylesheets/colorbrewer.css"/>
+    <link rel="stylesheet" href="stylesheets/jquery-ui.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script type="text/javascript" src="javascripts/html5.js"></script>
+    <script type="text/javascript" src="javascripts/d3.js"></script>
+    <script type="text/javascript" src="javascripts/d3.geo.js"></script>
+    <script type="text/javascript" src="javascripts/d3.time.js"></script>
+    <script type="text/javascript" src="javascripts/d3.csv.js"></script> 
+    <script type="text/javascript" src="javascripts/jquery.js"></script>
+    <script type="text/javascript" src="javascripts/jquery-ui.js"></script>
+    <script type="text/javascript" src="javascripts/protovis.js"></script>
+    <script type="text/javascript" src="javascripts/refugee_by_status_data.js"></script>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <!-- This is for race comparison  -->
 
-    <title>Master project columbia</title>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.load('visualization', '1', {packages: ['corechart']});
+      google.setOnLoadCallback(drawTable);
+      google.setOnLoadCallback(drawVisualization); 
+
+      function drawTable() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Race & Ethnic');
+        data.addColumn('string', 'Pearson Correlation');
+        data.addColumn('string', 'Spearman Correlation');
+        data.addRows([
+          ['White Alone',  '(0.646, 0.0)', '(0.582, 1.197e-284)'],
+          ['Black or African American Alone', '(0.465, 4.059e-168)',  '(0.471, 1.266e-173)'],
+          ['Asian Alone', '(0.384, 1.268e-110)', '(0.597, 2.214e-303)'],
+          ['American Indian & Alaska Native Alone',  '(0.361, 2.387e-97)', '(0.462, 7.35e-166)'],
+          ['Native Hawaiian & Other Pacific Islander Alone', '(0.218, 3.84e-35)',  '(0.483, 2.73e-183)'],
+          ['Some Other Race Alone', '(0.337, 3.065e-84)', '(0.542, 2.249e-239)'],
+          ['Two or More races', '(0.502, 1.599e-200)', '(0.573, 3.329e-273)']
+        ]);
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+        table.draw(data, {showRowNumber: false});
+      }
+
+      function drawVisualization() {
+        var data = google.visualization.arrayToDataTable([
+          ['Category', 'White Alone', 'Black or African American Alone', 'Asian Alone', 'American Indian & Alaska Native Alone', 'Native Hawaiian & Other Pacific Islander Alone', 'Some Other Race Alone','Two or More races'],
+          ['Pearson Correlation',  0.646, 0.465, 0.384, 0.361,0.218,0.542,0.502],
+          ['Spearman Correlation',  0.582,0.471,0.597,0.462,0.483,0.542,0.573]
+        ]);
+        new google.visualization.ColumnChart(document.getElementById('column_div')).
+            draw(data,
+                 {
+                  chartArea: {left:40,top:30, width:"50%",height:"70%"},
+                  colors: ['#F5CED6', '#68C7B8', '#C5B39E', '#E3E836','#C5503D', '#5E7324','#b2c8b2'],
+                  width:750, height:250,
+                 });
+      }
+    </script>
+
+    <!-- This is for Refugee and Asylum Comparison -->
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.load('visualization', '1', {packages: ['corechart']});
+      google.setOnLoadCallback(drawTable_china);
+      google.setOnLoadCallback(drawVisualization_china); 
+      google.setOnLoadCallback(drawVisualization_china_a); 
+
+      function drawTable_china() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'China');
+        data.addColumn('string', '2002');
+        data.addColumn('string', '2003');
+        data.addColumn('string', '2004');
+        data.addColumn('string', '2005');
+        data.addColumn('string', '2006');
+        data.addColumn('string', '2007');
+        data.addColumn('string', '2008');
+        data.addColumn('string', '2009');
+        data.addColumn('string', '2010');
+        data.addColumn('string', '2011');
+        data.addRows([
+          ['Refugees', '9', '8', '3', '13','21', '27', '50', '54','72', '28' ],
+          ['Asylums', '5785','2407', '929', '2233', '1551','1826', '2037', '2710', '2882', '3901' ]
+        ]);
+        var table = new google.visualization.Table(document.getElementById('table_div_china'));
+        table.draw(data, {showRowNumber: false});
+      }
+
+      function drawVisualization_china() {
+        var data = google.visualization.arrayToDataTable([
+          ['Category', '2002','2003','2004','2005','2006','2007','2008','2009','2010','2011'],
+          ['Refugees', 9, 8, 3, 13,21, 27, 50, 54,72, 28]
+        ]);
+        new google.visualization.ColumnChart(document.getElementById('column_div_china')).
+            draw(data,
+                 {
+                  chartArea: {left:38,top:30, width:"70%",height:"75%"},
+                  colors: [ '#bde','#a0cfe7','#85c2e0','#69b4da','#4ea7d3','#39c','#297aa3','#268','#18475f','#134'],
+                  width:350, height:250,
+                 });
+      }
+
+      function drawVisualization_china_a() {
+        var data = google.visualization.arrayToDataTable([
+          ['Category', '2002','2003','2004','2005','2006','2007','2008','2009','2010','2011'],
+          ['Asylums', 5785,2407, 929, 2233, 1551,1826, 2037, 2710, 2882, 3901]
+        ]);
+        new google.visualization.ColumnChart(document.getElementById('column_div_china_a')).
+            draw(data,
+                 {
+                  chartArea: {left:38,top:30, width:"70%",height:"75%"},
+                  colors: [ '#bde','#a0cfe7','#85c2e0','#69b4da','#4ea7d3','#39c','#297aa3','#268','#18475f','#134'],
+                  width:350, height:250,
+                 });
+      }
+    </script>
+
+    <script>  $(function() { $( "#tabs" ).tabs(); }); </script>
+    <style>   
+      #tabs { width: 750px; height: 500px; font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight:300; border: none; } 
+    </style>
   </head>
+  
+  <!-- Here begins the body part  -->
 
   <body>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/shujianbu/Master_Project_Columbia">View on GitHub</a>
+    <div class="wrapper">
 
-          <h1 id="project_title">Master project columbia</h1>
-          <h2 id="project_tagline">My master's project is an individual work in the form of interactive designs, interviews and analysis, spanning the autumn and spring terms at Columbia Journalism School. Prof. Emily Bell is my supervisor. The project is about the changing history of refugees/asylums in the United States, from 2002 to 2011.</h2>
+      <header>
+        <h1>Coming to America</h1>
+        <p><em>The</em> United States has been described as "melting pot" for its fusion of different nationalities, ethnicities and cultures. Among the total annual immigration to the U.S., refugees compose about one-tenth. Fleeing away from their countries of origin is surely tough. More than that, refugees and asylees need to face innumerable challenges when resettling as they adapt to a new culture, learn a new language, and look for work with limited resources. </br> </br>
+        <em>By</em> employing interactive designs, rather than reading dull tables, this project aims to provide a more intuitive explanation of the refugee subject. In addition, it tries to understand refugees' behavior in choosing residency, from a statistical interpretation. Interviews of immigration specialists are conducted to explore the social or empirical perspectives.</p>
+      </header>
+      
+      
+      <section class="main">
+         
+        <div class="timeline"> 
+          <iframe src='http://embed.verite.co/timeline/?source=0Ap8U0rEu1lpIdDY1eERmanlkaDFlVHFsTDdvZ0pDUVE&font=NewsCycle-Merriweather&maptype=HYBRID&lang=en&hash_bookmark=true&gmap_key=AIzaSyAr96nf8AlCMgDjFaS1sGSX5XdCijaxs5k&height=450' width='85%' height='325' frameborder='0'></iframe>
+        </div>   
+        <!-- <center><h1>Visualization</h1></center>  -->
+        <p><em>On</em> Washington Heights. 
+          The visitors represent a few of the millions of families in New York and the broader United States affected by stricter immigration and refugee laws. 
+        </p>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/shujianbu/Master_Project_Columbia/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/shujianbu/Master_Project_Columbia/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+<!-- @ Part 1 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+        <hr width="750px">
+        <h3>Refugee Arrivals</h3>
+        <p>The United States has historically accepted more refugees for resettlement than all other countries combined. Because very few counties are popular choices for refugees, therefore the data on the choropleth map has been processed exponentially. States like Wyoming and Montana have nearly no refugees settling there. States adjoining Mexico - California, Arizona, and Texas - have become hotspots for refugees. This is also true in Florida, which is geographically very close to Cuba.</p>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>Welcome to GitHub Pages.</h3>
+        <div id="chart"> 
+            <script type="text/javascript" src="javascripts/choropleth.js"></script>
+        </div>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+        <pchart>Refugee Arrivals - cumulative total from 2007 - 2012, as of 10/31/2012, <a href="http://www.wrapsnet.org/Reports/AdmissionsArrivals/tabid/211/Default.aspx" target="_blank">Source</a></pchart>
+        <br /> <br />
+        <p>In fiscal year 2002, four US states resettled more than 40 percent of the refugees: California (nearly 16 percent), Washington (just under 10 percent), New York (just under 9 percent), and Florida (7 percent). Ten Years later, Texas (10.5 percent), California (nearly 10 percent), and Michigan (7.9 percent) have become more popular. And for Texas, the top nationality for refugees are Malaysian (22 percent), Thai (11.9 percent), Iraqi (11.6 percent ) and Nepalese (11 percent). 
+        </p>
+<!-- @ Part 2 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+        <hr width="750px;"> 
+        <h3>Why These Counties?</h3>
+        <p>Some potential factors causing the irregular distribution of refugees, as shown in the illustration above, might be population density, unemployment rate, rents and relative size of the existing ethnic/religious community. Because when they make decisions about where to settle down, they need to figure out a way to make a living. <br /> <br />
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+        By switching between different tabs, the following part maps all these factors down to the countywide level.  
+        </p>
 
-<h3>Designer Templates</h3>
+        <div id="tabs">
+          <ul>
+          <li><a href="#tabs-1">Population</a></li>
+          <li><a href="#tabs-2">Unemployment</a></li>
+          <li><a href="#tabs-3">Medium Rent</a></li>
+          <!-- <li><a href="#tabs-4">Race &amp Ethnic</a></li>  -->
+          </ul>
+          
+          <div id="tabs-1">
+             <script type="text/javascript" src="javascripts/population.js"></script>
+             <ptab>Population - National Estimates as of 2010, <a href="http://www.census.gov/compendia/statab/cats/population.html" target="_blank">Source </a></ptab>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+          </div>
+          
+          <div id="tabs-2">
+             <script type="text/javascript" src="javascripts/unemployment.js"></script>
+             <ptab>Unemployment Rate - BLS as of January 8, 2013, <a href="http://www.bls.gov/lau/" target="_blank">Source</a></ptab>
 
-<h3>Rather Drive Stick?</h3>
+          <p></p>
+          </div>
+          
+          <div id="tabs-3">
+             <script type="text/javascript" src="javascripts/rent.js"></script>
+             <ptab>Medium Rent $ - Census Bureau 07 to 11 (Estimates), <a href="http://www.socialexplorer.com/pub/reportdata/HtmlResults.aspx?reportid=R10403567" target="_blank">Source</a></ptab>
+          <p></p>
+          </div>
+          
+          <div id="tabs-4">
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+          </div>
 
-<h3>Authors and Contributors</h3>
+        </div>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+        <p>A statistically meaningful method to check the relationship is to get the correlation coefficient of two vectors. There are some interesting findings by calculating the <a href="http://onlinestatbook.com/chapter4/pearson.html" target="_blank"><code>Pearson</code></a> and <a href="http://www.statstutor.ac.uk/resources/uploaded/spearmans.pdf" target="_blank"><code>Spearman</code></a> correlation coefficient and the p-value for testing non-correlation. The p-value roughly indicates the probability of an uncorrelated system producing datasets that have a Pearson correlation at least as extreme as the one computed from these datasets. The p-values are not entirely reliable but are probably reasonable for datasets larger than 500. Since the dataset here is larger than 3000, the results should be reliable. Statistically, <code>Pearson</code> benchmarks linear relationship; while <code>Spearman</code> benchmarks monotonic relationship. Below is the computing results for the three sets of data.</p> 
+        <pre><code><center>
+ Pearson Correlation (Refugee_Arrival, Population) = (0.59962, 3.63739e-306) 
+Spearman Correlation (Refugee_Arrival, Population) = (0.61046, 2.72328e-320)
 
-<h3>Support or Contact</h3>
+Pearson Correlation (Refugee_Arrival, Unemployment_Rate) = (0.01573, 0.37801) 
+  Spearman Correlation (Refugee_Arrival, Unemployment_Rate) = (0.10033, 1.73831e-08)
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
+Pearson Correlation (Refugee_Arrival, Medium Rent) = (0.15598, 1.44364e-18) 
+ Spearman Correlation (Refugee_Arrival, Medium Rent) = (0.45453, 4.99229e-160)  
+        </center></code></pre>
+        <p>Population Density? <br /> <br />
+          
+          Unemployment Rate? 
+          
+          Funding for the US refugee resettlement program comes from the State Department, largely through the Migration and Refugee Assistance (MRA) Account. In FY 2004, the account designated $132 million for refugee admissions. <br /> <br />
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Master project columbia maintained by <a href="https://github.com/shujianbu">shujianbu</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
+          Rents?   
+        </p>
 
+<!-- @ Part 3 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
     
+        <hr width="750px">
+        <h3>How Important Is Culture?</h3>
+        <p>State resettlement patterns are generally dominated by certain ethnic communities...</p>
+      
+        <iframe width='720' height='400' frameborder='0' src='http://shujianbu.cartodb.com/tables/race_distribution/embed_map?title=false&description=false&search=true&shareable=false&cartodb_logo=false&sql=&zoom=4&center_lat=38.389081939117496&center_lon=-98.7890625'></iframe>
+        <ptab>Race & Ethnic - Census Bureau 07 to 11 (Estimates), <a href="http://www.socialexplorer.com/pub/reportdata/htmlresults.aspx?ReportId=R10403489" target="_blank">Source</a></ptab>
 
+        <div id='column_div'></div>
+        <div id='table_div'></div>
+        <p>The barchart and table show the correlation coefficient between refugee settlement and seven ethnic communities. </p>
+
+        <hr width="750px">
+
+        <h3>Countries Where They Came From</h3>
+        <p>Even though the US remains the world's largest country of resettlement, its refugee admissions have been steadily declining over the last decade, both in terms of the ceilings as well as the actual number of persons admitted. The United States resettles refugees largely according to the country of origin and the urgency of the individual situation. </p>
+        <br />
+        <div id="LineChart">
+           <div id="selection">
+           <select id="Country_Selected"> 
+              <option value="" selected="selected">Select Country</option> 
+              <option value="AFG">Afghanistan</option> 
+              <option value="ALB">Albania</option> 
+              <option value="DZA">Algeria</option> 
+              <option value="AGO">Angola</option> 
+              <option value="ARM">Armenia</option> 
+              <option value="AZE">Azerbaijan</option> 
+              <option value="BHR">Bahrain</option> 
+              <option value="BLR">Belarus</option> 
+              <option value="BTN">Bhutan</option> 
+              <option value="BIH">Bosnia and Herzegovina</option> 
+              <option value="BGR">Bulgaria</option> 
+              <option value="BDI">Burundi</option> 
+              <option value="KHM">Cambodia</option> 
+              <option value="CMR">Cameroon</option> 
+              <option value="CAF">Central African Republic</option> 
+              <option value="TCD">Chad</option> 
+              <option value="CHN">China</option> 
+              <option value="COL">Colombia</option> 
+              <option value="COD">Congo</option> 
+              <option value="COG">Congo, The Democratic Republic of The</option> 
+              <option value="CIV">Cote D'ivoire</option> 
+              <option value="HRV">Croatia</option> 
+              <option value="CUB">Cuba</option> 
+              <option value="CZE">Czech Republic</option> 
+              <option value="DJI">Djibouti</option> 
+              <option value="EGY">Egypt</option> 
+              <option value="SLV">El Salvador</option> 
+              <option value="GNQ">Equatorial Guinea</option> 
+              <option value="ERI">Eritrea</option> 
+              <option value="EST">Estonia</option> 
+              <option value="ETH">Ethiopia</option> 
+              <option value="GMB">Gambia</option> 
+              <option value="GEO">Georgia</option> 
+              <option value="GHA">Ghana</option> 
+              <option value="GIN">Guinea</option> 
+              <option value="HTI">Haiti</option> 
+              <option value="HND">Honduras</option> 
+              <option value="HUN">Hungary</option> 
+              <option value="IDN">Indonesia</option> 
+              <option value="IRN">Iran, Islamic Republic of</option> 
+              <option value="IRQ">Iraq</option> 
+              <option value="JOR">Jordan</option> 
+              <option value="KAZ">Kazakhstan</option> 
+              <option value="KEN">Kenya</option> 
+              <option value="PRK">Korea, Democratic People's Republic of</option> 
+              <option value="KWT">Kuwait</option> 
+              <option value="KGZ">Kyrgyzstan</option> 
+              <option value="LAO">Lao People's Democratic Republic</option> 
+              <option value="LVA">Latvia</option> 
+              <option value="LBN">Lebanon</option> 
+              <option value="LBR">Liberia</option> 
+              <option value="LBY">Libyan Arab Jamahiriya</option> 
+              <option value="LTU">Lithuania</option> 
+              <option value="MKD">Macedonia, The Former Yugoslav Republic of</option> 
+              <option value="MYS">Malaysia</option> 
+              <option value="MRT">Mauritania</option> 
+              <option value="MDA">Moldova, Republic of</option> 
+              <option value="MMR">Myanmar</option> 
+              <option value="NAM">Namibia</option> 
+              <option value="NPL">Nepal</option> 
+              <option value="NIC">Nicaragua</option> 
+              <option value="NGA">Nigeria</option> 
+              <option value="PAK">Pakistan</option> 
+              <option value="POL">Poland</option> 
+              <option value="ROU">Romania</option> 
+              <option value="RUS">Russian Federation / Russia</option> 
+              <option value="RWA">Rwanda</option> 
+              <option value="SEN">Senegal</option> 
+              <option value="SRB">Serbia and Montenegro</option> 
+              <option value="SLE">Sierra Leone</option> 
+              <option value="SOM">Somalia</option> 
+              <option value="ZAF">South Africa</option> 
+              <option value="LKA">Sri Lanka</option> 
+              <option value="SDN">Sudan</option> 
+              <option value="SYR">Syrian Arab Republic</option> 
+              <option value="TJK">Tajikistan</option> 
+              <option value="THA">Thailand</option> 
+              <option value="TGO">Togo</option> 
+              <option value="TUN">Tunisia</option> 
+              <option value="TKM">Turkmenistan</option> 
+              <option value="UGA">Uganda</option> 
+              <option value="UKR">Ukraine</option> 
+              <option value="UZB">Uzbekistan</option> 
+              <option value="VNM">Vietnam</option> 
+              <option value="YEM">Yemen</option> 
+              <option value="ZMB">Zambia</option> 
+              <option value="ZWE">Zimbabwe</option>
+           </select>
+           </div> <!-- @end #selection -->
+
+            <div id="filters">
+                <li id="Explain"> Line Color: </li>
+                <li id="EAS">East Asia &amp Pacific</li>
+                <li id="SAS">South Asia</li>
+                <li id="MEA">Middle East &amp North Africa</li>
+                <li id="SSF">Sub-Saharan Africa</li>
+                <li id="ECS">Europe &amp Central Asia</li>
+                <li id="LCN">Latin America &amp Caribbean</li>
+            </div><!-- @end #filters -->
+
+            <div id="blurb">
+                <div id="default-blurb">
+                    <h3>Refugees - 20 Year Overview</h3>
+                    <p>The total number of immigrants to the U.S. in 2011 was 49310.</p>
+                    <p id="demo">Select one country to highlight.</p> 
+                </div>
+                <div id="blurb-content"></div> 
+            </div>
+
+            <script>
+                var SELECTEDCOUNTRY = "China";
+                $(document).ready(function() 
+                {    
+                    $('#Country_Selected').change(function() {
+                      var selected = $(this).find('option:selected');
+                      SELECTEDCOUNTRY = selected.text(); 
+                      document.getElementById("demo").innerHTML = SELECTEDCOUNTRY + "is highlighted."; 
+                      var countryId = selected.val(); 
+                      $(this).toggleClass(countryId);
+                      showCountry(countryId); 
+                    }); 
+                });
+
+                function showCountry(countrySelectedCode) 
+                {
+                    var countries = d3.selectAll("path."+countrySelectedCode);
+                    if (countries.classed('highlight')) {
+                    } else { countries.classed('highlight', true);}                
+                }
+
+            </script>
+
+            <div id="vis"></div>
+            <div id="cite">Note: Countries that are not in the menu do not have available data. All data has been exponentiated and transformed in 1-100 range. Source: <a href="http://www.dhs.gov/archives">U.S. Department of State, Bureau of Population, Refugees, and Migration (PRM)</a>, Fiscal Years 1990 to 2011.</div> 
+
+            <script type="text/javascript" src="javascripts/refugee20.js"></script> 
+
+            <p>There's a huge gap between different countries.</p>    
+        </div>  <!-- @End of Line Chart Section-->
+
+        <hr width="750px">
+        <h3>An Easier Way?</h3>
+        <p><em>The</em> U.S. maintains a distinct <a href="http://www.migrationinformation.org/feature/display.cfm?ID=229">program</a> for asylum seekers, as opposed to resettled refugees. Asylum seekers are persons who have fled their countries of nationality as a result of armed conflict, violence, persecution, human rights violations, etc., and are seeking protection and immunity from forced return by the government of the country in which they are seeking asylum. An asylum seeker is a person who is seeking protection as a refugee and is still waiting to have his/her claim assessed. 
+        <br /> <br />
+
+        The two main ways of obtaining asylum in the United States are through the affirmative process and through the defensive process. Usually the <a href="http://www.uscis.gov/portal/site/uscis/menuitem.5af9bb95919f35e66f614176543f6d1a/?vgnextoid=dab9f067e3183210VgnVCM100000082ca60aRCRD">defensive asylum-seeker</a> has been placed in removal proceedings in <a href="http://www.justice.gov/eoir/sibpages/ICadr.htm">Immigration Court</a>. Affirmative asylum applicants are almost never detained. They are free to live in the U.S. pending the completion of their asylum processing by the <a href="http://www.uscis.gov">USCIS</a> and, if found ineligible by the USCIS, then with an Immigration Judge. <br /> <br />
+
+        However, asylum seekers in the U.S. face broad disparities in the nation’s 54 immigration courts, the outcomes of cases are influenced by the location of the court and the gender and professional backgrounds of judges, according to a 2007 <a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=983946">study</a>  conducted by several professors. According to the analysis of 14,000 cases from 15 countries, those from China and Colombia, where conditions of political oppression or civil violence are publicly known, have a better chance of winning their cases. For instance, the study shows that someone who has fled China in fear of persecution and asks for asylum in immigration court in Orlando, Florida, has a 76 percent chance of success, while the same refugee would only have a 7 percent chance in Atlanta. Similarly, Haitians and Colombians applying for asylum have a higher chance, sometimes up to twice as good, in Miami and New York, than in other cities. This can be easily identified from the stacked area bar chart below, in which countries with more data have larger label size and area. <br /> <br /> 
+        
+        It's also interesting to notice that some countries have a large number of both affirmative and defensive asylums. With a large population base and given its situation, China should top both groups. But it actually happens to only the asylum-seeker group, but not the refugee group. It looks odd, but in fact makes perfect sense. 
+        </p> 
+
+        <div id='column_div_china'></div>   
+        <div id='column_div_china_a'></div>   
+        <br /> 
+        <div id='table_div_china'></div>
+        <br /> <br /> 
+        <p>The United States through <a href="http://www.dhs.gov/xlibrary/assets/statistics/publications/ois_rfa_fr_2011.pdf">two programs</a> provides refuge to persons who have been persecuted or have a well-founded fear of persecution: one for refugees (persons outside the U.S. and their immediate relatives) and one for asylees (persons in the U.S. and their immediate relatives). An applicant for refugee status lives outside the United States, while an applicant seeking asylum status lives inside the United States or at a U.S. port of entry. Because of the strict laws, it's extremely hard for Chinese residents to apply for "Refugee Status," which requires applicants to physically be inside their own coutries. Once they leave China and successfully cross the US border, they can apply for "Asylum Status." These kinds of "tricks" have boomed the prosperity of Chinese law firms in the states. <br /> <br />
+
+        Mr. Wang runs a streetfood business in Manhattan, NYC. He still remembers what happened on 9/11 in 2001, when he first came here with a tourism <a href="http://travel.state.gov/visa/temp/types/types_1262.html">B-2 Visa</a> issued by China. At that time, there was a rumor, especially widely spread among Chinese, that the U.S. would tighten their immigration law because of the terrorist attack. So, Wang decided to stay, abandoning all his business back in China. After his visa expired, he managed to apply for asylum status and waited until the government issued him a Green Card. He couldn't find a decent job with the asylum status, so he opened up a streetfood station, selling the famous dish from his hometown. Recently he hired a young Chinese, Mr. Chen, who arrived here just last year with the same visa Wang had come on in 2001. Chen is saving money to find a lawyer to help him with all the procedures. Though it'll be a long process before he gains legal status here, he said it's worth it.<br /> <br />
+
+        Last December, <a href="http://www.justice.gov/usao/nys/pressreleases/December12/AsylumFraudChargesPR.php">26 individuals, including six lawyers, were charged</a> in Manhattan Federal Court with participating in immigration schemes, involving hundreds of fraudulent asylum applications. The report said that these attorneys frequently instructed their clients on what to say to ensure that nothing was said that contradicted the stories the law firm had fabricated. At the hearings, the clients would falsely testify under oath in response to the attorney’s questioning about fictitious stories of persecution.
+        </p> 
+
+        <div id="fig">
+
+          <div id="switch">
+            <b>Status:</b>
+            <input type="radio" name="continent" id="aff" checked onchange="update(continent = 1);"><label for="aff">Affirmative</label>
+            <input type="radio" name="continent" id="dff" onchange="update(continent = 2);"><label for="dff">Defensive</label>
+            <input type="radio" name="continent" id="any" onchange="update(continent = 0);"><label for="any">Any</label>
+          </div>
+          <div id="fig_footer">
+            <label for="query"> <b>Search: </b></label>
+            <input id="query" type="text" onkeyup="search_stack(this.value);">
+          </div>
+      
+          <script type="text/javascript+protovis" src="javascripts/refugee_by_status.js"> </script> 
+          <script type="text/javascript" src="javascripts/refugee_by_status.js"> </script>   <!-- Firefox not supported --> 
+          <!-- JS v1.7 to v 1.8 all changing to function {returns}--> 
+          <div id="cite">Note: Countries that are not in the menu do not have available data. </br>Source: <a href="http://www.dhs.gov/yearbook-immigration-statistics" target="_blank">Department of Homeland Security's Yearbook of Immigration Statistics</a>, Fiscal Years 1996 to 2011.</div> 
+  
+        </div> <!-- @End of Stacked Area Colors Chart Section-->
+<!-- @ Part 4 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+        <hr width="750px;"> 
+        
+        <h3>Ending Part</h3>
+        <p>More explanation ... </p>
+
+        <h3></h3>
+        <p></p>
+      </section>
+      
+<!-- @ Part Footer @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+      <footer>
+        <p class="view"><a href="developer_notes.html">View Developer's Notes -> </a></p>
+        <p><a href="https://github.com/shujianbu/master_project" target="_blank">Project on GitHub</a> By <a href="https://github.com/shujianbu" target="_blank">Shujian Bu</a></p> 
+        <p>Share with your friends!</p>
+        <span st_url='http://shujianbu.github.com/master_project/index.html' st_title='Refugees in America' class='st_facebook' displayText='Facebook'></span>
+        <span st_url='http://shujianbu.github.com/master_project/index.html' st_title='Refugees in America' class='st_twitter' displayText='Tweet'></span>
+        <span st_url='http://shujianbu.github.com/master_project/index.html' st_title='Refugees in America' class='st_linkedin' displayText='LinkedIn'></span>
+      </footer>
+      
+    </div>
+
+<!-- @ Part Beautify Javascripts @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    
+    <script src="javascripts/scale.fix.js">
+    </script>
+
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-36633654-1 ");
+      pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher:'c3b8ac5a-adba-4bf1-a3d7-c76c89c2ab35'});</script>
+    
   </body>
 </html>
