@@ -4,7 +4,8 @@ Shujian Bu | The Master's Project
 
 ==============
 
-My master's project is an individual work in the form of interactive designs, interviews and analysis, spanning the autumn and spring terms at Columbia Journalism School. Prof. Emily Bell is my supervisor. The project is about the changing history of refugees/asylums in the United States, from 2002 to 2011. 
+Brief: 
+- My master's project is an individual work in the form of interactive designs, interviews and analysis, spanning the autumn and spring terms at Columbia Journalism School. Prof. Emily Bell is my supervisor. The project is about the changing history of refugees/asylums in the United States, from 2002 to 2011. 
 
 Ideas: 
 - Data Analysis 
