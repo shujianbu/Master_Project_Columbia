@@ -1,6 +1,6 @@
 Shujian Bu | The Master's Project 
-Journalism School & Computer Science Department | Columbia University
-Master's Project Site: http://shujianbu.github.com/master_project/
+- Journalism School & Computer Science Department | Columbia University
+- Master's Project Site: http://shujianbu.github.com/master_project/
 
 ==============
 
@@ -22,4 +22,4 @@ Data:
 - Bureau of Population, Refugees, and Migration - Refugee Processing Center's Admissions & Arrivals Reports
 
 Note:
-Please turn to the Gh-Pages brach for the code. 
+- Please turn to the Gh-Pages brach for the code. 
