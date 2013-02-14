@@ -17,6 +17,7 @@ Tools:
 - Python 
 - HTML/CSS
 - Javascript: D3/ Protovis/ CartoDB/ Google API
+- Social Media Plugin
 
 Data: 
 - Department of Homeland Security's Yearbook of Immigration Statistics, 2002 - 2011. 
