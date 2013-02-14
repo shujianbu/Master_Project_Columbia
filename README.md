@@ -1,6 +1,6 @@
 Shujian Bu | The Master's Project 
 - Journalism School & Computer Science Department | Columbia University
-- Master's Project Site: http://shujianbu.github.com/master_project/
+- Master's Project Site: http://shujianbu.github.com/Master_Project_Columbia
 
 ==============
 
