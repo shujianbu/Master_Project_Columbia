@@ -49,7 +49,7 @@
       function drawVisualization() {
         var data = google.visualization.arrayToDataTable([
           ['Category', 'White Alone', 'Black or African American Alone', 'Asian Alone', 'American Indian & Alaska Native Alone', 'Native Hawaiian & Other Pacific Islander Alone', 'Some Other Race Alone','Two or More races'],
-          ['Pearson Correlation',  0.646, 0.465, 0.384, 0.361,0.218,0.542,0.502],
+          // ['Pearson Correlation',  0.646, 0.465, 0.384, 0.361,0.218,0.542,0.502],
           ['Spearman Correlation',  0.582,0.471,0.597,0.462,0.483,0.542,0.573]
         ]);
         new google.visualization.ColumnChart(document.getElementById('column_div')).
@@ -240,7 +240,6 @@ Spearman Correlation (Arrival, Population) = 0.6104
 
         <div id='column_div'></div>
         <div id='table_div'></div>
-
 
         <hr width="750px">
         <hr width="750px">
