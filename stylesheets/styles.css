@@ -8,7 +8,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, figure, form, fi
 body {
   padding:50px;
   font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color:#555;
+  color:#111;
   margin-left: -50px; 
   font-weight:300;
 }
@@ -52,7 +52,7 @@ a {
 
 a small {
   font-size:11px;
-  color:#555;
+  color:#111;
   margin-top:-0.6em;
   display:block;
 }
@@ -97,12 +97,12 @@ th, td {
 }
 
 dt {
-  color:#555;
+  color:#111;
   font-weight:700;
 }
 
 th {
-  color:#555;
+  color:#111;
 }
 
 img {
@@ -195,7 +195,7 @@ footer {
   float:left;
   position:fixed;
   bottom:50px;
-  line-height: 1.5px;
+  line-height: 3px;
 }
 
 @media print, screen and (max-width: 1200px) {
@@ -265,7 +265,7 @@ footer {
   body {
     padding:0.4in;
     font-size:12pt;
-    color:#555;
+    color:#111;
   }
 }
 
@@ -492,12 +492,12 @@ line {
   padding-top: 15px;
   margin-bottom: 5px;  
   margin-right: 25px;
-  color: #555; 
+  color: #111; 
 }
 
 #fig_footer {
   padding-left: 40px; 
-  color: #555;
+  color: #111;
   margin-left: 50px;
   margin-top: -24px; 
 }
