@@ -64,11 +64,6 @@ a small {
 
 .timeline {width: 750px; margin-left: 40px;}
 
-#column_div {
-  height: 200px !important; 
-  /*margin-bottom: -0px; */
-}
-
 blockquote {
   border-left:1px solid #e5e5e5;
   margin:0;

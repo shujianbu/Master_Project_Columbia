@@ -62,7 +62,49 @@
       }
     </script>
 
-    <!-- This is for Refugee and Asylum Comparison -->
+    <!-- This is the 30 year change -->
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages: ['corechart']});
+      google.setOnLoadCallback(drawVisualization); 
+
+      function drawVisualization() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Refugee', 'Asylum'],
+          ['1990', 122066, 8472],
+          ['1991', 113389, 5035],
+          ['1992', 115548, 6143],
+          ['1993', 114181, 9378],
+          ['1994', 111680, 13697],
+          ['1995', 98973, 20504],
+          ['1996', 75421, 23502],
+          ['1997', 69653, 22822],
+          ['1998', 76712, 20435],
+          ['1999', 85285, 26548],
+          ['2000', 72143, 32480],
+          ['2001', 68925, 39161],
+          ['2002', 26788, 36938],
+          ['2003', 28286, 28734],
+          ['2004', 52840, 27352],
+          ['2005', 53738, 25244],
+          ['2006', 41094, 26252],
+          ['2007', 48218, 25211],
+          ['2008', 60107, 22957],
+          ['2009', 74602, 22219],
+          ['2010', 72393, 21056],
+          ['2011', 56384, 24988]
+        ]);
+        new google.visualization.ColumnChart(document.getElementById('yearly_comp')).
+            draw(data,
+                 {
+                  chartArea: {left:60,top:20, width:"75%",height:"80%"}, 
+                  width:780, height:400,
+                  colors: ['#5699CC', '#CC7C99']}
+            );
+      }
+    </script>
+
+
+    <!-- This is for Refugee and Asylum Comparison of China -->
     <script type='text/javascript'>
       google.load('visualization', '1', {packages:['table']});
       google.load('visualization', '1', {packages: ['corechart']});
@@ -146,7 +188,7 @@
         </div>
         <br >   
         <!-- <center><h1>Visualization</h1></center>  -->
-        <p><em>Everyday</em>, in Washington Heights, the visitors to the <a href="http://www.nmcir.org/" target="_blank">Northern Manhattan Coalition for Immigrant Rights</a> represent a few of the millions of immigration and refugee families in New York and the broader United States. Similarly, seven days a week, voluntary lawyers at <a href="http://lin-sing.org/index.htm" target="_blank">Lin-Sing Association</a> - an organization aiming at improving Asian immigrants/refugees' rights and welfare, are working hard to give dozens of asian refugees/asylums a second chance to remain in America. These people would work for every menial jobs; and life at the bottom is nasty and brutish. Every tiny change to the law could have a great effect on them. 
+        <p>Everyday, in Washington Heights, the visitors to the <a href="http://www.nmcir.org/" target="_blank">Northern Manhattan Coalition for Immigrant Rights</a> represent a few of the millions of immigration and refugee families in New York and the broader United States. Similarly, seven days a week, voluntary lawyers at <a href="http://lin-sing.org/index.htm" target="_blank">Lin-Sing Association</a> - an organization aiming at improving Asian immigrants/refugees' rights and welfare, are working hard to give dozens of asian refugees/asylums a second chance to remain in America. These people would work for every menial jobs; and life at the bottom is nasty and brutish. Every tiny change to the law could have a great effect on them. 
         </p>
 
         <p>
@@ -156,10 +198,9 @@
         <h3>Refugee Arrivals</h3>
         <p>Historically, the U.S. has accepted more refugees for resettlement than all other countries combined. Because very few counties are popular choices for refugees, therefore the data on the choropleth map has been processed exponentially. States like Wyoming and Montana have nearly no refugees settling there. States adjoining Mexico - California, Arizona, and Texas - have become hotspots for refugees. This is also true in Florida, which is geographically very close to Cuba. And the Cuban refugees constitute a very large percentage to the refugees every year. <br /> <br /> 
 
-        That possibly explains why Obama was trying so hard to buy Hispanic or Latino voters in the election 2012. In New York City, even the low-priced Chinese restaurant would prefer to hire Latino immigrants or refugees, for their cheaper hourly rate. They are also the most favored labor force for construction projects in every cities, according to Mr. Eddie Chew, the most authorative voluntary lawyer at Lin-Sing Association. He has dealt with hundreds of cases for the illegal immigrants and refugees. Every couple of weeks, he copes with some teenages whose parents were too scared of deportation to suicide. Chew has witnessed how the law reform affect these families. 
-        <br /> <br /> 
+        That possibly explains why Obama was trying so hard to buy Hispanic or Latino voters in the election 2012. At the end of February, the <a href="http://www.ydr.com/ci_22691310/federal-release-illegal-immigrants-draws-criticism-arizona" target="_blank">release of about 300 illegal immigrants</a> from federal custody in Arizona has raised a firestorm of controversy in this volatile border state, which has one of the nation's toughest laws against illegal immigration and is home to highly vocal groups on both sides of the debate. Senior Republican officials in the state, including Governor Jan Brewer and Senator John McCain, sharply criticized the releases. However, even if these people are released from prison, it's hard for them to find a job or apply a legal status afterwards, because of their crimial records. If they failed to obtain the status, they have to be deported.  
 
-        At the end of February, the <a href="http://www.ydr.com/ci_22691310/federal-release-illegal-immigrants-draws-criticism-arizona" target="_blank">release of about 300 illegal immigrants</a> from federal custody in Arizona has raised a firestorm of controversy in this volatile border state, which has one of the nation's toughest laws against illegal immigration and is home to highly vocal groups on both sides of the debate.
+        According to Eddie Chew, one of the most authorative voluntary lawyers at Lin-Sing Association, said every couple of weeks, he copes with some teenages whose parents were too scared of deportation to suicide. Chew has witnessed how the law reform affect these families. Below is the distribution of refugees in the states. 
         </p> 
 
         <div id="chart"> 
@@ -168,8 +209,10 @@
 
         <pchart>Refugee Arrivals - cumulative total from 2007 - 2012, as of 10/31/2012, <a href="http://www.wrapsnet.org/Reports/AdmissionsArrivals/tabid/211/Default.aspx" target="_blank">Source</a></pchart>
         <br /> <br />
-        <p>In fiscal year 2002, four US states resettled more than 40 percent of the refugees: California (nearly 16 percent), Washington (just under 10 percent), New York (just under 9 percent), and Florida (7 percent). Ten Years later, Texas (10.5 percent), California (nearly 10 percent), and Michigan (7.9 percent) have become more popular. And for Texas, the top nationality for refugees are Malaysian (22 percent), Thai (11.9 percent), Iraqi (11.6 percent ) and Nepalese (11 percent).  
+        <p>In fiscal year 2002, four US states resettled more than 40 percent of the refugees: California (nearly 16 percent), Washington (just under 10 percent), New York (just under 9 percent), and Florida (7 percent). Ten Years later, Texas (10.5 percent), California (nearly 10 percent), and Michigan (7.9 percent) have become more popular. And for Texas, the top nationality for refugees are Malaysian (22 percent), Thai (11.9 percent), Iraqi (11.6 percent ) and Nepalese (11 percent). But the total number has been declining.  
         </p>
+
+        <div id="yearly_comp"></div> 
 <!-- @ Part 2 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
         <hr width="750px;"> 
@@ -239,9 +282,14 @@ Spearman Correlation (Arrival, Population) = 0.6104
         <p>The barchart and table below show the correlation coefficient between refugee settlement and seven ethnic communities. White and multi-race communities look more popular among refugees. But this may also be realted too the relative size of these communities. </p>
 
         <div id='column_div'></div>
+        <br >
         <div id='table_div'></div>
 
         <hr width="750px">
+
+        <p>In New York City, even the low-priced Chinese restaurant would prefer to hire Latino immigrants or refugees, for their cheaper hourly rate. They are also the most favored labor force for construction projects in every cities, according to Mr. Chew. 
+        <br > <br >
+        </p>
         <hr width="750px">
         <h3>Countries Where They Came From</h3>
         <p>Even though the US remains the world's largest country of resettlement, its refugee admissions have been steadily declining over the last decade, both in terms of the ceilings as well as the actual number of persons admitted. The United States resettles refugees largely according to the country of origin and the urgency of the individual situation. </p>
@@ -446,7 +494,7 @@ Spearman Correlation (Arrival, Population) = 0.6104
 
         <hr width="750px;"> 
         
-        <h3>Ending Part</h3>
+        <h3>Everybody Is A Stranger On Arrival</h3>
         <p>More explanation ... </p>
 
         <h3></h3>
