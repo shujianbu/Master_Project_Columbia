@@ -31,16 +31,16 @@
       function drawTable() {
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Race & Ethnic');
-        data.addColumn('string', 'Pearson Correlation');
-        data.addColumn('string', 'Spearman Correlation');
+        data.addColumn('string', 'Spearman Coefficient');
+        data.addColumn('string', 'P Value');
         data.addRows([
-          ['White Alone',  '(0.646, 0.0)', '(0.582, 1.197e-284)'],
-          ['Black or African American Alone', '(0.465, 4.059e-168)',  '(0.471, 1.266e-173)'],
-          ['Asian Alone', '(0.384, 1.268e-110)', '(0.597, 2.214e-303)'],
-          ['American Indian & Alaska Native Alone',  '(0.361, 2.387e-97)', '(0.462, 7.35e-166)'],
-          ['Native Hawaiian & Other Pacific Islander Alone', '(0.218, 3.84e-35)',  '(0.483, 2.73e-183)'],
-          ['Some Other Race Alone', '(0.337, 3.065e-84)', '(0.542, 2.249e-239)'],
-          ['Two or More races', '(0.502, 1.599e-200)', '(0.573, 3.329e-273)']
+          ['White Alone',  '0.582', '1.197e-284'],
+          ['Black or African American Alone', '0.471',  '1.266e-173'],
+          ['Asian Alone', '0.597', '2.214e-303'],
+          ['American Indian & Alaska Native Alone',  '0.462', '7.35e-166'],
+          ['Native Hawaiian & Other Pacific Islander Alone', '0.483',  '2.73e-183'],
+          ['Some Other Race Alone', '0.542', '2.249e-239'],
+          ['Two or More races', '0.573', '3.329e-273']
         ]);
         var table = new google.visualization.Table(document.getElementById('table_div'));
         table.draw(data, {showRowNumber: false});
@@ -50,14 +50,14 @@
         var data = google.visualization.arrayToDataTable([
           ['Category', 'White Alone', 'Black or African American Alone', 'Asian Alone', 'American Indian & Alaska Native Alone', 'Native Hawaiian & Other Pacific Islander Alone', 'Some Other Race Alone','Two or More races'],
           // ['Pearson Correlation',  0.646, 0.465, 0.384, 0.361,0.218,0.542,0.502],
-          ['Spearman Correlation',  0.582,0.471,0.597,0.462,0.483,0.542,0.573]
+          ['Spearman Coefficient',  0.582,0.471,0.597,0.462,0.483,0.542,0.573]
         ]);
         new google.visualization.ColumnChart(document.getElementById('column_div')).
             draw(data,
                  {
-                  chartArea: {left:40,top:30, width:"50%",height:"70%"},
+                  chartArea: {left:40,top:30, width:"50%",height:"100%"},
                   colors: ['#F5CED6', '#68C7B8', '#C5B39E', '#E3E836','#C5503D', '#5E7324','#b2c8b2'],
-                  width:750, height:250,
+                  width:750, height:160,
                  });
       }
     </script>
@@ -146,7 +146,7 @@
         </div>
         <br >   
         <!-- <center><h1>Visualization</h1></center>  -->
-        <p><em>Everyday</em>, in Washington Heights, the visitors to the <a href="http://www.nmcir.org/" target="_blank">Northern Manhattan Coalition for Immigrant Rights</a> represent a few of the millions of immigration and refugee families in New York and the broader United States. Similarly, seven days a week, voluntary lawyers at <a href="http://lin-sing.org/index.htm" target="_blank">Lin-Sing Association</a>, are working hard to give dozens of asian refugees/asylums a second chance to remain in America. These people would work for every menial jobs; and life at the bottom is nasty and brutish. Every tiny change to the law could have a great effect on them. 
+        <p><em>Everyday</em>, in Washington Heights, the visitors to the <a href="http://www.nmcir.org/" target="_blank">Northern Manhattan Coalition for Immigrant Rights</a> represent a few of the millions of immigration and refugee families in New York and the broader United States. Similarly, seven days a week, voluntary lawyers at <a href="http://lin-sing.org/index.htm" target="_blank">Lin-Sing Association</a> - an organization aiming at improving Asian immigrants/refugees' rights and welfare, are working hard to give dozens of asian refugees/asylums a second chance to remain in America. These people would work for every menial jobs; and life at the bottom is nasty and brutish. Every tiny change to the law could have a great effect on them. 
         </p>
 
         <p>
