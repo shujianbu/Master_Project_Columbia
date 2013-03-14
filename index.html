@@ -32,15 +32,14 @@
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Race & Ethnic');
         data.addColumn('string', 'Spearman Coefficient');
-        data.addColumn('string', 'P Value');
         data.addRows([
-          ['White Alone',  '0.582', '1.197e-284'],
-          ['Black or African American Alone', '0.471',  '1.266e-173'],
-          ['Asian Alone', '0.597', '2.214e-303'],
-          ['American Indian & Alaska Native Alone',  '0.462', '7.35e-166'],
-          ['Native Hawaiian & Other Pacific Islander Alone', '0.483',  '2.73e-183'],
-          ['Some Other Race Alone', '0.542', '2.249e-239'],
-          ['Two or More races', '0.573', '3.329e-273']
+          ['White Alone',  '0.582'],
+          ['Black or African American Alone', '0.471'],
+          ['Asian Alone', '0.597'],
+          ['American Indian & Alaska Native Alone',  '0.462'],
+          ['Native Hawaiian & Other Pacific Islander Alone', '0.483'],
+          ['Some Other Race Alone', '0.542'],
+          ['Two or More races', '0.573']
         ]);
         var table = new google.visualization.Table(document.getElementById('table_div'));
         table.draw(data, {showRowNumber: false});
@@ -176,8 +175,8 @@
 
       <header>
         <h1>Coming to America</h1>
-        <p><em>The</em> United States has been described as "melting pot" for its fusion of different nationalities, ethnicities and cultures. Among the total annual immigration to the U.S., refugees compose about one-tenth. Fleeing away from their countries of origin is surely tough. More than that, refugees and asylees need to face innumerable challenges when resettling as they adapt to a new culture, learn a new language, and look for work with limited resources. </br> </br>
-        <em>By</em> employing interactive designs, rather than reading dull tables, this project aims to provide a more intuitive explanation of the refugee subject. In addition, it tries to understand refugees' behavior in choosing residency, from a statistical interpretation. Interviews of refugee specialists are conducted to explore the social or empirical perspectives.</p>
+        <p><em>The</em> United States has been described as "melting pot" for its fusion of different nationalities, ethnicities and cultures. Among the total annual immigration to the U.S., refugees compose about one-tenth. Fleeing away from their countries of origin is surely tough. More than that, refugees and asylees need to face innumerable challenges when resettling as they adapt to a new culture, learn a new language, and look for work with limited resources. Every tiny change to the immigration laws could have a great effect on them. </br> </br>
+        <em>By</em> employing interactive designs, this project aims to provide a more intuitive explanation of the refugee subject. In addition, it tries to understand refugees' behavior in choosing residency, from a statistical interpretation. Interviews of refugee and specialists are conducted to explore thepolicy-making perspectives.</p>
       </header>
       
       
@@ -188,7 +187,7 @@
         </div>
         <br >   
         <!-- <center><h1>Visualization</h1></center>  -->
-        <p>Everyday, in Washington Heights, visitors to the <a href="http://www.nmcir.org/" target="_blank">Northern Manhattan Coalition for Immigrant Rights</a> office represent just a few of the millions of immigrant and refugee families in New York and the broader United States. Similarly, seven days a week, volunteer lawyers at <a href="http://lin-sing.org/index.htm" target="_blank">Lin-Sing Association</a> - an organization dedicated to improve Asian immigrant/refugee rights and welfare, are working hard to give dozens of asian refugees/asylum seekers a second chance to remain in America. These people are willing to do the most menial jobs; and life at the bottom is nasty and brutish. Every tiny change to the immigration laws could have a great effect on them. 
+        <p>Everyday, in Washington Heights, visitors to the <a href="http://www.nmcir.org/" target="_blank">Northern Manhattan Coalition for Immigrant Rights</a> office represent just a few of the millions of immigrant and refugee families in New York and the broader United States. Similarly, seven days a week, volunteer lawyers at <a href="http://lin-sing.org/index.htm" target="_blank">Lin-Sing Association</a> - an organization dedicated to improve Asian immigrant/refugee rights and welfare, are working hard to give dozens of asian refugees/asylum seekers a second chance to remain in America. Refugees and asylums have a tougher situation than legal immigrants in making a living. These people are willing to do the most menial jobs; and life at the bottom is nasty and brutish. Every tiny change to the immigration laws could have a great effect on them.
         </p>
 
         <p>
@@ -196,12 +195,11 @@
 <!-- @ Part 1 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
         <hr width="750px">
         <h3>Refugee Arrivals</h3>
-        <p>Historically, the U.S. has accepted more refugees for resettlement than all other countries combined. Because they are only a few counties that are popular choices for refugees, the data on the choropleth map has been processed exponentially. States like Wyoming and Montana have nearly no refugees settling there. States adjoining Mexico - California, Arizona, and Texas - have become hotspots for refugees. This is also true in Florida, which is geographically very close to Cuba. And the Cuban refugees constitute a very large percentage of refugees every year. <br /> <br /> 
+        <p>Historically, the U.S. has accepted more refugees for resettlement than all other countries combined. The distribution map below shows the cumulative total from 2007 - 2012 of refugee arrivals. Only a few counties are popular choices for refugees, though the data has been processed exponentially. States like Wyoming and Montana have nearly no refugees settling there. States adjoining Mexico - California, Arizona, and Texas - have become hotspots for refugees. This is also true in Florida, which is geographically very close to Cuba. And the Cuban refugees constitute a very large percentage of refugees every year. It possibly explains why Obama was trying so hard to court Latino voters in the election 2012.<br /> <br /> 
 
-        That possibly explains why Obama was trying so hard to court Latino voters in the election 2012. At the end of February, the <a href="http://www.ydr.com/ci_22691310/federal-release-illegal-immigrants-draws-criticism-arizona" target="_blank">release of about 300 illegal immigrants</a> from federal custody in Arizona has raised a firestorm of controversy in this volatile border state, which has some of the nation's toughest laws against illegal immigration and is home to highly vocal groups on both sides of the debate. Senior Republican officials in the state, including Governor Jan Brewer and Senator John McCain, sharply criticized the releases. However, though these people are released from prison, it's hard for them to find a job or apply for legal status afterwards because of their criminal records. If they fail to obtain legal status, they have to be deported.  
+        It however, seems no more than a campaign gimmick - over 2 million deportation happened since Obama take office in 2008. Democrats and Republicans have been debating about these issues for long. At the end of February, the <a href="http://www.ydr.com/ci_22691310/federal-release-illegal-immigrants-draws-criticism-arizona" target="_blank">release of about 300 illegal immigrants</a> from federal custody in Arizona has raised a firestorm of controversy in this volatile border state, which has some of the nation's toughest laws against illegal immigration and is home to highly vocal groups on both sides of the debate. Senior Republican officials in the state, including Governor Jan Brewer and Senator John McCain, sharply criticized the releases. But they never thought about that even if these people have been released from prison, it's still very hard for them to find a job or apply for legal status afterwards because of their criminal records. More than that, they are still worrying about their children's future. A new <a href="http://www.nytimes.com/2011/10/04/us/after-ruling-hispanics-flee-an-alabama-town.html?_r=0" target="_blank">Alabama immigration enforcement law</a> requires schools to ascertain the immigration status of students at registration. Since the announcement, officials have noticed that 5 percent of the state’s Hispanic children are absent from classrooms. It's also hard to imagine these children's lives after their parents get deported. <br /> <br /> 
 
-        According to Eddie Chew, one of the most authorative voluntary lawyers at Lin-Sing Association, every couple of weeks he copes with some teenages whose parents have been deported. Chew has witnessed how the law reform affect these families. Below is the distribution of refugees in the states. 
-        </p> 
+        According to Eddie Chew, one of the most authorative voluntary lawyers at Lin-Sing Association, every couple of weeks he copes with some teenages whose parents failed to obtain legal status and have been deported. Chew has witnessed how the law reform affect these families. </p> 
 
         <div id="chart"> 
             <script type="text/javascript" src="javascripts/choropleth.js"></script>
@@ -209,7 +207,7 @@
 
         <pchart>Refugee Arrivals - cumulative total from 2007 - 2012, as of 10/31/2012, <a href="http://www.wrapsnet.org/Reports/AdmissionsArrivals/tabid/211/Default.aspx" target="_blank">Source</a></pchart>
         <br /> <br />
-        <p>In fiscal year 2002, four US states resettled more than 40 percent of the refugees: California (nearly 16 percent), Washington (just under 10 percent), New York (just under 9 percent), and Florida (7 percent). Ten years later, Texas (10.5 percent), California (nearly 10 percent), and Michigan (7.9 percent) have become more popular. For Texas, the top nationalities for refugees are Malaysian (22 percent), Thai (11.9 percent), Iraqi (11.6 percent ) and Nepalese (11 percent). The total number of refugees has been declining.  
+        <p>In fiscal year 2002, four US states resettled more than 40 percent of the refugees: California (nearly 16 percent), Washington (just under 10 percent), New York (just under 9 percent), and Florida (7 percent). Ten years later, Texas (10.5 percent), California (nearly 10 percent), and Michigan (7.9 percent), have become more popular, because of their relatively loose policies. Since 2008, it bounced back a little. But in general, the total number of refugees and asylums has been declining, as you can see in the bar chart below. 
         </p>
 
         <div id="yearly_comp"></div> 
@@ -254,32 +252,30 @@
 
         </div>
 
-        <p>A statistically meaningful method to check the relationship is to get the correlation coefficient of two vectors. Two often-used methods are calculating <a href="http://onlinestatbook.com/chapter4/pearson.html" target="_blank"><code>Pearson</code></a> and <a href="http://www.statstutor.ac.uk/resources/uploaded/spearmans.pdf" target="_blank"><code>Spearman</code></a> correlation coefficient and their p-value. The p-value roughly indicates the probability of an uncorrelated system producing datasets that have a Pearson correlation at least as extreme as the one computed from these datasets. The p-values are not entirely reliable but are probably reasonable for datasets larger than 500. Since the dataset here is larger than 3000, the results should be reliable. Statistically, <code>Pearson</code> benchmarks linear relationship; while <code>Spearman</code> benchmarks monotonic relationship. Below are the computing results for the three sets of data, based on <code>Spearman</code>. More detailed results can be found <a href="http://goo.gl/eNTPO" target="_blank">here</a>.</p> 
+        <p>A statistically meaningful method to check the relationship is to get the correlation coefficient of two variables. Two often-used methods are calculating <a href="http://onlinestatbook.com/chapter4/pearson.html" target="_blank"><code>Pearson</code></a> and <a href="http://www.statstutor.ac.uk/resources/uploaded/spearmans.pdf" target="_blank"><code>Spearman</code></a> coefficient and their p-values. The p-value roughly indicates the probability of two uncorrelated systems, for a data set larger than 500. Since the dataset here is larger than 3000, the results should be statistically reliable. <code>Pearson</code> benchmarks linear relationship; while <code>Spearman</code> benchmarks monotonic relationship. Below are the computing results for the three sets of data, based on <code>Spearman</code>. More detailed results can be found <a href="http://goo.gl/eNTPO" target="_blank">here</a>.</p> 
         <pre><code><center>
 Spearman Correlation (Arrival, Population) = 0.6104
-  Spearman Correlation (Arrival, Unemployment_Rate) = 0.1003
  Spearman Correlation (Arrival, Medium Rent) = 0.4545
+  Spearman Correlation (Arrival, Unemployment_Rate) = 0.1003
         </center></code></pre>
         <p> 
 
-        Statistically, refugees prefer to live in big cities or crowded counties. But the unemployment rate seems not to be a strong factor. It's probably because funding for the US refugee resettlement program comes from the State Department, largely through the Migration and Refugee Assistance (MRA) Account. In FY 2004, the account designated $132 million for refugee admissions. 
-        
-        <br /> <br />
+        The analysis shows that, refugees prefer to live in big cities or crowded counties, which offer more working opportunities at different levels. It seems contradictory that the unemployment rate is not a strong factor, but it might because that they are not looking for the jobs that are legally on the record. Also, different from asylums, the refugees can get funding from the US refugee resettlement program comes from the State Department, largely through the Migration and Refugee Assistance (MRA) Account. In FY 2004, the account designated $132 million for refugee admissions.<br /> <br />
 
-        Rent seems quite important for refugees, judging from the statistical relationship. For people living in large cities, rent is probably the biggest expense. According to the 2010 Census, the Bronx, northernmost of the five boroughs of New York City, has 53.5% Latino and 30.1% non-Hispanic black population. 
+        Rent seems quite important for refugees, judging from the statistical relationship. For people living in large cities, rent is probably the biggest expense. In Queens, the mediam monthly rent is $1235, but people could always find ways to save the money. Joy Chuang has been living a small basement with another girl in Flushing Queens for around eight months. Because they are sharing the already tiny space, each of them only pays as low as $350 per month. 
         </p>
 
 <!-- @ Part 3 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
     
         <hr width="750px">
         <h3>How Important Is Culture?</h3>
-        <p>State resettlement patterns are generally dominated by certain ethnic communities. Sometimes, it seems the government misunderstands the cultures and  settles refugees in the wrong places. The story about the ethnic<a href="http://www.newyorker.com/archive/2006/12/11/061211fa_fact_finnegan" target="_blank">Somalis and Bantus in Maine</a> may be a good example. The map below shows how ethnic groups are distributed in the states.</p>
+        <p>Aside from the factors we talked above, state resettlement patterns are generally dominated by certain ethnic communities. The map below shows how ethnic groups are distributed in the states. It's quite important for the government to know that, because they sometimes misunderstands the cultures and settles refugees in the wrong places. The story about the ethnic<a href="http://www.newyorker.com/archive/2006/12/11/061211fa_fact_finnegan" target="_blank">Somalis and Bantus in Maine</a> may be a good example. </p> 
       
         <iframe width='720' height='400' frameborder='0' src='http://shujianbu.cartodb.com/tables/race_distribution/embed_map?title=false&description=false&search=true&shareable=false&cartodb_logo=false&sql=&zoom=4&center_lat=38.389081939117496&center_lon=-98.7890625'></iframe>
         <ptab>Race & Ethnic - Census Bureau 07 to 11 (Estimates), <a href="http://www.socialexplorer.com/pub/reportdata/htmlresults.aspx?ReportId=R10403489" target="_blank">Source</a></ptab>
 
         <br > <br >
-        <p>The barchart and table below show the correlation coefficient between refugee settlement and seven ethnic communities. White and multi-race communities look more popular among refugees. But this may also be related to the relative size of these communities. </p>
+        <p>Calculation shows that the correlation coefficient between refugee settlement and seven ethnic communities. Considering the relatively large size of white and multi-race communities, asian community seems to be the most popular place to settle among refugees or asylums. </p>
 
         <div id='column_div'></div>
         <br >
@@ -287,7 +283,7 @@ Spearman Correlation (Arrival, Population) = 0.6104
 
         <hr width="750px">
 
-        <p>It seems that the Asian community is the most popular place to settle among refugees or asylums. Chinatowns have become culture centers in many different cities, and these centers are well-known for cheap food and more entry-level work opportunities. In New York City, even the low-priced Chinese restaurants seem to prefer to hire Latino immigrants or refugees, at a cheaper hourly rate. They are also the most favored labor force for construction projects in most cities, according to Mr. Chew. 
+        <p>Chinatowns have become culture centers in many different cities, and these centers are well-known for cheap food and more entry-level work opportunities. In New York City, even the low-priced Chinese restaurants seem to prefer to hire Latino immigrants or refugees, at a cheaper hourly rate. They are also the most favored labor force for construction projects in most cities, according to Mr. Chew. 
         <br > <br >
         </p>
         <hr width="750px">
