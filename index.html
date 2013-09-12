@@ -1,519 +1,79 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Master's Project - The Changing History of Refugees/Asylees in America</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <link type="text/css" rel="stylesheet" href="stylesheets/colorbrewer.css"/>
-    <link rel="stylesheet" href="stylesheets/jquery-ui.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <script type='text/javascript' src='https://www.google.com/jsapi'></script>
-    <script type="text/javascript" src="javascripts/html5.js"></script>
-    <script type="text/javascript" src="javascripts/d3.js"></script>
-    <script type="text/javascript" src="javascripts/d3.geo.js"></script>
-    <script type="text/javascript" src="javascripts/d3.time.js"></script>
-    <script type="text/javascript" src="javascripts/d3.csv.js"></script> 
-    <script type="text/javascript" src="javascripts/jquery.js"></script>
-    <script type="text/javascript" src="javascripts/jquery-ui.js"></script>
-    <script type="text/javascript" src="javascripts/protovis.js"></script>
-    <script type="text/javascript" src="javascripts/refugee_by_status_data.js"></script>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Master project columbia : My master&#39;s project is an individual work in the form of interactive designs, interviews and analysis, spanning the autumn and spring terms at Columbia Journalism School. Prof. Emily Bell is my supervisor. The project is about the changing history of refugees/asylums in the United States, for the past decades. By employing interactive designs, rather than reading dull tables, this project aims to provide a more intuitive explanation of the refugee subject. In addition, it tries to understand refugees&#39; behavior in choosing residency, from a statistical interpretation." />
 
-    <!-- This is for race comparison  -->
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <script type='text/javascript'>
-      google.load('visualization', '1', {packages:['table']});
-      google.load('visualization', '1', {packages: ['corechart']});
-      google.setOnLoadCallback(drawTable);
-      google.setOnLoadCallback(drawVisualization); 
-
-      function drawTable() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Race & Ethnic');
-        data.addColumn('string', 'Spearman Coefficient');
-        data.addRows([
-          ['White Alone',  '0.582'],
-          ['Black or African American Alone', '0.471'],
-          ['Asian Alone', '0.597'],
-          ['American Indian & Alaska Native Alone',  '0.462'],
-          ['Native Hawaiian & Other Pacific Islander Alone', '0.483'],
-          ['Some Other Race Alone', '0.542'],
-          ['Two or More races', '0.573']
-        ]);
-        var table = new google.visualization.Table(document.getElementById('table_div'));
-        table.draw(data, {showRowNumber: false});
-      }
-
-      function drawVisualization() {
-        var data = google.visualization.arrayToDataTable([
-          ['Category', 'White Alone', 'Black or African American Alone', 'Asian Alone', 'American Indian & Alaska Native Alone', 'Native Hawaiian & Other Pacific Islander Alone', 'Some Other Race Alone','Two or More races'],
-          // ['Pearson Correlation',  0.646, 0.465, 0.384, 0.361,0.218,0.542,0.502],
-          ['Spearman Coefficient',  0.582,0.471,0.597,0.462,0.483,0.542,0.573]
-        ]);
-        new google.visualization.ColumnChart(document.getElementById('column_div')).
-            draw(data,
-                 {
-                  chartArea: {left:40,top:30, width:"50%",height:"100%"},
-                  colors: ['#F5CED6', '#68C7B8', '#C5B39E', '#E3E836','#C5503D', '#5E7324','#b2c8b2'],
-                  width:750, height:160,
-                 });
-      }
-    </script>
-
-    <!-- This is the 30 year change -->
-    <script type='text/javascript'>
-      google.load('visualization', '1', {packages: ['corechart']});
-      google.setOnLoadCallback(drawVisualization); 
-
-      function drawVisualization() {
-        var data = google.visualization.arrayToDataTable([
-          ['Year', 'Refugee', 'Asylum'],
-          ['1990', 122066, 8472],
-          ['1991', 113389, 5035],
-          ['1992', 115548, 6143],
-          ['1993', 114181, 9378],
-          ['1994', 111680, 13697],
-          ['1995', 98973, 20504],
-          ['1996', 75421, 23502],
-          ['1997', 69653, 22822],
-          ['1998', 76712, 20435],
-          ['1999', 85285, 26548],
-          ['2000', 72143, 32480],
-          ['2001', 68925, 39161],
-          ['2002', 26788, 36938],
-          ['2003', 28286, 28734],
-          ['2004', 52840, 27352],
-          ['2005', 53738, 25244],
-          ['2006', 41094, 26252],
-          ['2007', 48218, 25211],
-          ['2008', 60107, 22957],
-          ['2009', 74602, 22219],
-          ['2010', 72393, 21056],
-          ['2011', 56384, 24988]
-        ]);
-        new google.visualization.ColumnChart(document.getElementById('yearly_comp')).
-            draw(data,
-                 {
-                  chartArea: {left:60,top:20, width:"75%",height:"80%"}, 
-                  width:780, height:400,
-                  colors: ['#5699CC', '#CC7C99']}
-            );
-      }
-    </script>
-
-
-    <!-- This is for Refugee and Asylum Comparison of China -->
-    <script type='text/javascript'>
-      google.load('visualization', '1', {packages:['table']});
-      google.load('visualization', '1', {packages: ['corechart']});
-      google.setOnLoadCallback(drawTable_china);
-      google.setOnLoadCallback(drawVisualization_china); 
-      google.setOnLoadCallback(drawVisualization_china_a); 
-
-      function drawTable_china() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'China');
-        data.addColumn('string', '2002');
-        data.addColumn('string', '2003');
-        data.addColumn('string', '2004');
-        data.addColumn('string', '2005');
-        data.addColumn('string', '2006');
-        data.addColumn('string', '2007');
-        data.addColumn('string', '2008');
-        data.addColumn('string', '2009');
-        data.addColumn('string', '2010');
-        data.addColumn('string', '2011');
-        data.addRows([
-          ['Refugees', '9', '8', '3', '13','21', '27', '50', '54','72', '28' ],
-          ['Asylums', '5785','2407', '929', '2233', '1551','1826', '2037', '2710', '2882', '3901' ]
-        ]);
-        var table = new google.visualization.Table(document.getElementById('table_div_china'));
-        table.draw(data, {showRowNumber: false});
-      }
-
-      function drawVisualization_china() {
-        var data = google.visualization.arrayToDataTable([
-          ['Category', '2002','2003','2004','2005','2006','2007','2008','2009','2010','2011'],
-          ['Refugees', 9, 8, 3, 13,21, 27, 50, 54,72, 28]
-        ]);
-        new google.visualization.ColumnChart(document.getElementById('column_div_china')).
-            draw(data,
-                 {
-                  chartArea: {left:38,top:30, width:"70%",height:"75%"},
-                  colors: [ '#bde','#a0cfe7','#85c2e0','#69b4da','#4ea7d3','#39c','#297aa3','#268','#18475f','#134'],
-                  width:350, height:250,
-                 });
-      }
-
-      function drawVisualization_china_a() {
-        var data = google.visualization.arrayToDataTable([
-          ['Category', '2002','2003','2004','2005','2006','2007','2008','2009','2010','2011'],
-          ['Asylums', 5785,2407, 929, 2233, 1551,1826, 2037, 2710, 2882, 3901]
-        ]);
-        new google.visualization.ColumnChart(document.getElementById('column_div_china_a')).
-            draw(data,
-                 {
-                  chartArea: {left:38,top:30, width:"70%",height:"75%"},
-                  colors: [ '#bde','#a0cfe7','#85c2e0','#69b4da','#4ea7d3','#39c','#297aa3','#268','#18475f','#134'],
-                  width:350, height:250,
-                 });
-      }
-    </script>
-
-    <script>  $(function() { $( "#tabs" ).tabs(); }); </script>
-    <style>   
-      #tabs { width: 750px; height: 500px; font:14px/1.5 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight:300; border: none;} 
-    </style>
+    <title>Master project columbia</title>
   </head>
-  
-  <!-- Here begins the body part  -->
 
   <body>
 
-    <div class="wrapper">
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/shujianbu/Master_Project_Columbia">View on GitHub</a>
 
-      <header>
-        <h1>Coming to America</h1>
-        <p><em>The</em> United States has been described as "melting pot" for its fusion of different nationalities, ethnicities and cultures. Among the total annual immigration to the U.S., refugees compose about one-tenth. It is tough to flee from one’s homeland, and beyond that, refugees and asylum seekers face innumerable challenges when resettling. They have to adapt to a new culture, learn a new language, and look for work with limited resources. It is now harder than ever to be a refugee or asylum seeker in the US as the rules and regulation governing access to residency are becoming stricter and the number of refugees and asylum seekers has been declining.</br> </br>
-        <em>By</em> employing interactive designs, this project aims to provide a more intuitive explanation of the issues surrounding refugee and asylum seekers. In the project different mapping and visualization techniques are used to attempt to analyze issues relating to the economic and cultural aspects of the topic.  Interviews with refugees and experts supplement the data.</p></br></br>
-      </header>
-      
-      
-      <section class="main">
-         
-        <div class="timeline"> 
-          <iframe src='http://embed.verite.co/timeline/?source=0Ap8U0rEu1lpIdDY1eERmanlkaDFlVHFsTDdvZ0pDUVE&font=PoiretOne-Molengo&maptype=HYBRID&lang=en&hash_bookmark=true&gmap_key=AIzaSyAr96nf8AlCMgDjFaS1sGSX5XdCijaxs5k&height=450' width='85%' height='325' frameborder='0'></iframe>
-        </div>
-        <br >   
+          <h1 id="project_title">Master project columbia</h1>
+          <h2 id="project_tagline">My master&#39;s project is an individual work in the form of interactive designs, interviews and analysis, spanning the autumn and spring terms at Columbia Journalism School. Prof. Emily Bell is my supervisor. The project is about the changing history of refugees/asylums in the United States, for the past decades. By employing interactive designs, rather than reading dull tables, this project aims to provide a more intuitive explanation of the refugee subject. In addition, it tries to understand refugees&#39; behavior in choosing residency, from a statistical interpretation.</h2>
 
-        <p>This is the second time that Tony Chen has submitted his application for legal refugee status since he came here last year. He has had a number of problems. Initially he found himself unnecessarily paying unscrupulous lawyers hundreds of dollars to help him obtain a temporary work permit, which in fact is very easy to apply for. Later, he was recommended to consult <a href="http://lin-sing.org/index.htm" target="_blank">Lin-Sing Association</a> - an organization dedicated to improve Asian immigrant/refugee rights and welfare, and finally got on the right track.<br /> <br />
-
-        Seven days a week, volunteer lawyers at Lin-Sing works hard to give dozens of these people a second chance to remain in America. Similarly, everyday, in Washington Heights, visitors to the <a href="http://www.nmcir.org/" target="_blank">Northern Manhattan Coalition for Immigrant Rights</a> office, who represent just a few of the millions of immigrant and refugee families in New York and the broader United States, often need urgent help. Refugees and asylum seekers in the U.S. find it more difficult to make a living than legal immigrants. Their options are often limited to the most menial jobs; and life at the bottom is nasty and brutish. Additionally any change to the immigration laws could potentially have a very significant effect on their lives. According to the New York Immigration Coalition (NYIC), these communities are in deeper crisis than ever before - especially hard hit by the economic downturn and living in fear of deportation and family separation. In 2012 there were 400,000 deportations, a record number.</p>
-
-<!-- @ Part 1 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-        <hr width="750px">
-        <h3>Refugee Arrivals</h3>
-        <p>Historically, the U.S. has accepted more refugees for resettlement than all other countries combined. But maybe very soon, it will no long remain the world's largest country of resettlement title, its refugee admissions have been steadily declining over the last decade, in terms of both the ceilings and the actual number. Below bar chart shows the trend.</p> 
-
-        <div id="yearly_comp"></div> 
-        
-        <p>At the state/county level, the distribution map below shows the cumulative total from 2007 - 2012 of refugee arrivals. Only a few counties are popular choices for refugees. States like Wyoming and Montana have nearly no refugees settling there. States adjoining Mexico - California, Arizona, and Texas - have become hotspots for refugees. This is also true in Florida, which is geographically very close to Cuba. The Mexican and Cuban refugees constitute a very large percentage of refugees every year. It possibly explains why Obama was trying so hard to court Latino voters in the election 2012. </p>  
-          
-        <div id="chart"> 
-            <script type="text/javascript" src="javascripts/choropleth.js"></script>
-        </div>
-        <pchart>Refugee Arrivals - cumulative total from 2007 - 2012, as of 10/31/2012, <a href="http://www.wrapsnet.org/Reports/AdmissionsArrivals/tabid/211/Default.aspx" target="_blank">Source</a></pchart>
-        <br /> <br />
-        
-<!--         <p>In fiscal year 2002, four US states resettled more than 40 percent of the refugees: California (nearly 16 percent), Washington (just under 10 percent), New York (just under 9 percent), and Florida (7 percent). Ten years later, Texas (10.5 percent), California (nearly 10 percent), and Michigan (7.9 percent), have become more popular, because of their relatively loose policies. Since 2008, it bounced back a little. But in general, the total number of refugees and asylums has been declining, as you can see in the bar chart below. </p>  -->
-        
-        <p>
-          Obama's promises, however, seems no more than a campaign gimmick - over 2 million deportation happened since Obama took office in 2008. Democrats and Republicans have been debating about these issues for long. At the end of February, the <a href="http://www.ydr.com/ci_22691310/federal-release-illegal-immigrants-draws-criticism-arizona" target="_blank">release of about 300 illegal immigrants</a> from federal custody in Arizona has raised a firestorm of controversy in this volatile border state, which has some of the nation's toughest laws against illegal immigration and is home to highly vocal groups on both sides of the debate. Senior Republican officials in the state, including Governor Jan Brewer and Senator John McCain, sharply criticized the releases. But nobody from both sides really thought about this - even if these people have been released from prison, it's still very hard for them to find a job or apply for legal status afterwards because of their criminal records. <br /> <br /> 
-
-          More than that, their children's future has become a big concern. A recent <a href="http://www.nytimes.com/2011/10/04/us/after-ruling-hispanics-flee-an-alabama-town.html?_r=0" target="_blank">Alabama immigration enforcement law</a> requires schools to ascertain the immigration status of students at registration. Since the announcement, officials have noticed that 5 percent of the state’s Hispanic children are absent from classrooms. It's also hard to imagine these children's lives after their parents get deported. According to Eddie Chew, one of the most authoritative voluntary lawyers at Lin-Sing Association, every couple of weeks he copes with some teenagers whose parents failed to obtain legal status and have been deported. Chew has witnessed how the law reforms affect these families. That's why the NYIC has passionately advocated to support the federal <a href="http://dreamact.info/" target="_blank">DREAM Act</a> (Development, Relief, and Education for Alien Minors) that would help all students go to college regardless of immigration status. <!-- They recognized that they can't promote their state's economy and competitiveness if they don't help their children realize their potential.  -->
-        </p>
-        
-<!-- @ Part 2 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-
-        <hr width="750px;"> 
-        <h3>Why These Counties?</h3>
-        <p>When refugees make decisions about where to settle down, they need to figure out a way to make a living. Some potential factors causing the irregular distribution of refugees, as shown in the illustration above, might be population density, unemployment rates, rents and relative size of the existing ethnic/religious community. The following section tries to explain the distribution from a visual and statistical perspective. By switching between different tabs, these different factors are mapped down to the countywide level. <br /> 
-        </p>
-
-        <div id="tabs">
-          
-          <ul>
-          <li><a href="#tabs-1">Population</a></li>
-          <li><a href="#tabs-2">Unemployment</a></li>
-          <li><a href="#tabs-3">Medium Rent</a></li>
-          <!-- <li><a href="#tabs-4">Race &amp Ethnic</a></li>  -->
-          </ul>
-          
-          <div id="tabs-1">
-             <script type="text/javascript" src="javascripts/population.js"></script>
-             <ptab>Population - National Estimates as of 2010, <a href="http://www.census.gov/compendia/statab/cats/population.html" target="_blank">Source </a></ptab>
-
-          </div>
-          
-          <div id="tabs-2">
-             <script type="text/javascript" src="javascripts/unemployment.js"></script>
-             <ptab>Unemployment Rate - BLS as of January 8, 2013, <a href="http://www.bls.gov/lau/" target="_blank">Source</a></ptab>
-
-          <p></p>
-          </div>
-          
-          <div id="tabs-3">
-             <script type="text/javascript" src="javascripts/rent.js"></script>
-             <ptab>Medium Rent $ - Census Bureau 07 to 11 (Estimates), <a href="http://www.socialexplorer.com/pub/reportdata/HtmlResults.aspx?reportid=R10403567" target="_blank">Source</a></ptab>
-          <p></p>
-          </div>
-          
-          <div id="tabs-4">
-
-          </div>
-
-        </div>
-
-        <p>A statistically meaningful method to check the relationship is to get the correlation coefficient. The <a href="https://statistics.laerd.com/statistical-guides/spearmans-rank-order-correlation-statistical-guide.php" target="_blank">Spearman</a> method benchmarks monotonic relationship and is adopted here to decide the most influential factor. The straightforward calculation ranks: population (0.6), medium rent (0.45), and unemployment rate (0.1). More accurate results can be found <a href="http://goo.gl/eNTPO" target="_blank">here</a>. <br /><br />
-
-<!--         <pre><code><center>
-Spearman Correlation (Arrival, Population) = 0.6104
- Spearman Correlation (Arrival, Medium Rent) = 0.4545
-Spearman Correlation (Arrival, Unemployment) = 0.1003
-        </center></code></pre> -->
-
-        The result shows that, refugees prefer to live in big cities or crowded counties, which may offer more working opportunities at different levels. At first glance, it seems contradictory that the unemployment rate is not a strong factor; but the truth may be, as Chew pointed out, refugees/asylums are not looking for the jobs that are legally on the record. Also, different from asylums, the refugees can get some funding from the U.S. refugee resettlement program comes from the State Department, through the <a href="http://forefugees.com/category/government/state-department/migration-refugee-assistance-account-mra/" target="_blank">Migration and Refugee Assistance (MRA)</a> Account. Rent seems also quite important for refugees, judging from the statistical relationship. For people living in large cities, rent is probably the biggest expense. In New York City, Bronx might be the cheapest borough to live, but still its medium monthly rent is $966. And the average salary in NYC is around $4380 before tax, which takes account of those financial industry employees with high incomes. 
-        <!-- In FY 2004, the account designated $132 million for refugee admissions. Other refugees come here with the UN or other NGO as sponsors. In Queens, the medium monthly rent is $1235; but people are trying really hard to save the expense. Chuang has been living a small basement with another girl in Flushing Queens for around eight months. Because they are sharing the already tiny space, each of them only pays as low as $350 per month. Though hard, life is relatively safe and stable. In most states, the police have no right to request people ascertaining the immigration status, without legal reason.  -->
-        </p>
-
-<!-- @ Part 3 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-    
-        <hr width="750px">
-        <h3>How Important Is Culture?</h3>
-        <p>Living is one thing; adapting to the culture may be much harder, especially for people from non-English speaking countries. That's probably why state resettlement patterns are generally dominated by certain ethnic communities. The map below shows how ethnic groups are distributed in the states. It's quite important for the government to know that, because they sometimes misunderstands the cultures and settles refugees in the wrong places. The story about the ethnic <a href="http://www.newyorker.com/archive/2006/12/11/061211fa_fact_finnegan" target="_blank">Somalis and Bantus in Maine</a> is a good example. </p> 
-      
-        <iframe width='720' height='400' frameborder='0' src='http://shujianbu.cartodb.com/tables/race_distribution/embed_map?title=false&description=false&search=true&shareable=false&cartodb_logo=false&sql=&zoom=4&center_lat=38.389081939117496&center_lon=-98.7890625'></iframe>
-        <ptab>Race & Ethnic - Census Bureau 07 to 11 (Estimates), <a href="http://www.socialexplorer.com/pub/reportdata/htmlresults.aspx?ReportId=R10403489" target="_blank">Source</a></ptab>
-
-        <br > <br >
-        <p>Calculation shows some patterns between refugee settlement and seven ethnic communities. Considering the relatively large size of white and multi-race communities, Asian community seems to be the most popular place to settle - 30% more popular than American Indian community and 27% more popular than African American community. Among all the Asian communities, Chinatowns seem to have become culture centers in many cities. These centers are well known for cheap food and more entry-level work opportunities. In New York City, even the low-priced Chinese restaurants seem to prefer to hire Latino immigrants or refugees, at a cheaper hourly rate. In addition, Latino are also the most favored labor force for construction projects in most cities. </p> 
-
-        <!-- <div id='column_div'></div> -->
-        <!-- <div id='table_div'></div> -->
-
-        <hr width="750px">
-        <h3>Countries Where They Came From</h3>
-        <p>The United States foreign policies with other countries may be a major factor affecting the number of refugees/asylums. Russian, Iraq, and Cuba in the line chart below reflect the trend. The Dissolution of the Soviet Union brought a lot of refugees to the states, at the beginning of 1990s. While in recent years, the instability in Myanmar, Iraq and Bhutan caused the increasing of refugees from the two countries. The fleeing away path has been winding and tough for every refugee. <!-- Daniel Masterson, who used to be the Executive Director of <a href="http://aplateforall.wix.com/homepage/home#!__home" target="_blank">'A Plate for All'</a> - a non-profit organization aiming to deliver much-needed food aid directly to Iraqi refugees living in Syria, ... --> </p> 
-        
-        <div id="LineChart">
-           <div id="selection">
-           <select id="Country_Selected"> 
-              <option value="" selected="selected">Select Country</option> 
-              <option value="AFG">Afghanistan</option> 
-              <option value="ALB">Albania</option> 
-              <option value="DZA">Algeria</option> 
-              <option value="AGO">Angola</option> 
-              <option value="ARM">Armenia</option> 
-              <option value="AZE">Azerbaijan</option> 
-              <option value="BHR">Bahrain</option> 
-              <option value="BLR">Belarus</option> 
-              <option value="BTN">Bhutan</option> 
-              <option value="BIH">Bosnia and Herzegovina</option> 
-              <option value="BGR">Bulgaria</option> 
-              <option value="BDI">Burundi</option> 
-              <option value="KHM">Cambodia</option> 
-              <option value="CMR">Cameroon</option> 
-              <option value="CAF">Central African Republic</option> 
-              <option value="TCD">Chad</option> 
-              <option value="CHN">China</option> 
-              <option value="COL">Colombia</option> 
-              <option value="COD">Congo</option> 
-              <option value="COG">Congo, The Democratic Republic of The</option> 
-              <option value="CIV">Cote D'ivoire</option> 
-              <option value="HRV">Croatia</option> 
-              <option value="CUB">Cuba</option> 
-              <option value="CZE">Czech Republic</option> 
-              <option value="DJI">Djibouti</option> 
-              <option value="EGY">Egypt</option> 
-              <option value="SLV">El Salvador</option> 
-              <option value="GNQ">Equatorial Guinea</option> 
-              <option value="ERI">Eritrea</option> 
-              <option value="EST">Estonia</option> 
-              <option value="ETH">Ethiopia</option> 
-              <option value="GMB">Gambia</option> 
-              <option value="GEO">Georgia</option> 
-              <option value="GHA">Ghana</option> 
-              <option value="GIN">Guinea</option> 
-              <option value="HTI">Haiti</option> 
-              <option value="HND">Honduras</option> 
-              <option value="HUN">Hungary</option> 
-              <option value="IDN">Indonesia</option> 
-              <option value="IRN">Iran, Islamic Republic of</option> 
-              <option value="IRQ">Iraq</option> 
-              <option value="JOR">Jordan</option> 
-              <option value="KAZ">Kazakhstan</option> 
-              <option value="KEN">Kenya</option> 
-              <option value="PRK">Korea, Democratic People's Republic of</option> 
-              <option value="KWT">Kuwait</option> 
-              <option value="KGZ">Kyrgyzstan</option> 
-              <option value="LAO">Lao People's Democratic Republic</option> 
-              <option value="LVA">Latvia</option> 
-              <option value="LBN">Lebanon</option> 
-              <option value="LBR">Liberia</option> 
-              <option value="LBY">Libyan Arab Jamahiriya</option> 
-              <option value="LTU">Lithuania</option> 
-              <option value="MKD">Macedonia, The Former Yugoslav Republic of</option> 
-              <option value="MYS">Malaysia</option> 
-              <option value="MRT">Mauritania</option> 
-              <option value="MDA">Moldova, Republic of</option> 
-              <option value="MMR">Myanmar</option> 
-              <option value="NAM">Namibia</option> 
-              <option value="NPL">Nepal</option> 
-              <option value="NIC">Nicaragua</option> 
-              <option value="NGA">Nigeria</option> 
-              <option value="PAK">Pakistan</option> 
-              <option value="POL">Poland</option> 
-              <option value="ROU">Romania</option> 
-              <option value="RUS">Russian Federation / Russia</option> 
-              <option value="RWA">Rwanda</option> 
-              <option value="SEN">Senegal</option> 
-              <option value="SRB">Serbia and Montenegro</option> 
-              <option value="SLE">Sierra Leone</option> 
-              <option value="SOM">Somalia</option> 
-              <option value="ZAF">South Africa</option> 
-              <option value="LKA">Sri Lanka</option> 
-              <option value="SDN">Sudan</option> 
-              <option value="SYR">Syrian Arab Republic</option> 
-              <option value="TJK">Tajikistan</option> 
-              <option value="THA">Thailand</option> 
-              <option value="TGO">Togo</option> 
-              <option value="TUN">Tunisia</option> 
-              <option value="TKM">Turkmenistan</option> 
-              <option value="UGA">Uganda</option> 
-              <option value="UKR">Ukraine</option> 
-              <option value="UZB">Uzbekistan</option> 
-              <option value="VNM">Vietnam</option> 
-              <option value="YEM">Yemen</option> 
-              <option value="ZMB">Zambia</option> 
-              <option value="ZWE">Zimbabwe</option>
-           </select>
-           </div> <!-- @end #selection -->
-
-            <div id="filters">
-                <li id="Explain"> Line Color: </li>
-                <li id="EAS">East Asia &amp Pacific</li>
-                <li id="SAS">South Asia</li>
-                <li id="MEA">Middle East &amp North Africa</li>
-                <li id="SSF">Sub-Saharan Africa</li>
-                <li id="ECS">Europe &amp Central Asia</li>
-                <li id="LCN">Latin America &amp Caribbean</li>
-            </div><!-- @end #filters -->
-
-            <div id="blurb">
-                <div id="default-blurb">
-                    <h3>Refugees - 20 Year Overview</h3>
-                    <p>The total number of refugees to the U.S. in 2011 was 49310.</p>
-                    <p id="demo">Select one country to highlight.</p> 
-                </div>
-                <div id="blurb-content"></div> 
-            </div>
-
-            <script>
-                var SELECTEDCOUNTRY = "China";
-                $(document).ready(function() 
-                {    
-                    $('#Country_Selected').change(function() {
-                      var selected = $(this).find('option:selected');
-                      SELECTEDCOUNTRY = selected.text(); 
-                      document.getElementById("demo").innerHTML = SELECTEDCOUNTRY + " is highlighted."; 
-                      var countryId = selected.val(); 
-                      $(this).toggleClass(countryId);
-                      showCountry(countryId); 
-                    }); 
-                });
-
-                function showCountry(countrySelectedCode) 
-                {
-                    var countries = d3.selectAll("path."+countrySelectedCode);
-                    if (countries.classed('highlight')) {
-                    } else { countries.classed('highlight', true);}                
-                }
-
-            </script>
-
-            <div id="vis"></div>
-            <div id="cite">Note: Countries that are not in the menu do not have available data. All data has been exponentiated and transformed in 1-100 range. Source: <a href="http://www.dhs.gov/archives" target="_blank">U.S. Department of State, Bureau of Population, Refugees, and Migration (PRM)</a>, Fiscal Years 1990 to 2011.</div> 
-
-            <script type="text/javascript" src="javascripts/refugee20.js"></script> 
-
-        <p>Where to find shelter? Where to find food? How to seek medical attention in the refugee camps? These are questions that refugee families struggle with everyday. Before they arrive in the U.S. or other countries that provide shelter, applicantion via UNHCR may take a very long time. The book <a href="http://www.questia.com/library/97511617/migrants-refugees-and-foreign-policy-u-s-and-german" target="_blank">Migrants, Refugees, and Foreign Policy: U.S. and German Policies toward Countries of Origin</a> talks about how foreign policies have always played an important role in the movements of migrants. Now United States and Germany being faced with growing resistance to admit foreigners into their countries, both governments have once again been using foreign-policy instruments in an effort to change the conditions in the refugees' countries of origin, which forced people to leave. The pressure from both governments is really a matter of life and death. 
-        <!-- Though according to <a href="http://www.brycs.org/aboutRefugees/refugee101.cfm" target="_blank">Bridging Refugee Youth & Children's Services</a> record, ten national voluntary agencies (volags) provide resettlement services to newly arriving refugees, such as arranging for food, housing, clothing, employment, counseling, medical care and other immediate needs during the first 90 days after arrival; they still need to overcome the trauma of war or persecution, separation from family and homeland, losses of loved ones and a familiar life, and etc.  -->
-        </p>    
-        </div>  <!-- @End of Line Chart Section-->
-
-        <hr width="750px">
-        <h3>An Easier Way?</h3>
-        <p>Through two different programs -  <a href="http://www.dhs.gov/xlibrary/assets/statistics/publications/ois_rfa_fr_2011.pdf" target="_blank">refugees and asylums</a>, the United States provides refuge to persons who have been persecuted or have a well-founded fear of persecution: one for refugees (persons outside the U.S. and their immediate relatives) and one for asylum seekers (persons in the U.S. and their immediate relatives). An applicant for refugee status must live outside the U.S., while an applicant seeking asylum status must live in the country or at a U.S. port of entry. The strict laws in North Korean or Chinese or Colombia make it extremely hard for their residents to apply for "Refugee Status," which requires applicants to physically be inside their own countries. But once they leave their countries and successfully cross the U.S. border, they can apply for "Asylum Status." These kinds of "tricks" have caused some privately owned and unregulated law firms in the states to grow and prosper. It also makes those who really in need of protection hard to stay. Below shows the big quantity gap between refugee and asylum applicants from China.</p>
-
-        <div id='table_div_china'></div>
-        <br />
-          
-        <!-- The U.S. maintains a distinct <a href="http://www.migrationinformation.org/feature/display.cfm?ID=229" target="_blank">program</a> for asylum seekers, as opposed to resettled refugees. They are persons who have fled their countries of nationality as a result of armed conflict, violence, persecution, human rights violations, etc., and are seeking protection and immunity from forced return by the government of the country in which they are seeking asylum.  -->
-        
-        <p>The government has started to take actions after realizing this kind of problems. Five to Ten years ago, most people from China would file <a href="http://factsanddetails.com/china.php?itemid=128" target="_blank">‘One-child Policy’</a>, <a href="http://articles.cnn.com/2001-01-11/world/falun.gong.factbox_1_falun-gong-li-hongzhi-zhuan-falun?_s=PM:ASIANOW">'Falun Gong'</a>, and <a href="http://www.mediahex.com/Kuomintang" target="_blank">'Kuomintang Remnants'</a> as their reasons for being persecuted. But later more and more applicants fabricated similar stories. Last December <a href="http://www.justice.gov/usao/nys/pressreleases/December12/AsylumFraudChargesPR.php" target="_blank">26 individuals, including six lawyers, were charged</a> in Manhattan Federal Court with participating in immigration schemes, involving hundreds of fraudulent asylum applications. The report said that these attorneys frequently instructed their clients on what to say to ensure that nothing was said that contradicted the stories the law firm had fabricated. Clients were coached to falsely testify under oath in response to the attorney’s questioning about fictitious stories of persecution. Similar things happen in other asylum groups.<br /><br />
-
-        Bad practice like this means that it is even harder for legitimate cases to pass the test for asylum. The stacked area bar chart below, in which countries with more data have larger label size and area, shows the decreasing trend. The affirmative ones (labeled Admitted) means they are free to live in the U.S. pending the completion of their asylum processing by the <a href="http://www.uscis.gov" target="_blank">USCIS</a>. While the defensive seekers (labeled Rejected) have to be placed in removal proceedings in <a href="http://www.justice.gov/eoir/sibpages/ICadr.htm" target="_blank">Immigration Court</a>. The percentage of affirmative asylums has decreased more than 25%, compared with 25 years ago.</p>
-
-        <div id="fig">
-
-          <div id="switch">
-            <b>Status:</b>
-            <input type="radio" name="continent" id="aff" checked onchange="update(continent = 1);"><label for="aff">Admitted</label>
-            <input type="radio" name="continent" id="dff" onchange="update(continent = 2);"><label for="dff">Rejected</label>
-            <input type="radio" name="continent" id="any" onchange="update(continent = 0);"><label for="any">All</label>
-          </div>
-
-          <div id="fig_footer">
-            <label for="query"> <b>Search: </b></label>
-            <input id="query" type="text" onkeyup="search_stack(this.value);">
-          </div>
-      
-          <script type="text/javascript+protovis" src="javascripts/refugee_by_status.js"> </script> 
-          <script type="text/javascript" src="javascripts/refugee_by_status.js"> </script>   <!-- Firefox not supported --> 
-          <!-- JS v1.7 to v 1.8 all changing to function {returns}--> 
-          <div id="cite">Note: Countries that are not in the menu do not have available data. </br>Source: <a href="http://www.dhs.gov/yearbook-immigration-statistics" target="_blank">Department of Homeland Security's Yearbook of Immigration Statistics</a>, Fiscal Years 1996 to 2011.</div> 
-
-        </div> <!-- @End of Stacked Area Colors Chart Section-->
-
-        <!-- <div id='column_div_china'></div>    -->
-        <!-- <div id='column_div_china_a'></div>    -->
-
-<!-- @ Part 4 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-
-        <hr width="750px;"> 
-        
-        <h3>Everybody Is A Stranger On Arrival</h3>
-        <p>To make money for paying lawyers and support his own living, Tony is now working for a street food business, owned by Mr. Wang, who first came here with a tourism <a href="http://travel.state.gov/visa/temp/types/types_1262.html" target="_blank">B-2 Visa</a> issued by China in 2001. At that time, there was a rumor, especially widely spread among Chinese, that the U.S. would tighten their immigration law because of the terrorist attack. So, Wang decided to stay. After his visa expired, he managed to apply for asylum status and waited until the government issued him a Green Card. But things have really changed now. <br /><br />
-
-        There's no gainsaying that the verification process is cumbersome; but for those refugees and asylums who are in real need, a sound system should be ready to offer assistance. "I really have no idea how long it's gonna take; and how I'm gonna survive this waiting... And I can't imagine the life if someday I get deported," said Tony.</p>
-
-      </section>
-      
-<!-- @ Part Footer @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-
-      <footer>
-        <hr />
-        <p class="view"><a href="developer_notes.html" target="_blank">Read Developer's Notes -> </a></p>
-        <p><a href="https://github.com/shujianbu/master_project" target="_blank">Project on GitHub</a> By <a href="https://github.com/shujianbu" target="_blank">Shujian Bu</a></p> 
-        <!-- <p>Share with your friends!</p> -->
-        <span st_url='http://shujianbu.github.com/master_project/index.html' st_title='Refugees in America' class='st_facebook' displayText='Facebook'></span>
-        <span st_url='http://shujianbu.github.com/master_project/index.html' st_title='Refugees in America' class='st_twitter' displayText='Tweet'></span>
-        <span st_url='http://shujianbu.github.com/master_project/index.html' st_title='Refugees in America' class='st_linkedin' displayText='LinkedIn'></span>
-      </footer>
-      
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/shujianbu/Master_Project_Columbia/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/shujianbu/Master_Project_Columbia/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
     </div>
 
-<!-- @ Part Beautify Javascripts @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>
+<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+
+<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+
+<pre><code>$ cd your_repo_root/repo_name
+$ git fetch origin
+$ git checkout gh-pages
+</code></pre>
+
+<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+
+<h3>
+<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+
+<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+
+<h3>
+<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+
+<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+
+<h3>
+<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+
+<h3>
+<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Master project columbia maintained by <a href="https://github.com/shujianbu">shujianbu</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
     
-    <script src="javascripts/scale.fix.js">
-    </script>
 
-    <script type="text/javascript">
-      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-
-    <script type="text/javascript">
-      try {
-        var pageTracker = _gat._getTracker("UA-36633654-1 ");
-      pageTracker._trackPageview();
-      } catch(err) {}
-    </script>
-
-    <script type="text/javascript">var switchTo5x=true;</script>
-    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-    <script type="text/javascript">stLight.options({publisher:'c3b8ac5a-adba-4bf1-a3d7-c76c89c2ab35'});</script>
-    
   </body>
 </html>
